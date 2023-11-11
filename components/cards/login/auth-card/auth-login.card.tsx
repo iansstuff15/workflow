@@ -15,7 +15,7 @@ import { loginProps } from '@/data/interface/card/login';
 import Image from 'next/image';
 import { Avatar, AvatarImage, AvatarFallback } from '@radix-ui/react-avatar';
 import { useRouter } from 'next/navigation';
-import { NO_AUTH_LOGIN } from '@/config/constants/routes/routes';
+import { NO_AUTH_LOGIN, SIGNUP } from '@/config/constants/routes/routes';
 
 const AuthLoginCard = ({ children }: loginProps) => {
   const router = useRouter();
@@ -51,7 +51,13 @@ const AuthLoginCard = ({ children }: loginProps) => {
             router.push(NO_AUTH_LOGIN);
           }}
         />
-        <AppButton variant={'secondary'} label="Sign up" onClick={() => {}} />
+        <AppButton
+          variant={'secondary'}
+          label="Sign up"
+          onClick={() => {
+            router.push(SIGNUP);
+          }}
+        />
         <p className="mx-auto">or login with</p>
 
         <div className="grid grid-cols-3 gap-2">
