@@ -6,7 +6,7 @@ import AppFormField from '../formfield/formfield';
 import { FormEvent } from 'react';
 import { onSubmit } from './login.form.controller';
 import { KeyRound } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next-nprogress-bar';
 import { FORGET_PASSWORD } from '@/config/constants/routes/routes';
 
 const AuthLoginForm = () => {

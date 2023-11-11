@@ -3,7 +3,7 @@ import AppButton from '@/components/button/appButtons';
 import { Form } from '@/components/ui/form';
 import { FORGET_PASSWORD } from '@/config/constants/routes/routes';
 import { AtSign, KeyRound } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next-nprogress-bar';
 import { FormEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import AppFormField from '../formfield/formfield';

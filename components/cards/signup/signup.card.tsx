@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/card';
 import { loginProps } from '@/data/interface/card/login';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next-nprogress-bar';
 import { NO_AUTH_LOGIN } from '@/config/constants/routes/routes';
 
 const SignUpCard = ({ children }: loginProps) => {

@@ -14,7 +14,7 @@ import {
 import { loginProps } from '@/data/interface/card/login';
 import Image from 'next/image';
 import { Avatar, AvatarImage, AvatarFallback } from '@radix-ui/react-avatar';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next-nprogress-bar';
 import { NO_AUTH_LOGIN, SIGNUP } from '@/config/constants/routes/routes';
 
 const AuthLoginCard = ({ children }: loginProps) => {

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import AppIconWithText from '@/assets/logo-with-text-white.svg';
 import { Loader2Icon } from 'lucide-react';
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next-nprogress-bar';
 import { NO_AUTH_LOGIN } from '@/config/constants/routes/routes';
 const Splash = () => {
   const router = useRouter();
