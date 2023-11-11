@@ -1,6 +1,6 @@
 export const fetchBackground = async () => {
   const res = await fetch(
-    'https://api.unsplash.com/photos/random?query=office%20buildings',
+    'https://api.unsplash.com/photos/random?query=architecture',
     {
       headers: {
         Authorization: 'Client-ID O02os0iUVSm5t7yuWkt9PPSG29SX9ip54zT8oVTMSxE',

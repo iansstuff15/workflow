@@ -12,17 +12,19 @@ const Layout = ({ children }: wrapperProps) => {
     staleTime: Infinity,
     cacheTime: Infinity,
   });
+  const coloredGradient =
+    'linear-gradient(rgba(3,152,216,1), rgba(0,51,133,0.7)) bg-blend-color-burn';
+  const monoGradient = 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,1))';
   return (
     <div
       className={`h-screen ${
-        status == 'idle' || status == 'error' ? 'bg-slate-800' : null
-      }`}
+        (status == 'idle' || status == 'error') && data ? 'bg-slate-800' : null
+      } bg-cover bg-center`}
       style={{
         background:
           data && status == 'success'
-            ? `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(${data}) no-repeat center center fixed`
-            : '',
-        backgroundSize: 'cover',
+            ? `${monoGradient}, url(${data}) no-repeat center center fixed`
+            : 'bg-slate-800',
       }}
     >
       <div className="h-screen grid md:grid-cols-2 content-center">
