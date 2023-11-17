@@ -16,9 +16,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="overflow-hidden">
+        <main>
           <CoreProvider>
-            <AuthProvider>{children}</AuthProvider>
+            <AuthProvider>
+              <div>{children}</div>
+            </AuthProvider>
           </CoreProvider>
         </main>
       </body>
