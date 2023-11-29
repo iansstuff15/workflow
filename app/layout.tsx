@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { appMetadata } from '@/config/constants/metadata/metadata';
-import AuthProvider from '@/components/providers/auth/auth.provider.components';
+import AuthProvider from '@/utilities/providers/auth/auth.provider.components';
 import { NextUIProvider } from '@nextui-org/system';
-import CoreProvider from '@/components/providers/auth/core.provider';
+import CoreProvider from '@/utilities/providers/core.provider';
 
 export const metadata: Metadata = appMetadata;
 

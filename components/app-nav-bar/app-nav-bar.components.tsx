@@ -9,7 +9,7 @@ const AppNavBar = () => {
   const path = usePathname();
   const pathsArray = transformPathNameToArrayOfString(path);
   return (
-    <div className="sticky top-0 bg-white/70 px-5 py-3 backdrop-blur-lg">
+    <div className="sticky top-0 bg-white/70 px-5 py-3 backdrop-blur-lg z-10">
       <div className="w-full grid grid-cols-2 ">
         <h1 className="font-bold">
           {path.replace('/app/', '').toLocaleUpperCase()}
