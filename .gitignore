@@ -12,12 +12,12 @@
 /email-templates/.yarn/install-state.gz
 
 #react email
-/email-templates/.react-email/node_modules
-/email-templates/.react-email/.pnp
-/email-templates/.react-email/.pnp.js
-/email-templates/.react-email/.yarn/install-state.gz
-/email-templates/.react-email/.next/
-/email-templates/.react-email/.vscode/
+/workflow-react-email/.react-email/node_modules
+/workflow-react-email/.react-email/.pnp
+/workflow-react-email/.react-email/.pnp.js
+/workflow-react-email/.react-email/.yarn/install-state.gz
+/workflow-react-email/.react-email/.next/
+/workflow-react-email/.react-email/.vscode/
 
 # testing
 /coverage
