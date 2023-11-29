@@ -11,12 +11,11 @@ import {
 } from './signup.form.controller';
 import { Divider } from '@nextui-org/divider';
 import Stepper from '@/components/stepper/stepper';
-import { useRouter } from 'next/router';
 import { DASHBOARD } from '@/config/constants/routes/routes';
 
 const SignUpForm = () => {
   const form = useForm();
-  const router = useRouter();
+
   const [currentStep, setCurrentStep] = useState(0);
   const steps = [
     'Personal Information',
@@ -39,7 +38,6 @@ const SignUpForm = () => {
             if (currentStep == steps.length) {
               const response = await onSubmit({ event, form });
               if (response == 'success') {
-                router.push(DASHBOARD);
               }
             }
           }}
