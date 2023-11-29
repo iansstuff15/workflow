@@ -15,8 +15,7 @@ const HappeningNowCard = ({
   title,
   description,
   subtitle,
-  linkToNavigate,
-  image,
+  onContinueRead,
 }: happeningNowProps) => {
   return (
     <BadgeWrapper>
@@ -32,7 +31,9 @@ const HappeningNowCard = ({
         <CardContent>
           <Card className="p-4 space-y-2">
             <p className="text-xs line-clamp-3">{description}</p>
-            <Badge className="cursor-pointer">Continue Reading</Badge>
+            <Badge className="cursor-pointer" onClick={onContinueRead}>
+              Continue Reading
+            </Badge>
           </Card>
         </CardContent>
       </Card>

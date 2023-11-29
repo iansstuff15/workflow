@@ -4,7 +4,7 @@ import {
   FormItem,
   FormLabel,
 } from '@/components/ui/form';
-import { Input } from '@nextui-org/input';
+import { Input, InputProps } from '@nextui-org/input';
 import { formFieldParams } from '@/data/interface/form/formfield/formfield.interface';
 import eyeCloseIcon from '@/assets/close-eye-icon.svg';
 import eyeOpenIcon from '@/assets/open-eye-icon.svg';
@@ -17,6 +17,7 @@ const AppFormField = ({
   label,
   labelIcon,
   placeholder,
+  ...otherProps
 }: formFieldParams) => {
   const [obsureText, setObscureText] = useState(true);
   return (
@@ -31,9 +32,9 @@ const AppFormField = ({
                 type == 'password' ? (obsureText ? 'password' : 'text') : type
               }
               label={label}
-              variant="flat"
               placeholder={placeholder}
               {...field}
+              {...otherProps}
               startContent={labelIcon}
               endContent={
                 type == 'password' ? (

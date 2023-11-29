@@ -4,3 +4,6 @@ export const AUTH_LOGIN = AUTH_BASE + '/auth-signin';
 export const OTP = AUTH_BASE + '/otp';
 export const SIGNUP = AUTH_BASE + '/signup';
 export const FORGET_PASSWORD = AUTH_BASE + '/forget-password';
+const APP_BASE = '/app';
+export const DASHBOARD = APP_BASE + '/dashboard';
+export const REQUEST = APP_BASE + '/request';

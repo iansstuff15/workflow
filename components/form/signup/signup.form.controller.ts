@@ -1,11 +1,32 @@
+import { UNDEFINED_ERROR } from '@/config/error/auth';
 import { onSubmitParams } from '@/data/interface/form/formfield/formfield.interface';
 import { stepFunctionProps } from '@/data/interface/stepper/stepper';
-import { FormEvent } from 'react';
-import { UseFormReturn, FieldValues } from 'react-hook-form';
+import { client } from '@/utilities/providers/backend/supabase';
 
-export const onSubmit = ({ event, form }: onSubmitParams) => {
-  console.log(form.getValues());
+export const onSubmit: ({
+  event,
+  form,
+}: onSubmitParams) => Promise<string> = async ({
+  event,
+  form,
+}: onSubmitParams) => {
   event.preventDefault();
+  const values = form.getValues();
+  const now = new Date();
+  const { data, error } = await client.auth.signUp({
+    email: values['email'],
+    password: values['password'],
+    phone: values['phone'],
+    options: {
+      data: { ...values, created: now },
+    },
+  });
+
+  if (data) {
+    return 'success';
+  } else {
+    return error?.message ?? UNDEFINED_ERROR;
+  }
 };
 
 export const incrementStep = ({

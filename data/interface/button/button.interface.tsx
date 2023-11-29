@@ -7,4 +7,5 @@ export interface buttonProps extends ButtonProps {
   block?: boolean;
   loading?: boolean;
   icon?: ReactNode;
+  keybinding?: ReactNode;
 }

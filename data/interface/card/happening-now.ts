@@ -3,5 +3,5 @@ export interface happeningNowProps {
   subtitle?: string;
   description: string;
   image?: string;
-  linkToNavigate?: string;
+  onContinueRead: VoidFunction;
 }

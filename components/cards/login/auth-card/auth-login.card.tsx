@@ -16,9 +16,11 @@ import Image from 'next/image';
 import { Avatar, AvatarImage, AvatarFallback } from '@radix-ui/react-avatar';
 import { useRouter } from 'next-nprogress-bar';
 import { NO_AUTH_LOGIN, SIGNUP } from '@/config/constants/routes/routes';
-
+import { client } from '@/utilities/providers/backend/supabase';
+import { useUser } from '@supabase/auth-helpers-react';
 const AuthLoginCard = ({ children }: loginProps) => {
   const router = useRouter();
+  const user = useUser();
   return (
     <Card className={'w-10/12 mx-auto my-auto'}>
       <CardHeader>
@@ -43,6 +45,7 @@ const AuthLoginCard = ({ children }: loginProps) => {
           />
           <AvatarFallback>User</AvatarFallback>
         </Avatar>
+        <h1>{}</h1>
         {children}
         <AppButton
           variant={'secondary'}

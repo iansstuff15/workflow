@@ -6,6 +6,19 @@
 .pnp.js
 .yarn/install-state.gz
 
+/email-templates/node_modules
+/email-templates/.pnp
+/email-templates/.pnp.js
+/email-templates/.yarn/install-state.gz
+
+#react email
+/email-templates/.react-email/node_modules
+/email-templates/.react-email/.pnp
+/email-templates/.react-email/.pnp.js
+/email-templates/.react-email/.yarn/install-state.gz
+/email-templates/.react-email/.next/
+/email-templates/.react-email/.vscode/
+
 # testing
 /coverage
 

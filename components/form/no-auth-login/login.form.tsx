@@ -1,13 +1,14 @@
 'use client';
 import AppButton from '@/components/button/appButtons';
 import { Form } from '@/components/ui/form';
-import { FORGET_PASSWORD } from '@/config/constants/routes/routes';
+import { DASHBOARD, FORGET_PASSWORD } from '@/config/constants/routes/routes';
 import { AtSign, KeyRound } from 'lucide-react';
 import { useRouter } from 'next-nprogress-bar';
 import { FormEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import AppFormField from '../formfield/formfield';
 import { onSubmit } from './login.form.controller';
+import { Elsie_Swash_Caps } from 'next/font/google';
 
 const NoAuthLoginForm = () => {
   const form = useForm();
@@ -15,7 +16,16 @@ const NoAuthLoginForm = () => {
   return (
     <Form {...form}>
       <form
-        onSubmit={(event: FormEvent) => onSubmit({ event, form })}
+        onSubmit={async (event: FormEvent) => {
+          onSubmit({ event, form });
+          const response = await onSubmit({ event, form });
+          if (response == 'good') {
+            console.log(response);
+            router.push(DASHBOARD);
+          } else {
+            console.log(response);
+          }
+        }}
         className="space-y-8"
       >
         <AppFormField

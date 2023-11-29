@@ -1,7 +1,8 @@
+import { InputProps } from '@nextui-org/input';
 import { FormEvent, ReactNode } from 'react';
 import { Control, FieldValues, UseFormReturn } from 'react-hook-form';
 
-export interface formFieldParams {
+export interface formFieldParams extends InputProps {
   controller: Control<FieldValues>;
   type: string;
   label?: string;

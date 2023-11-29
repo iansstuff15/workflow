@@ -1,0 +1,3 @@
+type GenericResponse = {
+  message: string;
+};

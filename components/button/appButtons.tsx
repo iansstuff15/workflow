@@ -8,6 +8,7 @@ const AppButton = ({
   block = false,
   loading = false,
   icon = true,
+  keybinding,
   ...otherProps
 }: buttonProps) => {
   return (
@@ -18,9 +19,13 @@ const AppButton = ({
       disabled={loading}
       {...otherProps}
     >
-      {icon && !loading ? icon : null}
-      {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+      <span className="pr-2">
+        {icon && !loading ? icon : null}
+        {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+      </span>
+
       {label}
+      {keybinding}
     </Button>
   );
 };

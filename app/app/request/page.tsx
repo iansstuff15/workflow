@@ -1,5 +1,11 @@
+import AppTable from '@/components/table/table';
+
 const Request = () => {
-  return <></>;
+  return (
+    <>
+      <AppTable />
+    </>
+  );
 };
 
 export default Request;
