@@ -1,7 +1,8 @@
-'use client';
+'use client'
 
-import { Card } from '../ui/card';
-import TableToolBar from './toolbar/toolbar';
+import { tableInterfaceProps } from '@/data/interface/table/table.interface'
+import { Card } from '../ui/card'
+import TableToolBar from './toolbar/toolbar'
 import {
   Table,
   TableBody,
@@ -11,29 +12,30 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
+} from '@/components/ui/table'
 
-const AppTable = () => {
+const AppTable = ({ columns }: tableInterfaceProps) => {
   return (
-    <div className="px-4">
+    <div>
       <TableToolBar />
-      <Card className="mt-4 min-h-screen">
+      <Card className='mt-4' style={{ height: '50vh' }}>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-48">Type</TableHead>
-              <TableHead className="w-64">Reviewer</TableHead>
-              <TableHead className="w-16">Requested Date</TableHead>
-              <TableHead className="w-16">Created Date</TableHead>
-              <TableHead className="w-16">Last Updated</TableHead>
-              <TableHead className="w-64">Actions</TableHead>
+              {columns.map((data, index) => {
+                return (
+                  <TableHead key={index} className={data.className}>
+                    {data.name}
+                  </TableHead>
+                )
+              })}
             </TableRow>
           </TableHeader>
           <TableBody></TableBody>
         </Table>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default AppTable;
+export default AppTable
