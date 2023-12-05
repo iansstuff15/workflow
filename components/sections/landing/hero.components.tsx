@@ -25,16 +25,18 @@ const HeroSection = () => {
         </div>
         <Snippet>{`git clone ${githubLink}.git`}</Snippet>
         <br /> <br />
-        <div className='bg-gradient-to-r from-blue-600 to-indigo-600 p-1 rounded-xl shadow-[0_120px_200px_-15px_rgba(52,33,159,0.75)]'>
-          <div className=' grid grid-cols-1 rounded-xl overflow-hidden'>
-            <Image
-              src={heroImage}
-              alt='hero workplace image'
-              width={700}
-              height={200}
-              objectFit={'cover'}
-              className='w-full'
-            />
+        <div className='shadow-[0_150px_200px_-15px_rgba(33,112,159,0.95)]'>
+          <div className='bg-gradient-to-r from-blue-600 to-indigo-600 p-1 rounded-xl shadow-[0_180px_200px_-15px_rgba(52,33,159,0.75)]'>
+            <div className=' grid grid-cols-1 rounded-xl overflow-hidden'>
+              <Image
+                src={heroImage}
+                alt='hero workplace image'
+                width={700}
+                height={200}
+                objectFit={'cover'}
+                className='w-full'
+              />
+            </div>
           </div>
         </div>
       </div>
