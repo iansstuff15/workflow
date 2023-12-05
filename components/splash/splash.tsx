@@ -5,17 +5,15 @@ import { Loader2Icon } from 'lucide-react'
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { AUTH_LOGIN, NO_AUTH_LOGIN } from '@/config/constants/routes/routes'
-import { client } from '@/utilities/providers/backend/supabase'
+import { useUser } from '@supabase/auth-helpers-react'
 const Splash = () => {
   const router = useRouter()
+  const user = useUser()
   const checkUser = async () => {
-    const {
-      data: { user },
-    } = await client.auth.getUser()
     if (user) {
-      router.replace(AUTH_LOGIN)
+      router.push(AUTH_LOGIN)
     } else {
-      router.replace(NO_AUTH_LOGIN)
+      router.push(NO_AUTH_LOGIN)
     }
   }
   useEffect(() => {
