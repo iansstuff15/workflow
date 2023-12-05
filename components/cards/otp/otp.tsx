@@ -1,19 +1,19 @@
-'use client';
-import AppButton from '@/components/button/appButtons';
-import AppIconWithText from '@/assets/icon-with-text.svg';
+'use client'
+import AppButton from '@/components/button/appButtons'
+import AppIconWithText from '@/assets/icon-with-text.svg'
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
   CardContent,
-} from '@/components/ui/card';
-import { loginProps } from '@/data/interface/card/login';
-import Image from 'next/image';
-import { useRouter } from 'next-nprogress-bar';
+} from '@/components/ui/card'
+import { loginProps } from '@/data/interface/card/login'
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 const OTPCard = ({ children }: loginProps) => {
-  const router = useRouter();
+  const router = useRouter()
   return (
     <Card className={'w-10/12 mx-auto '}>
       <CardHeader>
@@ -23,7 +23,7 @@ const OTPCard = ({ children }: loginProps) => {
             src={AppIconWithText}
             width={240}
             height={240}
-            alt="workflow-logo"
+            alt='workflow-logo'
           />
           <br />
           Verify OTP
@@ -39,16 +39,16 @@ const OTPCard = ({ children }: loginProps) => {
           </p>
         </CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-4">
+      <CardContent className='grid gap-4'>
         {children}
         <AppButton
           variant={'secondary'}
-          label="Resend OTP"
+          label='Resend OTP'
           onClick={() => {}}
         />
       </CardContent>
     </Card>
-  );
-};
+  )
+}
 
-export default OTPCard;
+export default OTPCard

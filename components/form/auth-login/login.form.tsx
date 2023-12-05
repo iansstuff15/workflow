@@ -1,44 +1,44 @@
-'use client';
-import AppButton from '@/components/button/appButtons';
-import { Form } from '@/components/ui/form';
-import { useForm } from 'react-hook-form';
-import AppFormField from '../formfield/formfield';
-import { FormEvent } from 'react';
-import { onSubmit } from './login.form.controller';
-import { KeyRound } from 'lucide-react';
-import { useRouter } from 'next-nprogress-bar';
-import { FORGET_PASSWORD } from '@/config/constants/routes/routes';
+'use client'
+import AppButton from '@/components/button/appButtons'
+import { Form } from '@/components/ui/form'
+import { useForm } from 'react-hook-form'
+import AppFormField from '../formfield/formfield'
+import { FormEvent } from 'react'
+import { onSubmit } from './login.form.controller'
+import { KeyRound } from 'lucide-react'
+import { FORGET_PASSWORD } from '@/config/constants/routes/routes'
+import { useRouter } from 'next/navigation'
 
 const AuthLoginForm = () => {
-  const form = useForm();
-  const router = useRouter();
+  const form = useForm()
+  const router = useRouter()
   return (
     <Form {...form}>
       <form
         onSubmit={(event: FormEvent) => onSubmit({ event, form })}
-        className="space-y-8"
+        className='space-y-8'
       >
         <AppFormField
           controller={form.control}
-          label="Password"
+          label='Password'
           labelIcon={<KeyRound size={14} />}
-          placeholder="Johndoe@123"
-          type="password"
+          placeholder='Johndoe@123'
+          type='password'
         />
         <p className={'text-xs'}>
           Forgot Password?
           <AppButton
             variant={'link'}
             onClick={() => {
-              router.push(FORGET_PASSWORD);
+              router.push(FORGET_PASSWORD)
             }}
-            label="Reset Password"
+            label='Reset Password'
           />
         </p>
-        <AppButton type="submit" onClick={(e) => {}} label="Sign In" block />
+        <AppButton type='submit' onClick={e => {}} label='Sign In' block />
       </form>
     </Form>
-  );
-};
+  )
+}
 
-export default AuthLoginForm;
+export default AuthLoginForm
