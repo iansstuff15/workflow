@@ -46,6 +46,7 @@ const NoAuthLoginForm = () => {
           Forgot Password?
           <AppButton
             variant={'link'}
+            type='button'
             onClick={() => {
               router.push(FORGET_PASSWORD)
             }}
