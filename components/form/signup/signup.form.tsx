@@ -1,29 +1,29 @@
-'use client';
-import AppButton from '@/components/button/appButtons';
-import { Form } from '@/components/ui/form';
-import { useForm } from 'react-hook-form';
-import AppFormField from '../formfield/formfield';
-import { FormEvent, useState } from 'react';
+'use client'
+import AppButton from '@/components/button/appButtons'
+import { Form } from '@/components/ui/form'
+import { useForm } from 'react-hook-form'
+import AppFormField from '../formfield/formfield'
+import { FormEvent, useState } from 'react'
 import {
   decrementStep,
   incrementStep,
   onSubmit,
-} from './signup.form.controller';
-import { Divider } from '@nextui-org/divider';
-import Stepper from '@/components/stepper/stepper';
-import { useRouter } from 'next/router';
-import { DASHBOARD } from '@/config/constants/routes/routes';
+} from './signup.form.controller'
+import { Divider } from '@nextui-org/divider'
+import Stepper from '@/components/stepper/stepper'
+import { useRouter } from 'next/navigation'
+import { DASHBOARD } from '@/config/constants/routes/routes'
 
 const SignUpForm = () => {
-  const form = useForm();
-  const router = useRouter();
-  const [currentStep, setCurrentStep] = useState(0);
+  const form = useForm()
+  const router = useRouter()
+  const [currentStep, setCurrentStep] = useState(0)
   const steps = [
     'Personal Information',
     'Contact Information',
     'Work Information',
     'Account Credentials',
-  ];
+  ]
 
   return (
     <>
@@ -35,11 +35,11 @@ const SignUpForm = () => {
       <Form {...form}>
         <form
           onSubmit={async (event: FormEvent) => {
-            event.preventDefault();
+            event.preventDefault()
             if (currentStep == steps.length) {
-              const response = await onSubmit({ event, form });
+              const response = await onSubmit({ event, form })
               if (response == 'success') {
-                router.push(DASHBOARD);
+                router.push(DASHBOARD)
               }
             }
           }}
@@ -53,15 +53,15 @@ const SignUpForm = () => {
           >
             <AppFormField
               controller={form.control}
-              type="firstName"
-              label="First Name"
-              placeholder="John"
+              type='firstName'
+              label='First Name'
+              placeholder='John'
             />
             <AppFormField
               controller={form.control}
-              type="lastName"
-              label="Last Name"
-              placeholder="Doe"
+              type='lastName'
+              label='Last Name'
+              placeholder='Doe'
             />
           </div>
           <div
@@ -73,9 +73,9 @@ const SignUpForm = () => {
           >
             <AppFormField
               controller={form.control}
-              type="phone"
-              label="Phone"
-              placeholder="+639123456789"
+              type='phone'
+              label='Phone'
+              placeholder='+639123456789'
             />
           </div>
           <div
@@ -87,15 +87,15 @@ const SignUpForm = () => {
           >
             <AppFormField
               controller={form.control}
-              type="company"
-              label="Company"
-              placeholder="Workplace"
+              type='company'
+              label='Company'
+              placeholder='Workplace'
             />
             <AppFormField
               controller={form.control}
-              type="position"
-              label="Position"
-              placeholder="Senior Software Engineer"
+              type='position'
+              label='Position'
+              placeholder='Senior Software Engineer'
             />
           </div>
           <div
@@ -107,15 +107,15 @@ const SignUpForm = () => {
           >
             <AppFormField
               controller={form.control}
-              type="email"
-              label="Email"
-              placeholder="johndoe@email.com"
+              type='email'
+              label='Email'
+              placeholder='johndoe@email.com'
             />
             <AppFormField
               controller={form.control}
-              type="password"
-              label="Password"
-              placeholder="JohnDoe"
+              type='password'
+              label='Password'
+              placeholder='JohnDoe'
             />
           </div>
           <br />
@@ -129,29 +129,29 @@ const SignUpForm = () => {
             }
           >
             <AppButton
-              type="button"
+              type='button'
               variant={'secondary'}
               className={currentStep == 0 ? 'hidden' : ''}
               onClick={() => {
                 setCurrentStep(
                   decrementStep({
                     currentStep: currentStep,
-                  })
-                );
+                  }),
+                )
               }}
               disabled={currentStep == steps.length ? true : false}
               block
-              label="Previous"
+              label='Previous'
             />
             <AppButton
-              type="submit"
+              type='submit'
               onClick={() => {
                 setCurrentStep(
                   incrementStep({
                     currentStep: currentStep,
                     numberOfSteps: steps.length,
-                  })
-                );
+                  }),
+                )
               }}
               block
               label={currentStep == steps.length - 1 ? 'Sign up' : 'Continue'}
@@ -161,7 +161,7 @@ const SignUpForm = () => {
         </form>
       </Form>
     </>
-  );
-};
+  )
+}
 
-export default SignUpForm;
+export default SignUpForm
