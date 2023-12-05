@@ -33,62 +33,7 @@ const NoAuthLoginCard = ({ children }: loginProps) => {
         </CardTitle>
         <CardDescription>Enter credentials to continue</CardDescription>
       </CardHeader>
-      <CardContent className='grid gap-4'>
-        {children}
-        <AppButton
-          variant={'secondary'}
-          label='Sign up'
-          onClick={() => {
-            router.push(SIGNUP)
-          }}
-        />
-        <p className='mx-auto'>or login with</p>
-
-        <div className='grid grid-cols-3 gap-2'>
-          <AppButton
-            variant={'outline'}
-            onClick={() => {}}
-            label='Google'
-            icon={
-              <Image
-                src={GoogleIcon}
-                alt='google-icon-svg'
-                width={12}
-                height={12}
-                className='mr-1'
-              />
-            }
-          />
-          <AppButton
-            variant={'outline'}
-            onClick={() => {}}
-            label='Apple'
-            icon={
-              <Image
-                src={AppleIcon}
-                alt='google-icon-svg'
-                width={12}
-                height={12}
-                className='mr-1'
-              />
-            }
-          />
-          <AppButton
-            variant={'outline'}
-            onClick={() => {}}
-            label='Microsoft'
-            icon={
-              <Image
-                src={MicrosoftIcon}
-                alt='google-icon-svg'
-                width={12}
-                height={12}
-                className='mr-1'
-              />
-            }
-          />
-        </div>
-      </CardContent>
+      <CardContent className='grid gap-4'>{children}</CardContent>
     </Card>
   )
 }

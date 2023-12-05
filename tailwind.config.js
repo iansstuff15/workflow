@@ -15,6 +15,9 @@ module.exports = {
     transparent: 'transparent',
     current: 'currentColor',
     extend: {
+      boxShadowColor: {
+        '3xl': '0 0px 60px -15px rgba(0, 0, 0, 0.3)',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
