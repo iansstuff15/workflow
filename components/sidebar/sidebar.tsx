@@ -17,8 +17,8 @@ import {
   HelpCircle,
   LayoutDashboard,
   LogOut,
+  Megaphone,
   Receipt,
-  Shield,
   User as UserIcon,
 } from 'lucide-react'
 
@@ -101,14 +101,23 @@ const SideBar = () => {
             label='Performance'
             icon={<GaugeCircle size={18} />}
           />
-          <SideBarItem to={ADMIN} label='Admin' icon={<Shield size={18} />} />
+          <CardDescription>Admin</CardDescription>
+          <SideBarItem
+            to={DASHBOARD}
+            label='Dashboard'
+            icon={<LayoutDashboard size={18} />}
+          />
           <SideBarItem
             to={ORGANIZATION}
             label='Organization'
             icon={<Building2 size={18} />}
           />
+          <SideBarItem
+            to={REQUEST}
+            label='Campaign'
+            icon={<Megaphone size={18} />}
+          />
         </CardHeader>
-        <CardContent></CardContent>
       </Card>
     </div>
   )
