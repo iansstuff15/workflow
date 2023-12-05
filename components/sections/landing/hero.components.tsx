@@ -9,7 +9,7 @@ const HeroSection = () => {
       <div className='space-y-4 '>
         <h1 className='font-bold text-6xl'>
           Your HR Management{' '}
-          <strong className='bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent'>
+          <strong className='bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent '>
             Superapp
           </strong>
         </h1>
@@ -26,7 +26,7 @@ const HeroSection = () => {
         <Snippet>{`git clone ${githubLink}.git`}</Snippet>
         <br /> <br />
         <div className='shadow-[0_150px_200px_-15px_rgba(33,112,159,0.95)]'>
-          <div className='bg-gradient-to-r from-blue-600 to-indigo-600 p-1 rounded-xl shadow-[0_180px_200px_-15px_rgba(52,33,159,0.75)]'>
+          <div className='bg-gradient-to-r from-blue-600 to-indigo-600 p-1 rounded-xl shadow-[0_180px_200px_-15px_rgba(52,33,159,0.75)] '>
             <div className=' grid grid-cols-1 rounded-xl overflow-hidden'>
               <Image
                 src={heroImage}
