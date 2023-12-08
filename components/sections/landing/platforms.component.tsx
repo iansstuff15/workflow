@@ -21,7 +21,6 @@ const PlatformSection = () => {
         scrub: 0.6,
         toggleActions: 'play none none none',
         end: 'top center',
-        markers: true,
       },
       opacity: 1,
       y: 0,

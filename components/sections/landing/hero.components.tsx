@@ -73,7 +73,6 @@ const HeroSection = () => {
         scrub: 1.8,
       },
       scale: 1.5,
-      markers: true,
     })
   }
   useEffect(() => {
