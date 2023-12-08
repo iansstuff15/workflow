@@ -38,7 +38,6 @@ const FeaturesSection = ({
         trigger: titleRef.current,
         scrub: 0.4,
         toggleActions: 'play none none none',
-        markers: true,
       },
       opacity: 1,
       x: 0,
@@ -53,7 +52,6 @@ const FeaturesSection = ({
         trigger: subtitleRef.current,
         scrub: 0.4,
         toggleActions: 'play none none none',
-        markers: true,
       },
     })
 
@@ -65,7 +63,6 @@ const FeaturesSection = ({
         trigger: descriptionRef.current,
         scrub: 0.4,
         toggleActions: 'play none none none',
-        markers: true,
       },
     })
   }
