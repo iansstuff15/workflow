@@ -3,7 +3,8 @@ import { useEffect, useRef } from 'react'
 import { timeline } from '../animation'
 import Lottie from 'lottie-react'
 import { featureParam } from '@/data/interface/feature/feature.interface'
-import combinationAnimation from '@/assets/combination_animation.json'
+import { Card } from '@/components/ui/card'
+
 const FeaturesSection = ({
   title,
   subtitle,
@@ -97,9 +98,9 @@ const FeaturesSection = ({
     }
   }, [])
   return (
-    <div
-      style={{ height: '80vh' }}
-      className='grid place-items-center pt-48 px-16 overflow-hidden grid-cols-2'
+    <Card
+      style={{ height: '100%' }}
+      className='grid place-items-center py-16 px-16 overflow-hidden grid-cols-2 my-2 '
       ref={containerRef}
     >
       <div className='space-y-2 '>
@@ -114,15 +115,8 @@ const FeaturesSection = ({
         </h1>
         <p ref={descriptionRef}>{description}</p>
       </div>
-      <div ref={imageRef}>
-        <Lottie
-          animationData={combinationAnimation}
-          loop={true}
-          width={800}
-          height={800}
-        />
-      </div>
-    </div>
+      <div ref={imageRef}>{<Lottie animationData={lottie} loop={true} />}</div>
+    </Card>
   )
 }
 export default FeaturesSection

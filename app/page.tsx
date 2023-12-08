@@ -11,16 +11,19 @@ export default function Home() {
     <div>
       <HeroSection />
       <ToolsSection />
-      {featureData.map((data, index) => {
-        return (
-          <FeaturesSection
-            key={index}
-            title={data.title}
-            subtitle={data.subtitle}
-            description={data.description}
-          />
-        )
-      })}
+      <div className='bg-gray-800 px-16 py-12'>
+        {featureData.map((data, index) => {
+          return (
+            <FeaturesSection
+              key={index}
+              title={data.title}
+              subtitle={data.subtitle}
+              description={data.description}
+              lottie={data.lottie}
+            />
+          )
+        })}
+      </div>
 
       <PlatformSection />
       <FooterSection />

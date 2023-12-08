@@ -70,7 +70,7 @@ const HeroSection = () => {
         trigger: heroImageRef.current,
         start: 'top center',
         toggleActions: 'restart pause reverse pause',
-        scrub: 2.5,
+        scrub: 1.8,
       },
       scale: 1.5,
       markers: true,
