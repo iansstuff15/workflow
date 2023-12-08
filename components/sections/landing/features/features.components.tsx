@@ -89,6 +89,7 @@ const FeaturesSection = ({
         trigger: containerRef.current,
         scrub: 0.4,
         toggleActions: 'play none none none',
+        end: 'top center',
       },
     })
   }
