@@ -1,4 +1,6 @@
 import { featureDataType } from '@/data/interface/feature/feature.interface'
+import combinationAnimation from '@/assets/combination_animation.json'
+import Lottie from 'lottie-react'
 
 export const featureData: Array<featureDataType> = [
   {
@@ -7,6 +9,7 @@ export const featureData: Array<featureDataType> = [
       'A collection of human resource features tightly integrated into one ecosystem',
     description:
       'Ea duis sint officia et pariatur aliqua et sunt adipisicing sint anim nostrud officia ex.Non est sint labore elit sint. Consectetur incididunt est veniam laboris. Deserunt occaecat culpa proident ut duis incididunt excepteur occaecat. Ea est fugiat elit nulla.',
+    lottie: combinationAnimation,
   },
   {
     title: 'Performance are not just number',

@@ -1,24 +1,23 @@
 'use client'
-import AppButton from '@/components/button/appButtons'
-import heroImage from '@/assets/hero-image.png'
-import { Snippet } from '@nextui-org/snippet'
-import Image from 'next/image'
-import { githubLink } from '@/config/constants/links/links'
-import { featureData } from './features.data'
 import { useEffect, useRef } from 'react'
 import { timeline } from '../animation'
+import Lottie from 'lottie-react'
 import { featureParam } from '@/data/interface/feature/feature.interface'
+import combinationAnimation from '@/assets/combination_animation.json'
 const FeaturesSection = ({
   title,
   subtitle,
   description,
   imageURL,
+  lottie,
 }: featureParam) => {
   const titleRef = useRef(null)
   const subtitleRef = useRef(null)
   const descriptionRef = useRef(null)
-
+  const imageRef = useRef(null)
+  const containerRef = useRef(null)
   const initialized = useRef(false)
+
   const animate = () => {
     initialized.current = true
     timeline.from(titleRef.current, {
@@ -32,6 +31,13 @@ const FeaturesSection = ({
     timeline.from(descriptionRef.current, {
       opacity: 0,
       x: -10,
+    })
+    timeline.from(imageRef.current, {
+      opacity: 0,
+      x: 10,
+    })
+    timeline.from(containerRef.current, {
+      scale: 0.9,
     })
     timeline.to(titleRef.current, {
       scrollTrigger: {
@@ -65,6 +71,25 @@ const FeaturesSection = ({
         toggleActions: 'play none none none',
       },
     })
+    timeline.to(imageRef.current, {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: imageRef.current,
+        scrub: 0.4,
+        toggleActions: 'play none none none',
+      },
+    })
+    timeline.to(containerRef.current, {
+      scale: 1,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: containerRef.current,
+        scrub: 0.4,
+        toggleActions: 'play none none none',
+      },
+    })
   }
   useEffect(() => {
     if (!initialized.current) {
@@ -73,8 +98,9 @@ const FeaturesSection = ({
   }, [])
   return (
     <div
-      style={{ height: '60vh' }}
+      style={{ height: '80vh' }}
       className='grid place-items-center pt-48 px-16 overflow-hidden grid-cols-2'
+      ref={containerRef}
     >
       <div className='space-y-2 '>
         <h2
@@ -88,7 +114,14 @@ const FeaturesSection = ({
         </h1>
         <p ref={descriptionRef}>{description}</p>
       </div>
-      <div></div>
+      <div ref={imageRef}>
+        <Lottie
+          animationData={combinationAnimation}
+          loop={true}
+          width={800}
+          height={800}
+        />
+      </div>
     </div>
   )
 }
