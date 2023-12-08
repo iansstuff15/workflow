@@ -53,6 +53,7 @@
     "@supabase/auth-helpers-react": "^0.4.2",
     "@supabase/supabase-js": "^2.39.0",
     "@tremor/react": "^3.11.1",
+    "@vercel/speed-insights": "^1.0.0",
     "add": "^2.0.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",

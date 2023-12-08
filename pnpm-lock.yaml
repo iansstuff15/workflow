@@ -137,6 +137,9 @@ dependencies:
   '@tremor/react':
     specifier: ^3.11.1
     version: 3.11.1(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.3.5)
+  '@vercel/speed-insights':
+    specifier: ^1.0.0
+    version: 1.0.0
   add:
     specifier: ^2.0.6
     version: 2.0.6
@@ -4042,6 +4045,11 @@ packages:
 
   /@vercel/ruby@2.0.3:
     resolution: {integrity: sha512-INZjBvBxQlANvj7LvHeXtfjpU+ZtwGL45vyys5+hI594MokpkrKdzUaTuK4kUX+KsEJUR7Xule5JiS89fW77BA==}
+    dev: false
+
+  /@vercel/speed-insights@1.0.0:
+    resolution: {integrity: sha512-5blmCVGGPn+3BqwBPb1jc3OnzRozNuLgJVr7xH6XjxCTvocs7z/Bml7lo+JzLKUXR1Q35qI/PlEllmNbZmP9Ew==}
+    requiresBuild: true
     dev: false
 
   /@vercel/static-build@2.0.13:
