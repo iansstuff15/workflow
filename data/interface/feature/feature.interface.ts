@@ -4,3 +4,4 @@ export type featureDataType = {
   description: string
   imageURL?: string
 }
+export interface featureParam extends featureDataType {}

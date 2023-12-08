@@ -1,15 +1,17 @@
 'use client'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { MenuHeader } from './menu.component'
 import Logo from '@/assets/icon.svg'
 import AppButton from '../button/appButtons'
 import Image from 'next/image'
+import { NO_AUTH_LOGIN } from '@/config/constants/routes/routes'
 const AppHeader = () => {
   const path = usePathname()
+  const router = useRouter()
   return (
     <>
       {path.includes('/app') ? null : (
-        <div className='sticky top-0 grid grid-cols-12 py-3 px-14 bg-white'>
+        <div className='absolute top-0 grid grid-cols-12 py-3 px-14 bg-white'>
           <div className='grid grid-cols-12 gap-2 col-span-3 '>
             <Image src={Logo} alt='Workflow logo' width={50} height={50} />
             <label className='text-white  mix-blend-difference font-bold'>
@@ -32,7 +34,13 @@ const AppHeader = () => {
               block
               className=' bg-transparent text-white  mix-blend-difference'
             />
-            <AppButton label='Login' block />
+            <AppButton
+              label='Login'
+              block
+              onClick={() => {
+                router.push(NO_AUTH_LOGIN)
+              }}
+            />
           </div>
         </div>
       )}
