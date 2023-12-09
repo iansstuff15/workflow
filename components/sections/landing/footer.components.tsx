@@ -140,7 +140,7 @@ const FooterSection = () => {
   }, [])
 
   return (
-    <div className='h-screen pt-48 px-16 overflow-hidden text-center '>
+    <div className='py-8 px-16 overflow-hidden text-center '>
       <Card className='p-8' ref={containerRef}>
         <CardContent className='grid grid-cols-1 justify-items-center space-y-4'>
           <Image
