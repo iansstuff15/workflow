@@ -6,11 +6,12 @@ import { usePathname } from 'next/navigation'
 import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs'
 import { SessionContextProvider } from '@supabase/auth-helpers-react'
 import { useState } from 'react'
-
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { gsap } from 'gsap'
 const CoreProvider = ({ children }: wrapperProps) => {
   const path = usePathname()
   const [supabaseClient] = useState(() => createPagesBrowserClient())
-
+  gsap.registerPlugin(ScrollTrigger)
   return (
     <SessionContextProvider supabaseClient={supabaseClient}>
       <NextUIProvider>{children}</NextUIProvider>

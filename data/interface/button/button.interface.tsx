@@ -1,5 +1,5 @@
 import { ButtonProps, buttonVariants } from '@/components/ui/button'
-import { FormEvent, ReactNode } from 'react'
+import { FormEvent, MutableRefObject, ReactNode } from 'react'
 
 export interface buttonProps extends ButtonProps {
   label?: string
@@ -8,4 +8,5 @@ export interface buttonProps extends ButtonProps {
   loading?: boolean
   icon?: ReactNode
   keybinding?: ReactNode
+  ref?: MutableRefObject<null>
 }

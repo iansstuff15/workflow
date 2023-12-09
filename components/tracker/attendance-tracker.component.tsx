@@ -1,8 +1,13 @@
 'use client'
-import { Text, Flex, Tracker } from '@tremor/react'
+import { Text, Flex, Tracker, Color } from '@tremor/react'
 
 import { Card } from '../ui/card'
 import { Circle } from 'lucide-react'
+import { data } from './dummy-tracker'
+interface Tracker {
+  color: Color
+  tooltip: string
+}
 
 const AttendanceTracker = () => {
   return (
@@ -21,6 +26,9 @@ const AttendanceTracker = () => {
           <label className='bg-red-600 text-white py-1 px-3 rounded-full'>
             Absent
           </label>
+          <label className='bg-indigo-700 text-white py-1 px-3 rounded-full'>
+            Holiday
+          </label>
           <label className='bg-zinc-700 text-white py-1 px-3 rounded-full'>
             Weekend
           </label>
@@ -34,10 +42,7 @@ const AttendanceTracker = () => {
         <Text>This month attendance</Text>
         <Text>31 days</Text>
       </Flex>
-      <Tracker
-        data={[{ color: 'emerald' }, { color: 'slate' }]}
-        className='mt-2'
-      />
+      <Tracker data={data as Array<Tracker>} />
       <Flex className='mt-2 text-xs'>
         <Text>Aug 01</Text>
         <Text>Aug 31</Text>
