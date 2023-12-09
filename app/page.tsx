@@ -1,3 +1,5 @@
+import ContactMeCard from '@/components/cards/contact-me/contact-me-card.component'
+import ContactMeSection from '@/components/sections/landing/contact-me.components'
 import FeaturesSection from '@/components/sections/landing/features/features.components'
 import { featureData } from '@/components/sections/landing/features/features.data'
 import FooterSection from '@/components/sections/landing/footer.components'
@@ -26,6 +28,7 @@ export default function Home() {
 
       <PlatformSection />
       <FooterSection />
+      <ContactMeSection />
     </div>
   )
 }
