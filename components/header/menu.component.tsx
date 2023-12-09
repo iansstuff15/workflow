@@ -55,9 +55,7 @@ export function MenuHeader() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger
-            className={path.includes('/auth') ? 'text-white' : 'text-black'}
-          >
+          <NavigationMenuTrigger className={'text-black'}>
             The Project
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -102,9 +100,7 @@ export function MenuHeader() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger
-            className={path.includes('/auth') ? 'text-white' : 'text-black'}
-          >
+          <NavigationMenuTrigger className={'text-black'}>
             About Me
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -127,9 +123,7 @@ export function MenuHeader() {
             href='/docs'
             legacyBehavior
             passHref
-            className={`${navigationMenuTriggerStyle()} bg-transparent  mix-blend-difference${
-              path.includes('/auth') ? 'text-white' : 'text-black'
-            }`}
+            className={`${navigationMenuTriggerStyle()} bg-transparent  mix-blend-difference text-black`}
           >
             <NavigationMenuLink className=' text-sm font-medium'>
               Documentation

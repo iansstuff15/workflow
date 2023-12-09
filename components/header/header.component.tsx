@@ -11,7 +11,7 @@ const AppHeader = () => {
   return (
     <>
       {path.includes('/app') ? null : (
-        <div className='absolute top-0 grid grid-cols-12 py-3 px-14 bg-white'>
+        <div className='grid grid-cols-12 py-3 px-14 sticky top-0  z-10 bg-white/70  backdrop-blur-lg'>
           <div className='grid grid-cols-12 gap-2 col-span-3 '>
             <Image src={Logo} alt='Workflow logo' width={50} height={50} />
             <label className='text-white  mix-blend-difference font-bold'>
