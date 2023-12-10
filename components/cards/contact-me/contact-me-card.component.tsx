@@ -10,10 +10,15 @@ import Lottie from 'lottie-react'
 import { Send } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import CollaborateAnimation from '@/assets/collaborate-animation.json'
+import { useRef } from 'react'
 const ContactMeCard = () => {
   const form = useForm()
+  const containerRef = useRef(null)
+  const titleRef = useRef(null)
+  const subtitleRef = useRef(null)
+  const imageRef = useRef(null)
   return (
-    <div className='bg-neutral-800 rounded-t-3xl text-start p-8 p-16 grid grid-cols-2'>
+    <div className='bg-neutral-800 rounded-t-3xl text-start py-16 px-32 grid grid-cols-2'>
       <div className=' space-y-4 '>
         <h1 className='text-6xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent '>
           Wanna work together?
