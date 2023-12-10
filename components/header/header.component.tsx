@@ -11,14 +11,14 @@ const AppHeader = () => {
   return (
     <>
       {path.includes('/app') ? null : (
-        <div className='grid grid-cols-12 py-3 px-14 sticky top-0  z-10 bg-white/70  backdrop-blur-lg'>
-          <div className='grid grid-cols-12 gap-2 col-span-3 '>
-            <Image src={Logo} alt='Workflow logo' width={50} height={50} />
-            <label className='text-white  mix-blend-difference font-bold'>
+        <div className='flex py-3 px-14 sticky top-0  z-10 bg-white/70  backdrop-blur-lg'>
+          <div className='flex gap-2 items-center flex-1'>
+            <Image src={Logo} alt='Workflow logo' width={30} height={30} />
+            <label className='text-white  mix-blend-difference font-bold text-md'>
               Workflow
             </label>
           </div>
-          <div className='col-span-5'>
+          <div className='flex-1 content-center'>
             <MenuHeader />
           </div>
           <div className='grid grid-cols-3 gap-3 col-span-4'>

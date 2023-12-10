@@ -53,7 +53,7 @@ export function MenuHeader() {
   const path = usePathname()
   return (
     <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className='flex justify-items-center'>
         <NavigationMenuItem>
           <NavigationMenuTrigger className={'text-black'}>
             The Project
