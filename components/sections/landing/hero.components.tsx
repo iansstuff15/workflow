@@ -83,6 +83,10 @@ const HeroSection = () => {
   return (
     <div className='grid place-items-center h-screen text-center pt-48 overflow-hidden'>
       <div className='space-y-4 '>
+        <h1 className='bg-neutral-900 text-white rounded-full w-fit py-2 px-4 mx-auto'>
+          Project is underconstruction and some page or features may not work as
+          intended
+        </h1>
         <h1 className='font-bold text-6xl' ref={heroTitlerRef}>
           Your HR Management{' '}
           <strong className='bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent '>
@@ -103,7 +107,10 @@ const HeroSection = () => {
             block
           />
         </div>
-        <Snippet ref={commandRef}>{`git clone ${githubLink}.git`}</Snippet>
+        <Snippet
+          variant='shadow'
+          ref={commandRef}
+        >{`git clone ${githubLink}.git`}</Snippet>
         <br /> <br />
         <div
           className='shadow-[0_150px_200px_-15px_rgba(33,112,159,0.95)]'
