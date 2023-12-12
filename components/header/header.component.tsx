@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { NO_AUTH_LOGIN } from '@/config/constants/routes/routes'
 import { Menu } from 'lucide-react'
 import HeaderDrawer from './drawer.header'
+import Link from 'next/link'
 const AppHeader = () => {
   const path = usePathname()
   const router = useRouter()
@@ -16,10 +17,12 @@ const AppHeader = () => {
         <div className='flex py-3 px-2 md:px-14 sticky top-0  z-10 bg-white/70  backdrop-blur-lg'>
           <div className='flex gap-2 items-center flex-1'>
             <HeaderDrawer />
-            <Image src={Logo} alt='Workflow logo' width={30} height={30} />
-            <label className='text-white  mix-blend-difference font-bold text-md'>
-              Workflow
-            </label>
+            <Link href={'/'} className='flex gap-2 items-center'>
+              <Image src={Logo} alt='Workflow logo' width={30} height={30} />
+              <label className='text-white  mix-blend-difference font-bold text-md'>
+                Workflow
+              </label>
+            </Link>
           </div>
           <div className='flex-1 content-center hidden xl:block'>
             <MenuHeader />

@@ -61,19 +61,16 @@ export function MenuHeader() {
           <NavigationMenuContent>
             <ul className='grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]'>
               <li className='row-span-3'>
-                <NavigationMenuLink
-                  asChild
-                  className='bg-gradient-to-r from-blue-600 to-indigo-600'
-                >
+                <NavigationMenuLink asChild className=''>
                   <a
-                    className='flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md'
+                    className='flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-r from-blue-600 to-indigo-600 text-white no-underline outline-none focus:shadow-md py-3 px-4'
                     href='/'
                   >
                     <div className='mt-4 text-xs font-medium'>
                       current project
                     </div>
                     <div className='mb-2 text-xl font-medium'>Workflow</div>
-                    <p className='text-sm leading-tight text-muted-foreground'>
+                    <p className='text-xs '>
                       Is a personal project owned by Diriangen Lempira
                       (nickname: Ian) Powell to showcase skills in web
                       development. This site uses supabase for its backend and a
