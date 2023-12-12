@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <div>
       <HeroSection />
-      <ToolsSection />
-      <div className='bg-gray-800 px-16 py-12'>
+
+      <div className='bg-gray-800 px-4 sm:px-16 py-12'>
         {featureData.map((data, index) => {
           return (
             <FeaturesSection

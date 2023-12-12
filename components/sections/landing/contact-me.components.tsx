@@ -2,7 +2,7 @@ import ContactMeCard from '@/components/cards/contact-me/contact-me-card.compone
 
 const ContactMeSection = () => {
   return (
-    <div className='px-16 overflow-hidden text-center flex items-end'>
+    <div className='px-0 sm:px-16 overflow-hidden text-center flex items-end'>
       <ContactMeCard />
     </div>
   )

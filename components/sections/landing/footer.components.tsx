@@ -140,8 +140,8 @@ const FooterSection = () => {
   }, [])
 
   return (
-    <div className='py-8 px-16 overflow-hidden text-center '>
-      <Card className='p-8' ref={containerRef}>
+    <div className='py-8 px-4 sm:px-8 md:px-16  overflow-hidden text-center '>
+      <div ref={containerRef}>
         <CardContent className='grid grid-cols-1 justify-items-center space-y-4'>
           <Image
             src={Logo}
@@ -151,32 +151,42 @@ const FooterSection = () => {
             ref={logoRef}
           />
           <div>
-            <h1 className='text-6xl font-bold' ref={appNameRef}>
+            <h1
+              className='text-lg md:text-3xl xl:text-6xl font-bold'
+              ref={appNameRef}
+            >
               Workflow
             </h1>
-            <h2 className='text-5xl font-bold' ref={titleRef}>
+            <h2
+              className='text-xl md:text-2xl xl:text-5xl font-bold'
+              ref={titleRef}
+            >
               Your HR Management{' '}
               <strong className='bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent'>
                 Superapp
               </strong>
             </h2>
-            <h3 className='text-4xl font-bold text-slate-600' ref={subtitleRef}>
+            <h3
+              className='text-md md:text-xl xl:text-4xl font-bold text-slate-600'
+              ref={subtitleRef}
+            >
               A once stop solution for HR needs
             </h3>
           </div>
 
-          <p className='font-medium text-2xl' ref={descriptionRef}>
+          <p
+            className='font-medium text-xs sm:text-sm md:text-md xl:text-2xl'
+            ref={descriptionRef}
+          >
             Workflow is a personal project owned by Diriangen Lempira (nickname:
             Ian) Powell to showcase skills in web development. This site uses
             supabase for its backend and a combination of shadcn, nextui,
             tailwind css, and tremor for the front end. This project is not
-            intended nor is adverstised for commercial use.
+            intended nor is adverstised for commercial use. Created by Diriangen
+            Lempira Powell, 2023.
           </p>
-          <h3 className='font-medium text-lg text-slate-500' ref={creditRef}>
-            Created by Diriangen Lempira Powell, 2023
-          </h3>
         </CardContent>
-      </Card>
+      </div>
     </div>
   )
 }

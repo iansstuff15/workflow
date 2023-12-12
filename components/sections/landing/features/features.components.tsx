@@ -101,22 +101,35 @@ const FeaturesSection = ({
   return (
     <Card
       style={{ height: '100%' }}
-      className='grid place-items-center py-16 px-16 overflow-hidden grid-cols-2 my-2 '
+      className='flex flex-col-reverse sm:grid place-items-center py-8 xl:py-16 px-4 sm:px-8 lg:px-16 overflow-hidden sm:grid-cols-2 my-2 '
       ref={containerRef}
     >
-      <div className='space-y-2 '>
+      <div className='space-y-2'>
         <h2
           ref={titleRef}
-          className='font-semibold text-2xl bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent'
+          className='font-semibold text-sm sm:text-md lg:text-xl xl:text-2xl bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent'
         >
           {title}
         </h2>
-        <h1 ref={subtitleRef} className='font-bold text-6xl'>
+        <h1
+          ref={subtitleRef}
+          className='font-bold text-lg sm:text-2xl lg:text-4xl xl:text-6xl'
+        >
           {subtitle}
         </h1>
-        <p ref={descriptionRef}>{description}</p>
+        <p ref={descriptionRef} className='text-xs lg:text-sm xl:text-lg'>
+          {description}
+        </p>
       </div>
-      <div ref={imageRef}>{<Lottie animationData={lottie} loop={true} />}</div>
+      <div ref={imageRef} className=''>
+        {
+          <Lottie
+            animationData={lottie}
+            loop={true}
+            className='w-7/12 sm:w-full'
+          />
+        }
+      </div>
     </Card>
   )
 }

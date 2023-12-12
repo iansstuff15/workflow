@@ -64,7 +64,7 @@ const PlatformCard = ({ title, description }: platformCardProps) => {
   return (
     <Card>
       <CardContent className='space-y-2'>
-        <h1 className='text-4xl font-bold mt-4 mb-2' ref={titleRef}>
+        <h1 className='text-2xl sm:text-xl font-bold mt-4 mb-2' ref={titleRef}>
           {title}
         </h1>
         <p className='text-xs' ref={descriptionRef}>

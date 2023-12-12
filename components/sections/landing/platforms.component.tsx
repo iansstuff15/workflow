@@ -62,14 +62,20 @@ const PlatformSection = () => {
     }
   }, [])
   return (
-    <div className=' pt-48 px-16 overflow-hidden text-center'>
-      <h1 className='font-medium text-4xl text-primary' ref={titleRef}>
+    <div className=' pt-8 sm:pt-48 px-8 md:px-16 overflow-hidden text-center'>
+      <h1
+        className='font-medium text-lg sm:text-2xl lg:text-4xl text-primary'
+        ref={titleRef}
+      >
         Available when you need it
       </h1>
-      <h2 className='font-bold text-6xl' ref={subtitleRef}>
+      <h2
+        className='font-bold text-2xl sm:text-4xl lg:text-6xl'
+        ref={subtitleRef}
+      >
         System is also available in various platforms
       </h2>
-      <div className='grid grid-cols-3 gap-4 mt-8' ref={platformContainer}>
+      <div className='grid sm:grid-cols-3 gap-4 mt-8' ref={platformContainer}>
         {PlatformData.map((data, index) => {
           return (
             <PlatformCard

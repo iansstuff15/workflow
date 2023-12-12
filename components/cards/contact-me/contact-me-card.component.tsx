@@ -56,21 +56,24 @@ const ContactMeCard = () => {
       ref={containerRef}
     >
       <div className=''>
-        <div className='bg-zinc-800 rounded-t-3xl text-start pt-12 pb-20 px-16 grid grid-cols-2'>
-          <div className=' space-y-4 '>
+        <div className='bg-zinc-800 rounded-t-3xl text-start pt:4 sm:pt-12 pb-12 sm:pb-20 px-2 sm:px-16 flex flex-col-reverse xl:grid grid-cols-2'>
+          <div className='space-y-4 '>
             <h1
               ref={titleRef}
-              className='text-6xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent '
+              className='text-2xl sm:text-6xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent '
             >
               Wanna work together?
             </h1>
-            <h2 ref={subtitleRef} className='text-3xl font-medium text-white'>
+            <h2
+              ref={subtitleRef}
+              className='text-md sm:text-3xl font-medium text-white'
+            >
               reach out to me
             </h2>
 
             <Form {...form}>
               <form className='space-y-4' ref={formRef}>
-                <div className='grid grid-cols-2 gap-2'>
+                <div className='grid md:grid-cols-2 gap-2'>
                   <AppFormField
                     label='From'
                     controller={form.control}
@@ -110,7 +113,7 @@ const ContactMeCard = () => {
             <h3 className='text-white font-medium text-xs text-center'>
               Other mediums to reach out
             </h3>
-            <div className='grid grid-cols-2 gap-2'>
+            <div className='grid xl:grid-cols-2 space-y-4 sm:space-y-0 xl:gap-2'>
               <Snippet symbol='Email:' radius='lg' color='primary'>
                 dlpowell35@gmail.com
               </Snippet>
@@ -131,8 +134,7 @@ const ContactMeCard = () => {
           <div ref={imageRef}>
             <Lottie
               animationData={CollaborateAnimation}
-              width={1000}
-              height={1000}
+              className='w-7/12 sm:w-full'
             />
           </div>
         </div>
