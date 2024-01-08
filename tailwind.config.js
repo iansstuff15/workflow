@@ -8,8 +8,7 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './node_modules/@tremor/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@nextui-org/theme/dist/components/button.js',
-    './node_modules/@nextui-org/theme/dist/components/(button|snippet|code|input).js',
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     transparent: 'transparent',
@@ -25,8 +24,8 @@ module.exports = {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: 'rgb(37 99 235)',
+          foreground: '#ffff',
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
