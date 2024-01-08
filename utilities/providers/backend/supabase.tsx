@@ -1,12 +1,12 @@
 'use client'
-import { wrapperProps } from '@/data/interface/layout/layout'
+import { WrapperProps } from '@/data/interface/layout/layout'
+
 import { Session, User, createClient } from '@supabase/supabase-js'
 import { createContext, useContext, useEffect, useState } from 'react'
-
 const supabaseUrl: string = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseAnonKey: string = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 
-const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 export const client = {
   auth: supabase.auth,
 }
@@ -17,7 +17,7 @@ const SupabaseContext = createContext<{
   signOut: () => void
 }>({ session: null, user: null, signOut: () => {} })
 
-export const SupabaseProvider = ({ children }: wrapperProps) => {
+export const SupabaseProvider = ({ children }: WrapperProps) => {
   const [user, setUser] = useState<User>()
   const [session, setSession] = useState<Session | null>()
   const [loading, setLoading] = useState(true)

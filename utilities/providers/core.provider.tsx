@@ -1,5 +1,5 @@
 'use client'
-import { wrapperProps } from '@/data/interface/layout/layout'
+import { WrapperProps } from '@/data/interface/layout/layout'
 import { NextUIProvider } from '@nextui-org/system'
 
 import { usePathname } from 'next/navigation'
@@ -8,12 +8,14 @@ import { SessionContextProvider } from '@supabase/auth-helpers-react'
 import { useState } from 'react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { gsap } from 'gsap'
-const CoreProvider = ({ children }: wrapperProps) => {
+import { Toaster } from '@/components/ui/toaster'
+const CoreProvider = ({ children }: WrapperProps) => {
   const path = usePathname()
   const [supabaseClient] = useState(() => createPagesBrowserClient())
   gsap.registerPlugin(ScrollTrigger)
   return (
     <SessionContextProvider supabaseClient={supabaseClient}>
+      <Toaster />
       <NextUIProvider>{children}</NextUIProvider>
     </SessionContextProvider>
   )

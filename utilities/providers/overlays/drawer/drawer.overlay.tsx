@@ -1,5 +1,5 @@
-'use client';
-import AppButton from '@/components/button/appButtons';
+'use client'
+import AppButton from '@/components/button/appButtons'
 import {
   Sheet,
   SheetClose,
@@ -8,20 +8,22 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from '@/components/ui/sheet';
-import { overlayProps } from '@/data/interface/overlay/overlay';
+  SheetTrigger,
+} from '@/components/ui/sheet'
+import { DrawerProps, OverlayProps } from '@/data/interface/overlay/overlay'
 const AppDrawer = ({
   children,
-  isOpen,
   isOKAction,
   isOKLabel,
-  setIsOpen,
+  trigger,
   title,
   description,
-}: overlayProps) => {
+  position,
+}: DrawerProps) => {
   return (
-    <Sheet onOpenChange={() => setIsOpen(false)} open={isOpen}>
-      <SheetContent>
+    <Sheet>
+      <SheetTrigger asChild>{trigger}</SheetTrigger>
+      <SheetContent side={position}>
         {title || description ? (
           <SheetHeader>
             <SheetTitle>{title}</SheetTitle>
@@ -39,7 +41,7 @@ const AppDrawer = ({
         ) : null}
       </SheetContent>
     </Sheet>
-  );
-};
+  )
+}
 
-export default AppDrawer;
+export default AppDrawer

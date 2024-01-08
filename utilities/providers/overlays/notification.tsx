@@ -1,6 +1,6 @@
-'use client';
-import AppButton from '@/components/button/appButtons';
-import { Button } from '@/components/ui/button';
+'use client'
+import AppButton from '@/components/button/appButtons'
+import { Button } from '@/components/ui/button'
 import {
   Sheet,
   SheetClose,
@@ -9,10 +9,10 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/components/ui/sheet';
-import { wrapperProps } from '@/data/interface/layout/layout';
+} from '@/components/ui/sheet'
+import { WrapperProps } from '@/data/interface/layout/layout'
 
-const NotificationProvider = ({ children }: wrapperProps) => {
+const NotificationProvider = ({ children }: WrapperProps) => {
   return (
     <Sheet>
       {children}
@@ -23,12 +23,12 @@ const NotificationProvider = ({ children }: wrapperProps) => {
         notification here
         <SheetFooter>
           <SheetClose>
-            <AppButton onClick={() => {}} label="Close Drawer" />
+            <AppButton onClick={() => {}} label='Close Drawer' />
           </SheetClose>
         </SheetFooter>
       </SheetContent>
     </Sheet>
-  );
-};
+  )
+}
 
-export default NotificationProvider;
+export default NotificationProvider
