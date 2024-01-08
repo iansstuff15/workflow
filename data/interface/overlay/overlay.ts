@@ -1,12 +1,16 @@
 import { Dispatch, ReactNode, SetStateAction } from 'react'
 
-export interface overlayProps {
+export type OverlayProps = {
   children?: ReactNode
-  isOpen: boolean
-  setIsOpen: Dispatch<SetStateAction<boolean>>
+
   isOKAction?: VoidFunction
   isOKLabel?: string
   title?: string
   description?: string
   padding?: string
+  trigger: ReactNode
+}
+
+export type DrawerProps = OverlayProps & {
+  position?: 'top' | 'bottom' | 'left' | 'right' | null | undefined
 }
