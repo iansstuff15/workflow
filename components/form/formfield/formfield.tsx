@@ -3,13 +3,13 @@ import {
   FormField,
   FormItem,
   FormLabel,
-} from '@/components/ui/form';
-import { Input, InputProps } from '@nextui-org/input';
-import { formFieldParams } from '@/data/interface/form/formfield/formfield.interface';
-import eyeCloseIcon from '@/assets/close-eye-icon.svg';
-import eyeOpenIcon from '@/assets/open-eye-icon.svg';
-import { useState } from 'react';
-import Image from 'next/image';
+} from '@/components/ui/form'
+import { Input, InputProps } from '@nextui-org/input'
+import { formFieldParams } from '@/data/interface/form/formfield/formfield.interface'
+import eyeCloseIcon from '@/assets/close-eye-icon.svg'
+import eyeOpenIcon from '@/assets/open-eye-icon.svg'
+import { useState } from 'react'
+import Image from 'next/image'
 
 const AppFormField = ({
   controller,
@@ -17,13 +17,16 @@ const AppFormField = ({
   label,
   labelIcon,
   placeholder,
+  name,
+  defaultValue,
   ...otherProps
 }: formFieldParams) => {
-  const [obsureText, setObscureText] = useState(true);
+  const [obsureText, setObscureText] = useState(true)
   return (
     <FormField
       control={controller}
-      name={type}
+      name={name}
+      defaultValue={defaultValue}
       render={({ field }) => (
         <FormItem>
           <FormControl>
@@ -43,7 +46,7 @@ const AppFormField = ({
                     src={obsureText ? eyeCloseIcon : eyeOpenIcon}
                     width={20}
                     height={20}
-                    className="cursor-pointer text-cyan-600"
+                    className='cursor-pointer text-cyan-600'
                     alt={
                       obsureText
                         ? 'do not obsure text icon'
@@ -57,7 +60,7 @@ const AppFormField = ({
         </FormItem>
       )}
     />
-  );
-};
+  )
+}
 
-export default AppFormField;
+export default AppFormField

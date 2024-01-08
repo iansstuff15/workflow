@@ -41,7 +41,8 @@ const OfficialBusinessAddRequestForm = ({ controller }: formParams) => {
         label='Reason'
         variant={'bordered'}
         placeholder='Important matters'
-        type='reason'
+        type='text-area'
+        name='reason'
       />
 
       <SelectFile />

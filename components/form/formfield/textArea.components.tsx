@@ -20,6 +20,7 @@ const AppTextAreaFormField = ({
   label,
   labelIcon,
   placeholder,
+  name,
   className,
   ...otherProps
 }: textAreaFormFieldProps) => {
@@ -27,7 +28,7 @@ const AppTextAreaFormField = ({
   return (
     <FormField
       control={controller}
-      name={type}
+      name={name}
       render={({ field }) => (
         <FormItem>
           <FormControl>

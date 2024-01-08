@@ -1,6 +1,6 @@
 import { buttonProps } from '@/data/interface/button/button.interface'
 import { Button } from '../ui/button'
-import { Loader2 } from 'lucide-react'
+import { Spinner } from '@nextui-org/spinner'
 const AppButton = ({
   variant,
   label,
@@ -23,7 +23,7 @@ const AppButton = ({
     >
       <span className='pr-2'>
         {icon && !loading ? icon : null}
-        {loading ? <Loader2 className='mr-2 h-4 w-4 animate-spin' /> : null}
+        {loading ? <Spinner size='sm' color='default' /> : null}
       </span>
 
       {label}

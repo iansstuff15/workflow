@@ -53,15 +53,17 @@ const SignUpForm = () => {
           >
             <AppFormField
               controller={form.control}
-              type='firstName'
+              type='text'
               label='First Name'
               placeholder='John'
+              name='first_name'
             />
             <AppFormField
               controller={form.control}
-              type='lastName'
+              type='text'
               label='Last Name'
               placeholder='Doe'
+              name='last_name'
             />
           </div>
           <div
@@ -73,8 +75,9 @@ const SignUpForm = () => {
           >
             <AppFormField
               controller={form.control}
-              type='phone'
+              type='tel'
               label='Phone'
+              name='phone'
               placeholder='+639123456789'
             />
           </div>
@@ -87,14 +90,16 @@ const SignUpForm = () => {
           >
             <AppFormField
               controller={form.control}
-              type='company'
+              type='text'
+              name='company'
               label='Company'
               placeholder='Workplace'
             />
             <AppFormField
               controller={form.control}
-              type='position'
+              type='text'
               label='Position'
+              name='position'
               placeholder='Senior Software Engineer'
             />
           </div>
@@ -109,12 +114,14 @@ const SignUpForm = () => {
               controller={form.control}
               type='email'
               label='Email'
+              name='email'
               placeholder='johndoe@email.com'
             />
             <AppFormField
               controller={form.control}
               type='password'
               label='Password'
+              name='password'
               placeholder='JohnDoe'
             />
           </div>

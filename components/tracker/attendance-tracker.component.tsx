@@ -13,27 +13,27 @@ const AttendanceTracker = () => {
   return (
     <Card className='p-4'>
       <Flex>
-        <div className='flex text-xs gap-1'>
-          <label className='bg-primary text-white py-1 px-3 rounded-full'>
+        <div className='flex text-xs gap-1 overflow-x-scroll'>
+          <label className='bg-primary text-white py-1 px-3 rounded-full min-w-fit'>
             Complete Logs
           </label>
-          <label className='bg-orange-600 text-white py-1 px-3 rounded-full'>
+          <label className='bg-orange-600 text-white py-1 px-3 rounded-full min-w-fit'>
             Incomplete Logs
           </label>
-          <label className='bg-amber-600 text-white py-1 px-3 rounded-full'>
+          <label className='bg-amber-600 text-white py-1 px-3 rounded-full min-w-fit'>
             Leave
           </label>
-          <label className='bg-red-600 text-white py-1 px-3 rounded-full'>
+          <label className='bg-red-600 text-white py-1 px-3 rounded-full min-w-fit'>
             Absent
           </label>
-          <label className='bg-indigo-700 text-white py-1 px-3 rounded-full'>
+          <label className='bg-indigo-700 text-white py-1 px-3 rounded-full min-w-fit'>
             Holiday
           </label>
-          <label className='bg-zinc-700 text-white py-1 px-3 rounded-full'>
+          <label className='bg-zinc-700 text-white py-1 px-3 rounded-full min-w-fit'>
             Weekend
           </label>
 
-          <label className='bg-slate-400 text-white py-1 px-3 rounded-full'>
+          <label className='bg-slate-400 text-white py-1 px-3 rounded-full min-w-fit'>
             No logs
           </label>
         </div>

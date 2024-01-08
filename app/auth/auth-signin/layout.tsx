@@ -1,8 +1,8 @@
-import AuthLoginCard from '@/components/cards/login/auth-card/auth-login.card';
-import { wrapperProps } from '@/data/interface/layout/layout';
+import AuthLoginCard from '@/components/cards/login/auth-card/auth-login.card'
+import { WrapperProps } from '@/data/interface/layout/layout'
 
-const Layout = ({ children }: wrapperProps) => {
-  return <AuthLoginCard>{children}</AuthLoginCard>;
-};
+const Layout = ({ children }: WrapperProps) => {
+  return <AuthLoginCard>{children}</AuthLoginCard>
+}
 
-export default Layout;
+export default Layout

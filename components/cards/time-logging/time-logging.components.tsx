@@ -14,8 +14,9 @@ import { ArrowLeftFromLine, ArrowRightFromLine } from 'lucide-react'
 const TimeLoggingCard = ({ block }: timeLoggingProps) => {
   return (
     <Card
-      className='w-full  grid grid-rows-6 gap-3'
-      style={{ height: block ? '100%' : '384px' }}
+      className={`w-full h-96 sm:h-[${
+        block ? '100%' : '384px'
+      }]  grid grid-rows-6 gap-3`}
     >
       <CardHeader className='row-span-1'>
         <CardTitle className='text-md'>Time Logs</CardTitle>

@@ -13,7 +13,7 @@ import OfficialBusinessAddRequestForm from './business.add-request-form'
 import ScheduleAdjustmentAddRequestForm from './schedule.add-request'
 import CertificateOfAttendanceAddRequestForm from './attendance.add-request'
 
-const AddRequestForm = () => {
+const RequestForm = () => {
   const form = useForm()
 
   return (
@@ -63,4 +63,4 @@ const AddRequestForm = () => {
   )
 }
 
-export default AddRequestForm
+export default RequestForm

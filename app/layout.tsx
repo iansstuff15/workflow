@@ -8,6 +8,7 @@ import CoreProvider from '@/utilities/providers/core.provider'
 import { SupabaseProvider } from '@/utilities/providers/backend/supabase'
 import AppHeader from '@/components/header/header.component'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+
 export const metadata: Metadata = appMetadata
 
 export default function RootLayout({

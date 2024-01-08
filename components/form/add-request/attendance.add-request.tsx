@@ -38,8 +38,9 @@ const CertificateOfAttendanceAddRequestForm = ({ controller }: formParams) => {
         controller={controller.control}
         label='Reason'
         variant={'bordered'}
+        name='reason'
         placeholder='Important matters'
-        type='reason'
+        type='textarea'
       />
 
       <SelectFile />

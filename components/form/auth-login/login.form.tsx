@@ -23,6 +23,7 @@ const AuthLoginForm = () => {
           label='Password'
           labelIcon={<KeyRound size={14} />}
           placeholder='Johndoe@123'
+          name='password'
           type='password'
         />
         <p className={'text-xs'}>

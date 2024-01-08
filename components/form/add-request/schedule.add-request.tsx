@@ -37,7 +37,8 @@ const ScheduleAdjustmentAddRequestForm = ({ controller }: formParams) => {
         label='Reason'
         variant={'bordered'}
         placeholder='Important matters'
-        type='reason'
+        name='reason'
+        type='textarea'
       />
 
       <SelectFile />

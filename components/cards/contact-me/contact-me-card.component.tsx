@@ -12,8 +12,8 @@ import { useForm } from 'react-hook-form'
 import CollaborateAnimation from '@/assets/collaborate-animation.json'
 import { useEffect, useRef } from 'react'
 import { timeline } from '@/components/sections/landing/animation'
+import ContactMeForm from '@/components/form/contact-me/contact-me.form.components'
 const ContactMeCard = () => {
-  const form = useForm()
   const containerRef = useRef(null)
   const titleRef = useRef(null)
   const subtitleRef = useRef(null)
@@ -70,46 +70,10 @@ const ContactMeCard = () => {
             >
               reach out to me
             </h2>
+            <div className='text-white'>
+              <ContactMeForm />
+            </div>
 
-            <Form {...form}>
-              <form className='space-y-4' ref={formRef}>
-                <div className='grid md:grid-cols-2 gap-2'>
-                  <AppFormField
-                    label='From'
-                    controller={form.control}
-                    type='from'
-                    placeholder='John Doe'
-                    variant='bordered'
-                    color='primary'
-                  />
-                  <AppFormField
-                    label='Subject'
-                    controller={form.control}
-                    type='subject'
-                    placeholder='Lets work together'
-                    variant='bordered'
-                    color='primary'
-                  />
-                </div>
-                <div>
-                  <AppTextAreaFormField
-                    label='Message'
-                    controller={form.control}
-                    variant='bordered'
-                    placeholder='In minim aute anim quis ut nulla ipsum. Est officia proident minim laboris reprehenderit. Quis consequat nisi et incididunt commodo.'
-                    type='message'
-                    color='primary'
-                  />
-                </div>
-                <div>
-                  <AppButton
-                    label='Send Message'
-                    block={true}
-                    icon={<Send />}
-                  />
-                </div>
-              </form>
-            </Form>
             <h3 className='text-white font-medium text-xs text-center'>
               Other mediums to reach out
             </h3>
