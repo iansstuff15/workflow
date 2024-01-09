@@ -19,6 +19,22 @@
 /workflow-react-email/.react-email/.next/
 /workflow-react-email/.react-email/.vscode/
 
+#react email
+/workflow-email-templates/.react-email/node_modules
+/workflow-email-templates/.react-email/.pnp
+/workflow-email-templates/.react-email/.pnp.js
+/workflow-email-templates/.react-email/.yarn/install-state.gz
+/workflow-email-templates/.react-email/.next/
+/workflow-email-templates/.react-email/.vscode/
+
+#react email
+/workflow-email-templates/node_modules
+/workflow-email-templates/.pnp
+/workflow-email-templates/.pnp.js
+/workflow-email-templates/..yarn/install-state.gz
+/workflow-email-templates/.next/
+/workflow-email-templates/.vscode/
+
 # testing
 /coverage
 
