@@ -3,6 +3,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from '@/components/ui/form'
 import { Input, InputProps } from '@nextui-org/input'
 import { formFieldParams } from '@/data/interface/form/formfield/formfield.interface'
@@ -57,6 +58,7 @@ const AppFormField = ({
               }
             />
           </FormControl>
+          <FormMessage />
         </FormItem>
       )}
     />

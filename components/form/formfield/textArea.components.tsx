@@ -3,6 +3,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from '@/components/ui/form'
 import { Input, InputProps, Textarea } from '@nextui-org/input'
 import {
@@ -24,7 +25,6 @@ const AppTextAreaFormField = ({
   className,
   ...otherProps
 }: textAreaFormFieldProps) => {
-  const [obsureText, setObscureText] = useState(true)
   return (
     <FormField
       control={controller}
@@ -37,9 +37,11 @@ const AppTextAreaFormField = ({
               placeholder={placeholder}
               variant='bordered'
               className={`border-0 ${className}`}
+              {...field}
               {...otherProps}
             />
           </FormControl>
+          <FormMessage />
         </FormItem>
       )}
     />

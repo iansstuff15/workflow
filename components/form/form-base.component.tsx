@@ -1,10 +1,10 @@
 import { formProps } from '@/data/interface/form/form.interface'
 import { FormEvent, useState } from 'react'
-import { useToast } from '../ui/use-toast'
 import { Form } from '../ui/form'
 import AppButton from '../button/appButtons'
 import { useRouter } from 'next/navigation'
 import { DialogTrigger } from '../ui/dialog'
+import { showError, showSuccess } from '@/config/message/message.config'
 
 const FormBase = ({
   children,
@@ -17,7 +17,7 @@ const FormBase = ({
   submitLabel,
 }: formProps) => {
   const [loading, setLoading] = useState(false)
-  const { toast } = useToast()
+
   const router = useRouter()
   return (
     <Form {...controller}>
@@ -36,20 +36,14 @@ const FormBase = ({
                 router.push(redirectRoute)
               }
               if (successMessage) {
-                toast({
-                  variant: 'default',
-                  title: 'Success!',
-                  description: successMessage,
-                  duration: 3000,
+                showSuccess({
+                  message: successMessage,
                 })
               }
               setLoading(false)
             } else {
-              toast({
-                variant: 'destructive',
-                title: 'Uh oh! Something went wrong.',
-                description: value.message,
-                duration: 3000,
+              showError({
+                message: value.message,
               })
               setLoading(false)
             }
@@ -68,7 +62,8 @@ const FormBase = ({
             type='submit'
             label={submitLabel ?? 'Submit'}
             block
-            loading={loading}
+            disabled={!controller.formState.isValid}
+            loading={controller.formState.isSubmitting}
           />
         </div>
       </form>

@@ -3,13 +3,6 @@ import AppCarousel from '../carousel.component'
 import AppDrawer from '@/utilities/providers/overlays/drawer/drawer.overlay'
 import { useState } from 'react'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
 
 const HappeningNowCarousel = () => {
   return (

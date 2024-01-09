@@ -1,7 +1,7 @@
 import { UseFormReturn, FieldValues } from 'react-hook-form'
 
 export interface formParams {
-  controller: UseFormReturn<FieldValues, any, undefined>
+  controller: UseFormReturn<any, any, undefined>
 }
 
 export interface formProps extends formParams {

@@ -1,5 +1,5 @@
 'use client'
-import { overlayProps } from '@/data/interface/overlay/overlay'
+import { OverlayProps } from '@/data/interface/overlay/overlay'
 import { Popover, PopoverTrigger, PopoverContent } from '../ui/popover'
 import { useRef, useState } from 'react'
 import { Button } from '../ui/button'

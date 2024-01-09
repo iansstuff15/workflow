@@ -3,7 +3,7 @@ import { FormEvent, ReactNode } from 'react'
 import { Control, FieldValues, UseFormReturn } from 'react-hook-form'
 
 export interface formFieldParams extends InputProps {
-  controller: Control<FieldValues>
+  controller: Control<any>
   type?: string
   name: string
   label?: string
@@ -11,7 +11,7 @@ export interface formFieldParams extends InputProps {
   labelIcon?: ReactNode
 }
 export interface textAreaFormFieldProps extends TextAreaProps {
-  controller: Control<FieldValues>
+  controller: Control<any>
   type: string
   label?: string
   name: string
@@ -20,5 +20,5 @@ export interface textAreaFormFieldProps extends TextAreaProps {
 }
 export interface onSubmitParams {
   event: FormEvent
-  form: UseFormReturn<FieldValues, any, undefined>
+  form: UseFormReturn<any, any, undefined>
 }

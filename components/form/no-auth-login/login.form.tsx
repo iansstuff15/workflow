@@ -9,12 +9,17 @@ import { AtSign, KeyRound } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import AppFormField from '../formfield/formfield'
-
+import { zodResolver } from '@hookform/resolvers/zod'
 import FormBase from '../form-base.component'
 import { data } from '../../tracker/dummy-tracker'
-
+import { LoginFormSchema } from '../form-schema.types'
+import * as zod from 'zod'
 const NoAuthLoginForm = () => {
-  const form = useForm()
+  const form = useForm<zod.infer<typeof LoginFormSchema>>({
+    mode: 'onChange',
+    resolver: zodResolver(LoginFormSchema),
+    defaultValues: { email: '', password: '' },
+  })
   const router = useRouter()
 
   return (

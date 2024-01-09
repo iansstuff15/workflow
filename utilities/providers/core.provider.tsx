@@ -8,7 +8,7 @@ import { SessionContextProvider } from '@supabase/auth-helpers-react'
 import { useState } from 'react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { gsap } from 'gsap'
-import { Toaster } from '@/components/ui/toaster'
+import { Toaster } from '@/components/ui/sonner'
 const CoreProvider = ({ children }: WrapperProps) => {
   const path = usePathname()
   const [supabaseClient] = useState(() => createPagesBrowserClient())
