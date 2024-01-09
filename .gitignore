@@ -6,13 +6,13 @@
 .pnp.js
 .yarn/install-state.gz
 
-/email-templates/node_modules
+/email-templates/node_modules/
 /email-templates/.pnp
 /email-templates/.pnp.js
 /email-templates/.yarn/install-state.gz
 
 #react email
-/workflow-react-email/.react-email/node_modules
+/workflow-react-email/.react-email/node_modules/
 /workflow-react-email/.react-email/.pnp
 /workflow-react-email/.react-email/.pnp.js
 /workflow-react-email/.react-email/.yarn/install-state.gz
