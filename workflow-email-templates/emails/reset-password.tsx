@@ -36,7 +36,7 @@ export const VercelInviteUserEmail = ({
   generatedEmail = 'carolanne_smitham72@gmail.com',
   generatedPassword = 'w9MWmWegwskfdOB',
 }: AccountNewDummyEmailProps) => {
-  const previewText = `Welcome ${email} to TaskFlow`
+  const previewText = `Welcome ${email} to WorkFlow`
 
   return (
     <Tailwind>
@@ -50,7 +50,7 @@ export const VercelInviteUserEmail = ({
                 <Section className='p-4 rounded-md border border-solid border-[#eaeaea] pb-6'>
                   <Img
                     src='https://ctkpfwbkunxfoekcyyle.supabase.co/storage/v1/object/public/public-storage/icon.svg'
-                    alt='TaskFlow icon'
+                    alt='WorkFlow icon'
                     width='50'
                     height='50'
                     className='mx-auto my-3'
@@ -60,7 +60,7 @@ export const VercelInviteUserEmail = ({
                     className='text-black text-md text-center my-0'
                   >
                     Welcome to{' '}
-                    <strong className='text-blue-600'>TaskFlow</strong>
+                    <strong className='text-blue-600'>WorkFlow</strong>
                   </Heading>
                   <Heading
                     as='h3'
@@ -107,7 +107,7 @@ export const VercelInviteUserEmail = ({
                 <Section className='text-center mt-[32px] mb-[32px]'>
                   <Button
                     className='bg-blue-600 w-full rounded-md py-4 text-white text-md font-semibold no-underline text-center'
-                    href={'https://TaskFlow.by-ian.dev/auth/no-auth-signin'}
+                    href={'https://WorkFlow.by-ian.dev/auth/no-auth-signin'}
                   >
                     Login
                   </Button>
@@ -116,10 +116,10 @@ export const VercelInviteUserEmail = ({
                   <Text className='text-black text-[14px] leading-[24px]'>
                     or copy and paste this URL into your browser:{' '}
                     <Link
-                      href={'https://TaskFlow.by-ian.dev/auth/no-auth-signin'}
+                      href={'https://WorkFlow.by-ian.dev/auth/no-auth-signin'}
                       className='text-blue-600 no-underline'
                     >
-                      https://TaskFlow.by-ian.dev/auth/no-auth-signin
+                      https://WorkFlow.by-ian.dev/auth/no-auth-signin
                     </Link>
                   </Text>
                 </Section>
@@ -129,10 +129,10 @@ export const VercelInviteUserEmail = ({
                   <Text className='text-[#666666] text-[12px] leading-[24px]'>
                     This invitation was intended for {lastName}, {firstName}{' '}
                     using the email {email} to experience the demo application
-                    of TaskFlow. If you believe this is a mistake, please ignore
+                    of WorkFlow. If you believe this is a mistake, please ignore
                     this email. You can also check out more of my portfolio at{' '}
                     <Link
-                      href={'https://TaskFlow.by-ian.dev'}
+                      href={'https://WorkFlow.by-ian.dev'}
                       className='text-blue-600 no-underline'
                     >
                       https://by-ian.dev
