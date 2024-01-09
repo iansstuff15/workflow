@@ -20,7 +20,8 @@
 /workflow-react-email/.react-email/.vscode/
 
 #react email
-/workflow-email-templates/.react-email/node_modules
+
+/workflow-email-templates/.react-email/node_modules/
 /workflow-email-templates/.react-email/.next
 /workflow-email-templates/.react-email/.pnp
 /workflow-email-templates/.react-email/.pnp.js
