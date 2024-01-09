@@ -22,9 +22,9 @@ const Announcement = () => {
             ea Lorem culpa deserunt eiusmod et reprehenderit fugiat ipsum
             consectetur nulla..
           </p>
-          <div className='grid sm:grid-cols-10'>
+          <div className='grid xl:grid-cols-10 '>
             <AppButton
-              className='sm:col-end-11 '
+              className='xl:col-end-11 '
               onClick={() => {}}
               label='Join Event'
               variant={'secondary'}

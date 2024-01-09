@@ -15,7 +15,7 @@ const Performance = () => {
     <div className='px-4  space-y-4'>
       <AttendanceTracker />
       <div className='mb-10 space-y-2' style={{ height: '100%' }}>
-        <div className='h-full sm:grid grid-cols-3 grid-rows-3 space-y-2 gap-2'>
+        <div className='h-full md:grid md:grid-cols-2 lg:grid-cols-3 grid-rows-3 space-y-2 gap-2'>
           <div className='row-span-2 col-span-1s'>
             <TimeLoggingCard />
           </div>

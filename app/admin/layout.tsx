@@ -24,11 +24,11 @@ const Layout = ({ children }: WrapperProps) => {
 
   return (
     <div>
-      <div className='grid sm:grid-cols-12 h-screen'>
-        <div className='col-span-2 sm:border-r-2 p-4'>
+      <div className='sm:flex h-screen'>
+        <div className='sm:border-r-2 p-4 '>
           <SideBar />
         </div>
-        <div className='overflow-scroll col-span-10  space-y-3 pb-4'>
+        <div className='overflow-scroll   space-y-3 pb-4'>
           <Announcement />
           <SearchCommand />
           {path == DASHBOARD ? <HappeningNowCarousel /> : null}

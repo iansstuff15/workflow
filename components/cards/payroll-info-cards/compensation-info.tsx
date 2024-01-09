@@ -13,7 +13,7 @@ const CompensationInfo = () => {
   return (
     <Card>
       <h1 className='font-bold text-md'>Compensation Details</h1>
-      <List className='grid grid-cols-3 gap-4'>
+      <List className='grid lg:grid-cols-3 gap-4'>
         {data.map((item, index) => {
           return (
             <ListItem key={index} className='border-none'>

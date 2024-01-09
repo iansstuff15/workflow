@@ -1,7 +1,6 @@
 export interface happeningNowProps {
-  title: string;
-  subtitle?: string;
-  description: string;
-  image?: string;
-  onContinueRead: VoidFunction;
+  title: string
+  subtitle?: string
+  description: string
+  image?: string
 }
