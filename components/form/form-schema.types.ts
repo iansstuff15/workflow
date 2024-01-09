@@ -11,11 +11,12 @@ export const LoginFormSchema = z.object({
   password: z
     .string()
     .describe('Password')
-    .min(8, { message: 'Password must be at least 8 characters' })
-    .regex(
-      passwordRegex,
-      'Password is too weak, include upper and lower case letters, numbers and symbols',
-    ),
+    .min(1, { message: 'Password is a required field' }),
+  // .min(8, { message: 'Password must be at least 8 characters' })
+  // .regex(
+  //   passwordRegex,
+  //   'Password is too weak, include upper and lower case letters, numbers and symbols',
+  // ),
 })
 
 export const SignUpFormSchema = z.object({

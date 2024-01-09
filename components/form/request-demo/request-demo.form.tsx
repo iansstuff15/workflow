@@ -19,7 +19,6 @@ const RequestDemoForm = () => {
     resolver: zodResolver(RequestDemoFormSchema),
     defaultValues: { receipient: '' },
   })
-  const [loading, setLoading] = useState(false)
 
   return (
     <FormBase controller={form} submitRoute='/' data={form.getValues()}>

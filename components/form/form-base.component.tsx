@@ -62,8 +62,8 @@ const FormBase = ({
             type='submit'
             label={submitLabel ?? 'Submit'}
             block
-            disabled={!controller.formState.isValid}
-            loading={controller.formState.isSubmitting}
+            disabled={!controller.formState.isValid || loading}
+            loading={loading}
           />
         </div>
       </form>
