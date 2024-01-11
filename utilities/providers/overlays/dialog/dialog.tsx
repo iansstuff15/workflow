@@ -7,6 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogClose,
 } from '@/components/ui/dialog'
 
 import {
@@ -17,6 +18,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
+  DrawerClose,
 } from '@/components/ui/drawer'
 
 import { OverlayProps } from '@/data/interface/overlay/overlay'
@@ -28,7 +30,6 @@ const AppDialog = ({
   children,
   isOKAction,
   isOKLabel,
-
   description,
   title,
   padding,
@@ -54,6 +55,9 @@ const AppDialog = ({
           {isOKAction ? (
             <DialogFooter>
               <AppButton onClick={isOKAction} label={isOKLabel} />
+              <DialogClose asChild>
+                <AppButton label={'Cancel'} variant={'secondary'} />
+              </DialogClose>
             </DialogFooter>
           ) : null}
         </DialogContent>
@@ -76,6 +80,9 @@ const AppDialog = ({
           {isOKAction ? (
             <DrawerFooter>
               <AppButton onClick={isOKAction} label={isOKLabel} />
+              <DrawerClose asChild>
+                <AppButton label={'Cancel'} variant={'secondary'} />
+              </DrawerClose>
             </DrawerFooter>
           ) : null}
         </DrawerContent>

@@ -1,4 +1,4 @@
-import { selectProps } from '@/data/interface/select/select.interface';
+import { selectProps } from '@/data/interface/select/select.interface'
 import {
   Select,
   SelectContent,
@@ -7,9 +7,9 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '../ui/select';
-import { type } from 'os';
-import { FormField, FormItem, FormControl } from '../ui/form';
+} from '../ui/select'
+import { type } from 'os'
+import { FormField, FormItem, FormControl } from '../ui/form'
 
 const AppSelect = ({
   items,
@@ -25,12 +25,12 @@ const AppSelect = ({
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormControl>
+          <FormControl {...field}>
             <Select
               defaultValue={defaultValue}
-              onValueChange={(value) => {
-                console.log(value);
-                controller.setValue(name, value);
+              onValueChange={value => {
+                console.log(value)
+                controller.setValue(name, value)
               }}
             >
               <SelectTrigger>
@@ -44,7 +44,7 @@ const AppSelect = ({
                       <SelectItem key={index} value={data}>
                         {data}
                       </SelectItem>
-                    );
+                    )
                   })}
                 </SelectGroup>
               </SelectContent>
@@ -53,7 +53,7 @@ const AppSelect = ({
         </FormItem>
       )}
     />
-  );
-};
+  )
+}
 
-export default AppSelect;
+export default AppSelect

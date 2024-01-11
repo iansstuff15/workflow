@@ -20,6 +20,7 @@ import {
   LayoutDashboard,
   LogOut,
   Megaphone,
+  PackageOpen,
   Receipt,
   User as UserIcon,
   Users,
@@ -146,6 +147,11 @@ const SideBarContent = () => {
             to={EMPLOYEE}
             label='Employees'
             icon={<Users size={18} />}
+          />
+          <SideBarItem
+            to={CAMPAIGN}
+            label='Inventory'
+            icon={<PackageOpen size={18} />}
           />
           <SideBarItem
             to={ORGANIZATION}

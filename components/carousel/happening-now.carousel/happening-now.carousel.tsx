@@ -1,73 +1,67 @@
+'use client'
 import HappeningNowCard from '@/components/cards/happening-now/happening-now.cards'
-import AppCarousel from '../carousel.component'
-import AppDrawer from '@/utilities/providers/overlays/drawer/drawer.overlay'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
+import { RealtimePostgresChangesPayload } from '@supabase/supabase-js'
+import { supabase } from '@/utilities/providers/backend/supabase'
+import dayjs from 'dayjs'
 
 const HappeningNowCarousel = () => {
+  const [data, setData] = useState<any>()
+  const [payload, setPayload] = useState<
+    RealtimePostgresChangesPayload<{
+      [key: string]: any
+    }>
+  >()
+  const getData = async () => {
+    let { data, error } = await supabase
+      .from('campaign')
+      .select('*')
+      .range(0, 9)
+    setData(data)
+    supabase
+      .channel('custom-all-channel')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'campaign' },
+        async payload => {
+          console.log('Change received!', payload)
+          setPayload(payload)
+          let { data, error } = await supabase
+            .from('campaign')
+            .select('*')
+            .range(0, 9)
+          setData(data)
+        },
+      )
+      .subscribe()
+  }
+  useEffect(() => {
+    getData()
+  }, [])
   return (
-    <>
-      <ScrollArea className=''>
-        <div className='flex w-max space-x-4 p-4'>
+    <ScrollArea className=''>
+      <div className='flex w-max space-x-4 p-4'>
+        {data?.map((item: any) => (
           <HappeningNowCard
-            key={1}
-            title='Sit ipsum incididunt eu '
-            subtitle='ipsum incididunt'
-            description='Aute ipsum aliqua do nulla dolore. In laborum consequat fugiat consequat consectetur labore elit mollit laborum minim do nulla. Ad id veniam eiusmod cillum nostrud et elit laborum culpa officia velit. Reprehenderit exercitation enim nostrud quis consequat fugiat exercitation cillum tempor. Id Lorem in sunt incididunt. Id minim exercitation labore cupidatat non do do dolore deserunt qui eu sint nulla.'
+            key={item.id}
+            title={item.title}
+            subtitle={
+              item.event_date
+                ? dayjs(data.event_date).format('dddd, MMM DD, YYYY')
+                : undefined
+            }
+            location={item.location}
+            description={item.description}
+            createdAt={item.created_at}
+            link={item.link}
+            image={item.image}
           />
-          <HappeningNowCard
-            key={1}
-            title='Sit ipsum incididunt eu '
-            subtitle='ipsum incididunt'
-            description='Aute ipsum aliqua do nulla dolore. In laborum consequat fugiat consequat consectetur labore elit mollit laborum minim do nulla. Ad id veniam eiusmod cillum nostrud et elit laborum culpa officia velit. Reprehenderit exercitation enim nostrud quis consequat fugiat exercitation cillum tempor. Id Lorem in sunt incididunt. Id minim exercitation labore cupidatat non do do dolore deserunt qui eu sint nulla.'
-          />
-          <HappeningNowCard
-            key={1}
-            title='Sit ipsum incididunt eu '
-            subtitle='ipsum incididunt'
-            description='Aute ipsum aliqua do nulla dolore. In laborum consequat fugiat consequat consectetur labore elit mollit laborum minim do nulla. Ad id veniam eiusmod cillum nostrud et elit laborum culpa officia velit. Reprehenderit exercitation enim nostrud quis consequat fugiat exercitation cillum tempor. Id Lorem in sunt incididunt. Id minim exercitation labore cupidatat non do do dolore deserunt qui eu sint nulla.'
-          />
-          <HappeningNowCard
-            key={1}
-            title='Sit ipsum incididunt eu '
-            subtitle='ipsum incididunt'
-            description='Aute ipsum aliqua do nulla dolore. In laborum consequat fugiat consequat consectetur labore elit mollit laborum minim do nulla. Ad id veniam eiusmod cillum nostrud et elit laborum culpa officia velit. Reprehenderit exercitation enim nostrud quis consequat fugiat exercitation cillum tempor. Id Lorem in sunt incididunt. Id minim exercitation labore cupidatat non do do dolore deserunt qui eu sint nulla.'
-          />
-          <HappeningNowCard
-            key={1}
-            title='Sit ipsum incididunt eu '
-            subtitle='ipsum incididunt'
-            description='Aute ipsum aliqua do nulla dolore. In laborum consequat fugiat consequat consectetur labore elit mollit laborum minim do nulla. Ad id veniam eiusmod cillum nostrud et elit laborum culpa officia velit. Reprehenderit exercitation enim nostrud quis consequat fugiat exercitation cillum tempor. Id Lorem in sunt incididunt. Id minim exercitation labore cupidatat non do do dolore deserunt qui eu sint nulla.'
-          />
-          <HappeningNowCard
-            key={1}
-            title='Sit ipsum incididunt eu '
-            subtitle='ipsum incididunt'
-            description='Aute ipsum aliqua do nulla dolore. In laborum consequat fugiat consequat consectetur labore elit mollit laborum minim do nulla. Ad id veniam eiusmod cillum nostrud et elit laborum culpa officia velit. Reprehenderit exercitation enim nostrud quis consequat fugiat exercitation cillum tempor. Id Lorem in sunt incididunt. Id minim exercitation labore cupidatat non do do dolore deserunt qui eu sint nulla.'
-          />
-          <HappeningNowCard
-            key={1}
-            title='Sit ipsum incididunt eu '
-            subtitle='ipsum incididunt'
-            description='Aute ipsum aliqua do nulla dolore. In laborum consequat fugiat consequat consectetur labore elit mollit laborum minim do nulla. Ad id veniam eiusmod cillum nostrud et elit laborum culpa officia velit. Reprehenderit exercitation enim nostrud quis consequat fugiat exercitation cillum tempor. Id Lorem in sunt incididunt. Id minim exercitation labore cupidatat non do do dolore deserunt qui eu sint nulla.'
-          />
-          <HappeningNowCard
-            key={1}
-            title='Sit ipsum incididunt eu '
-            subtitle='ipsum incididunt'
-            description='Aute ipsum aliqua do nulla dolore. In laborum consequat fugiat consequat consectetur labore elit mollit laborum minim do nulla. Ad id veniam eiusmod cillum nostrud et elit laborum culpa officia velit. Reprehenderit exercitation enim nostrud quis consequat fugiat exercitation cillum tempor. Id Lorem in sunt incididunt. Id minim exercitation labore cupidatat non do do dolore deserunt qui eu sint nulla.'
-          />
-          <HappeningNowCard
-            key={1}
-            title='Sit ipsum incididunt eu '
-            subtitle='ipsum incididunt'
-            description='Aute ipsum aliqua do nulla dolore. In laborum consequat fugiat consequat consectetur labore elit mollit laborum minim do nulla. Ad id veniam eiusmod cillum nostrud et elit laborum culpa officia velit. Reprehenderit exercitation enim nostrud quis consequat fugiat exercitation cillum tempor. Id Lorem in sunt incididunt. Id minim exercitation labore cupidatat non do do dolore deserunt qui eu sint nulla.'
-          />
-        </div>
+        )) ?? null}
+      </div>
 
-        <ScrollBar orientation='horizontal' />
-      </ScrollArea>
-    </>
+      <ScrollBar orientation='horizontal' />
+    </ScrollArea>
   )
 }
 

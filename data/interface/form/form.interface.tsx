@@ -12,6 +12,7 @@ export interface formProps extends formParams {
   successMessage?: string
   data: object
   submitLabel?: string
+  showOkButton?: boolean
 }
 
 export interface showFormProps {

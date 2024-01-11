@@ -41,7 +41,7 @@ const AppTable = ({
           console.log(selectedKeys)
         }}
         shadow='none'
-        className='my-4 overflox-scroll h-[70vh] rounded-none'
+        className='my-4 overflox-scroll rounded-none'
         border={0}
       >
         <TableHeader>

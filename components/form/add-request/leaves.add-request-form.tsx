@@ -5,6 +5,7 @@ import { Checkbox } from '@nextui-org/checkbox'
 import { formFieldParams } from '@/data/interface/form/formfield/formfield.interface'
 import AppTextAreaFormField from '../formfield/textArea.components'
 import { formParams } from '@/data/interface/form/form.interface'
+import CheckboxFormField from '../checkbox/checkbox-form.component'
 
 const LeavesAddRequestForm = ({ controller }: formParams) => {
   return (
@@ -30,11 +31,11 @@ const LeavesAddRequestForm = ({ controller }: formParams) => {
         placeholder='Choose leave type'
         controller={controller}
       />
-      <div className='flex items-center space-x-2'>
-        <Checkbox name='terms' id='terms'>
-          Half day
-        </Checkbox>
-      </div>
+      <CheckboxFormField
+        name='is_half_day'
+        controller={controller.control}
+        selection={[{ value: '', label: 'Half day' }]}
+      />
 
       <AppDatePicker controller={controller} />
       <AppTextAreaFormField

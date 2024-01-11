@@ -10,6 +10,8 @@ import {
 import LogItem from './log-item/log-item.time-logs'
 import { timeLoggingProps } from '@/data/interface/time-logging/time-logging.interface'
 import { ArrowLeftFromLine, ArrowRightFromLine } from 'lucide-react'
+import AppDialog from '@/utilities/providers/overlays/dialog/dialog'
+import TimeLogForm from '@/components/form/time-log/time-log.form'
 
 const TimeLoggingCard = ({ block }: timeLoggingProps) => {
   return (
@@ -44,19 +46,31 @@ const TimeLoggingCard = ({ block }: timeLoggingProps) => {
       </CardContent>
       <CardFooter className='row-span-2 '>
         <div className='grid grid-rows-2 w-full gap-2  mt-4'>
-          <AppButton
-            onClick={() => {}}
-            label='Time in'
-            block
-            icon={<ArrowRightFromLine />}
-          />
-          <AppButton
-            onClick={() => {}}
-            icon={<ArrowLeftFromLine />}
-            label='Time out'
-            variant={'destructive'}
-            block
-          />
+          <AppDialog
+            isOKLabel='Time in'
+            isOKAction={() => console.log('time in')}
+            title='Are you sure you want to time in?'
+            trigger={
+              <AppButton label='Time in' block icon={<ArrowRightFromLine />} />
+            }
+          >
+            <TimeLogForm />
+          </AppDialog>
+          <AppDialog
+            isOKLabel='Time out'
+            isOKAction={() => console.log('time out')}
+            title='Are you sure you want to time out?'
+            trigger={
+              <AppButton
+                icon={<ArrowLeftFromLine />}
+                label='Time out'
+                variant={'destructive'}
+                block
+              />
+            }
+          >
+            <TimeLogForm />
+          </AppDialog>
         </div>
       </CardFooter>
     </Card>

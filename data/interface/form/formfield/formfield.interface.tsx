@@ -18,6 +18,17 @@ export interface textAreaFormFieldProps extends TextAreaProps {
   placeholder?: string
   labelIcon?: ReactNode
 }
+
+export type checkboxFormFieldProps = {
+  controller: Control<any>
+  name: string
+  label?: string
+  selection: Array<{
+    label: string
+    value: string
+  }>
+}
+
 export interface onSubmitParams {
   event: FormEvent
   form: UseFormReturn<any, any, undefined>

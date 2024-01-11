@@ -14,6 +14,7 @@ const FormBase = ({
   successMessage,
   controller,
   data,
+  showOkButton = true,
   submitLabel,
 }: formProps) => {
   const [loading, setLoading] = useState(false)
@@ -58,13 +59,15 @@ const FormBase = ({
               <AppButton label='Cancel' variant={'ghost'} block />
             </DialogTrigger>
           ) : null}
-          <AppButton
-            type='submit'
-            label={submitLabel ?? 'Submit'}
-            block
-            disabled={!controller.formState.isValid || loading}
-            loading={loading}
-          />
+          {showOkButton ? (
+            <AppButton
+              type='submit'
+              label={submitLabel ?? 'Submit'}
+              block
+              disabled={!controller.formState.isValid || loading}
+              loading={loading}
+            />
+          ) : null}
         </div>
       </form>
     </Form>
