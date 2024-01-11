@@ -23,6 +23,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { NO_AUTH_LOGIN } from '@/config/constants/routes/routes'
 import { useRouter } from 'next/navigation'
+import RequestDemoDialog from '@/utilities/providers/overlays/dialog/request-demo/request-demo'
+import ContactMeDialog from '@/utilities/providers/overlays/dialog/contact-me/contact-me.dialog'
 const HeaderDrawer = () => {
   const router = useRouter()
   return (
@@ -52,19 +54,23 @@ const HeaderDrawer = () => {
                   router.push(NO_AUTH_LOGIN)
                 }}
               />
-              <AppButton
-                variant={'outline'}
-                label='Request demo'
-                block
-                className=' bg-transparent text-white  mix-blend-difference'
-              />
+              <RequestDemoDialog>
+                <AppButton
+                  variant={'outline'}
+                  label='Request demo'
+                  block={true}
+                  className=' bg-transparent text-white  mix-blend-difference'
+                />
+              </RequestDemoDialog>
             </div>
-            <AppButton
-              variant={'ghost'}
-              label='Contact me'
-              block
-              className='text-white  mix-blend-difference'
-            />
+            <ContactMeDialog>
+              <AppButton
+                variant={'ghost'}
+                label='Contact me'
+                block={true}
+                className='text-white  mix-blend-difference'
+              />
+            </ContactMeDialog>
           </div>
         </SheetHeader>
         <ScrollArea className='h-full'>

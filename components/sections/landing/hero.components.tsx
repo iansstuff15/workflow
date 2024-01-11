@@ -7,6 +7,8 @@ import { githubLink } from '@/config/constants/links/links'
 import { useEffect, useRef } from 'react'
 import { timeline } from './animation'
 import ToolsSection from './tools.components'
+import ContactMeDialog from '@/utilities/providers/overlays/dialog/contact-me/contact-me.dialog'
+import RequestDemoDialog from '@/utilities/providers/overlays/dialog/request-demo/request-demo'
 
 const HeroSection = () => {
   const initialized = useRef(false)
@@ -116,12 +118,16 @@ const HeroSection = () => {
           className='flex flex-col-reverse sm:grid grid-cols-2 gap-3 sm:px-20 lg:px-40 xl:px-96'
           ref={buttonContainer}
         >
-          <AppButton label='Contact Me' variant={'outline'} block />
-          <AppButton
-            label='Request Demo'
-            className='bg-gradient-to-r from-blue-600 to-indigo-600'
-            block
-          />
+          <ContactMeDialog>
+            <AppButton label='Contact Me' variant={'outline'} block />
+          </ContactMeDialog>
+          <RequestDemoDialog>
+            <AppButton
+              label='Request Demo'
+              className='bg-gradient-to-r from-blue-600 to-indigo-600'
+              block
+            />
+          </RequestDemoDialog>
         </div>
         <div className=' hidden sm:block'>
           <Snippet
