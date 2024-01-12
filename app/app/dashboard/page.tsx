@@ -1,6 +1,6 @@
-'use client';
-import AttendanceSection from '@/components/sections/dashboard/attendance.components';
-import PayrollSection from '@/components/sections/dashboard/payroll.components';
+'use client'
+import AttendanceSection from '@/lib/components/sections/dashboard/attendance.components'
+import PayrollSection from '@/lib/components/sections/dashboard/payroll.components'
 
 const Dashboard = () => {
   return (
@@ -8,7 +8,7 @@ const Dashboard = () => {
       <AttendanceSection />
       <PayrollSection />
     </>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

@@ -1,11 +1,11 @@
 'use client'
-import AppButton from '@/components/button/appButtons'
-import TimeLoggingCard from '@/components/cards/time-logging/time-logging.components'
-import KPI from '@/components/charts/kpi.components'
+import AppButton from '@/lib/components/button/appButtons'
+import TimeLoggingCard from '@/lib/components/cards/time-logging/time-logging.components'
+import KPI from '@/lib/components/charts/kpi.components'
 
-import AppTable from '@/components/table/table'
-import AttendanceTracker from '@/components/tracker/attendance-tracker.component'
-import { Card, CardContent, CardFooter } from '@/components/ui/card'
+import AppTable from '@/lib/components/table/table'
+import AttendanceTracker from '@/lib/components/tracker/attendance-tracker.component'
+import { Card, CardContent, CardFooter } from '@/lib/components/ui/card'
 
 import { Text, Flex, Callout, ProgressBar, Title } from '@tremor/react'
 import { Download, MoveRight } from 'lucide-react'

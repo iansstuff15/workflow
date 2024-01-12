@@ -1,7 +1,7 @@
 'use client'
-import AppTable from '@/components/table/table'
-import TableToolBar from '@/components/table/toolbar/toolbar'
-import { supabase } from '@/utilities/providers/backend/supabase'
+import AppTable from '@/lib/components/table/table'
+import TableToolBar from '@/lib/components/table/toolbar/toolbar'
+import { supabase } from '@/lib/utilities/providers/backend/supabase'
 import { TableCell, TableRow } from '@nextui-org/table'
 import { Chip } from '@nextui-org/chip'
 import { RealtimePostgresChangesPayload } from '@supabase/supabase-js'
@@ -14,9 +14,9 @@ import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from '@/components/ui/hover-card'
-import AppButton from '@/components/button/appButtons'
-import { data } from '../../../components/tracker/dummy-tracker'
+} from '@/lib/components/ui/hover-card'
+import AppButton from '@/lib/components/button/appButtons'
+import { data } from '../../../lib/components/tracker/dummy-tracker'
 dayjs.extend(relativeTime)
 const Page = () => {
   const [pagenateValue, setPagenateValue] = useState(49)

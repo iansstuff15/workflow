@@ -1,7 +1,7 @@
-import NoAuthLoginForm from '@/components/form/no-auth-login/login.form';
+import NoAuthLoginForm from '@/lib/components/form/no-auth-login/login.form'
 
 const NoAuthLogin = () => {
-  return <NoAuthLoginForm />;
-};
+  return <NoAuthLoginForm />
+}
 
-export default NoAuthLogin;
+export default NoAuthLogin

@@ -1,7 +1,7 @@
-import OTPForm from '@/components/form/otp/otp.form';
+import OTPForm from '@/lib/components/form/otp/otp.form'
 
 const OTP = () => {
-  return <OTPForm />;
-};
+  return <OTPForm />
+}
 
-export default OTP;
+export default OTP

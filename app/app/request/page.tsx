@@ -1,4 +1,4 @@
-import AppTable from '@/components/table/table'
+import AppTable from '@/lib/components/table/table'
 
 const Request = () => {
   return (

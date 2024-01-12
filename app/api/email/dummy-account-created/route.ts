@@ -1,5 +1,5 @@
-import { UNDEFINED_ERROR, UNEXPECTED_ERROR } from '@/config/error/auth'
-import { CreateEmailDummyAccountRequest } from '@/data/request/email-dummy-account/created'
+import { UNDEFINED_ERROR, UNEXPECTED_ERROR } from '@/lib/config/error/auth'
+import { CreateEmailDummyAccountRequest } from '@/lib/data/request/email-dummy-account/created'
 import AccountNewDummy from '@/workflow-email-templates/emails/account-new-dummy'
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'

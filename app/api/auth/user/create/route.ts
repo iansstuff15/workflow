@@ -1,4 +1,4 @@
-import { UNDEFINED_ERROR, UNEXPECTED_ERROR } from '@/config/error/auth'
+import { UNDEFINED_ERROR, UNEXPECTED_ERROR } from '@/lib/config/error/auth'
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'

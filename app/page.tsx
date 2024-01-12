@@ -1,11 +1,11 @@
-import ContactMeCard from '@/components/cards/contact-me/contact-me-card.component'
-import ContactMeSection from '@/components/sections/landing/contact-me.components'
-import FeaturesSection from '@/components/sections/landing/features/features.components'
-import { featureData } from '@/components/sections/landing/features/features.data'
-import FooterSection from '@/components/sections/landing/footer.components'
-import HeroSection from '@/components/sections/landing/hero.components'
-import PlatformSection from '@/components/sections/landing/platforms.component'
-import ToolsSection from '@/components/sections/landing/tools.components'
+import ContactMeCard from '@/lib/components/cards/contact-me/contact-me-card.component'
+import ContactMeSection from '@/lib/components/sections/landing/contact-me.components'
+import FeaturesSection from '@/lib/components/sections/landing/features/features.components'
+import { featureData } from '@/lib/components/sections/landing/features/features.data'
+import FooterSection from '@/lib/components/sections/landing/footer.components'
+import HeroSection from '@/lib/components/sections/landing/hero.components'
+import PlatformSection from '@/lib/components/sections/landing/platforms.component'
+import ToolsSection from '@/lib/components/sections/landing/tools.components'
 
 export default function Home() {
   return (

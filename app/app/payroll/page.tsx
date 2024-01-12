@@ -1,6 +1,6 @@
-import CompensationInfo from '@/components/cards/payroll-info-cards/compensation-info'
-import PayrollInfoCard from '@/components/cards/payroll-info-cards/payroll-info-card'
-import AppTable from '@/components/table/table'
+import CompensationInfo from '@/lib/components/cards/payroll-info-cards/compensation-info'
+import PayrollInfoCard from '@/lib/components/cards/payroll-info-cards/payroll-info-card'
+import AppTable from '@/lib/components/table/table'
 
 const Payroll = () => {
   return (

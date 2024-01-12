@@ -1,4 +1,4 @@
-import { UNDEFINED_ERROR, UNEXPECTED_ERROR } from '@/config/error/auth'
+import { UNDEFINED_ERROR, UNEXPECTED_ERROR } from '@/lib/config/error/auth'
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
@@ -6,7 +6,7 @@ import { faker } from '@faker-js/faker'
 import AccountNewDummy from '@/workflow-email-templates/emails/account-new-dummy'
 import { Resend } from 'resend'
 import { env } from 'process'
-import { appMetadata } from '../../../../../config/constants/metadata/metadata'
+import { appMetadata } from '../../../../../lib/config/constants/metadata/metadata'
 import { metadata } from '../../../../layout'
 
 export async function POST(

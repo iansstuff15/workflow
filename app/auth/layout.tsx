@@ -1,6 +1,6 @@
 'use client'
-import { WrapperProps } from '@/data/interface/layout/layout'
-import LoginCard from '@/components/cards/login/auth-card/auth-login.card'
+import { WrapperProps } from '@/lib/data/interface/layout/layout'
+import LoginCard from '@/lib/components/cards/login/auth-card/auth-login.card'
 import AppIcon from '@/assets/icon.svg'
 import Image from 'next/image'
 import { fetchBackground } from './auth.layout.controller'

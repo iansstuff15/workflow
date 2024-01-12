@@ -2,7 +2,7 @@ import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { AUTH_LOGIN, NO_AUTH_LOGIN } from './config/constants/routes/routes'
+import { AUTH_LOGIN, NO_AUTH_LOGIN } from './lib/config/constants/routes/routes'
 
 export async function middleware(request: NextRequest) {
   /* The code is creating a cookie store and using it to create a Supabase client. The `cookies()`

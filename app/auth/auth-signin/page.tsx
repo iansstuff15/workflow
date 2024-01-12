@@ -1,7 +1,7 @@
-import AuthLoginForm from '@/components/form/auth-login/login.form';
+import AuthLoginForm from '@/lib/components/form/auth-login/login.form'
 
 const AuthLogin = () => {
-  return <AuthLoginForm />;
-};
+  return <AuthLoginForm />
+}
 
-export default AuthLogin;
+export default AuthLogin
