@@ -1,9 +1,16 @@
 'use client'
 import { showError } from '@/lib/config/message/message.config'
 import { WrapperProps } from '@/lib/data/interface/layout/layout'
+import { EmployeeResponse } from '@/lib/data/response/employee/employee.response'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
-import { AuthUser, Session, User, createClient } from '@supabase/supabase-js'
+import {
+  AuthUser,
+  Session,
+  User,
+  UserResponse,
+  createClient,
+} from '@supabase/supabase-js'
 import { createContext, useContext, useEffect, useState } from 'react'
 const supabaseUrl: string = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseAnonKey: string = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -19,14 +26,23 @@ export const client = {
 const SupabaseContext = createContext<{
   session: Session | null | undefined
   user: AuthUser | null | undefined
+  userInfo: EmployeeResponse | null | undefined
+  userID: string | null | undefined
   signOut: () => void
-}>({ session: null, user: null, signOut: () => {} })
+}>({
+  session: null,
+  user: null,
+  userInfo: null,
+  userID: null,
+  signOut: () => {},
+})
 
 export const SupabaseProvider = ({ children }: WrapperProps) => {
   const [user, setUser] = useState<AuthUser>()
+  const [userInfo, setUserInfo] = useState<EmployeeResponse>()
   const [session, setSession] = useState<Session | null>()
   const [loading, setLoading] = useState(true)
-
+  const [userID, setUserID] = useState<string | null>()
   useEffect(() => {
     const setData = async () => {
       const {
@@ -38,13 +54,13 @@ export const SupabaseProvider = ({ children }: WrapperProps) => {
       }
       setSession(session)
       setUser(session?.user)
+      setUserID(session?.user.id)
       if (session) {
         let { data, error } = await supabase
           .from('employee')
           .select('*')
           .eq('id', session.user.id)
-        console.log('data')
-        console.log(data)
+        setUserInfo(data![0])
         if (error) {
           showError({ message: error.message })
         }
@@ -67,6 +83,8 @@ export const SupabaseProvider = ({ children }: WrapperProps) => {
     session,
     user,
     loading,
+    userInfo,
+    userID,
     signOut: () => supabase.auth.signOut(),
   }
 

@@ -47,7 +47,7 @@ import { Badge } from '@nextui-org/badge'
 
 const SideBarContent = () => {
   const supabase = useSupabase()
-  const userInfo = supabase.user?.user_metadata
+  const userInfo = supabase.userInfo
   return (
     <div className='my-3 space-y-2 sm:rounded-r-xl overflow-y-scroll w-48'>
       <div className='grid grid-cols-2'>
@@ -81,12 +81,12 @@ const SideBarContent = () => {
           {userInfo != undefined ? (
             <Avatar>
               <AvatarImage
-                src={`${process.env.NEXT_PUBLIC_GENERATE_AVATAR}${userInfo['first_name']} ${userInfo['last_name']}`}
+                src={`${process.env.NEXT_PUBLIC_GENERATE_AVATAR}${userInfo.first_name} ${userInfo.last_name}`}
               />
               <AvatarFallback>{`${
-                userInfo != undefined ? userInfo['first_name'] : 'U'
+                userInfo != undefined ? userInfo.first_name : 'U'
               } ${
-                userInfo != undefined ? userInfo['last_name'] : 'U'
+                userInfo != undefined ? userInfo.last_name : 'U'
               }`}</AvatarFallback>
             </Avatar>
           ) : (
@@ -94,13 +94,13 @@ const SideBarContent = () => {
           )}
 
           {userInfo != undefined ? (
-            <h3 className='text-sm'>{`${userInfo['last_name']}, ${userInfo['first_name']}`}</h3>
+            <h3 className='text-sm'>{`${userInfo.last_name}, ${userInfo.first_name}`}</h3>
           ) : (
             <Skeleton className='h-4 w-full' />
           )}
 
           {userInfo != undefined ? (
-            <h6 className='text-xs text-slate-500'>{`${userInfo['position']}`}</h6>
+            <h6 className='text-xs text-slate-500'>{`${userInfo.position}`}</h6>
           ) : (
             <Skeleton className='h-4 w-full' />
           )}
