@@ -85,7 +85,7 @@ const Page = () => {
                       {data.id}
                     </Snippet>
                   </HoverCardTrigger>
-                  <HoverCardContent className='w-full space-y-4'>
+                  <HoverCardContent className='w-full space-y-4 z-50'>
                     <div className='space-y-2 text-xs'>
                       <h1 className='font-bold text-lg'>
                         {data.last_name}, {data.first_name}

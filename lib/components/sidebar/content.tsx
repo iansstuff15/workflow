@@ -49,7 +49,7 @@ const SideBarContent = () => {
   const supabase = useSupabase()
   const userInfo = supabase.user?.user_metadata
   return (
-    <div className='my-3 space-y-2 sm:rounded-r-xl overflow-y-scroll'>
+    <div className='my-3 space-y-2 sm:rounded-r-xl overflow-y-scroll w-48'>
       <div className='grid grid-cols-2'>
         <Image src={appIcon} width={50} height={50} alt='app icon' />
 
