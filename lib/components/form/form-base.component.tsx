@@ -26,29 +26,31 @@ const FormBase = ({
         onSubmit={async (event: FormEvent) => {
           event.preventDefault()
           setLoading(true)
-          const response = await fetch(submitRoute, {
-            method: 'POST',
-            body: JSON.stringify(data),
-          })
-          const json = response.json()
-          json.then((value: GenericResponse) => {
-            if (value.message == 'good') {
-              if (redirectRoute) {
-                router.push(redirectRoute)
-              }
-              if (successMessage) {
-                showSuccess({
-                  message: successMessage,
-                })
-              }
-              setLoading(false)
-            } else {
-              showError({
-                message: value.message,
-              })
-              setLoading(false)
-            }
-          })
+          console.log(data)
+          setLoading(false)
+          // const response = await fetch(submitRoute, {
+          //   method: 'POST',
+          //   body: JSON.stringify(data),
+          // })
+          // const json = response.json()
+          // json.then((value: GenericResponse) => {
+          //   if (value.message == 'good') {
+          //     if (redirectRoute) {
+          //       router.push(redirectRoute)
+          //     }
+          //     if (successMessage) {
+          //       showSuccess({
+          //         message: successMessage,
+          //       })
+          //     }
+          //     setLoading(false)
+          //   } else {
+          //     showError({
+          //       message: value.message,
+          //     })
+          //     setLoading(false)
+          //   }
+          // })
         }}
         className='space-y-8'
       >

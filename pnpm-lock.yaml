@@ -179,6 +179,9 @@ dependencies:
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
+  drizzle-orm:
+    specifier: ^0.29.3
+    version: 0.29.3(@types/react@18.2.42)(postgres@3.4.3)(react@18.2.0)
   embla-carousel-react:
     specifier: 8.0.0-rc19
     version: 8.0.0-rc19(react@18.2.0)
@@ -206,6 +209,9 @@ dependencies:
   next-themes:
     specifier: ^0.2.1
     version: 0.2.1(next@14.0.2)(react-dom@18.2.0)(react@18.2.0)
+  postgres:
+    specifier: ^3.4.3
+    version: 3.4.3
   prisma:
     specifier: ^5.7.0
     version: 5.7.0
@@ -283,9 +289,6 @@ devDependencies:
   drizzle-kit:
     specifier: ^0.20.12
     version: 0.20.12
-  drizzle-orm:
-    specifier: ^0.29.3
-    version: 0.29.3(@types/react@18.2.42)(react@18.2.0)
   eslint:
     specifier: ^8.54.0
     version: 8.55.0
@@ -6352,7 +6355,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.29.3(@types/react@18.2.42)(react@18.2.0):
+  /drizzle-orm@0.29.3(@types/react@18.2.42)(postgres@3.4.3)(react@18.2.0):
     resolution: {integrity: sha512-uSE027csliGSGYD0pqtM+SAQATMREb3eSM/U8s6r+Y0RFwTKwftnwwSkqx3oS65UBgqDOM0gMTl5UGNpt6lW0A==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -6424,8 +6427,9 @@ packages:
         optional: true
     dependencies:
       '@types/react': 18.2.42
+      postgres: 3.4.3
       react: 18.2.0
-    dev: true
+    dev: false
 
   /eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
@@ -9377,6 +9381,11 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
+  /postgres@3.4.3:
+    resolution: {integrity: sha512-iHJn4+M9vbTdHSdDzNkC0crHq+1CUdFhx+YqCE+SqWxPjm+Zu63jq7yZborOBF64c8pc58O5uMudyL1FQcHacA==}
+    engines: {node: '>=12'}
+    dev: false
+
   /preact-render-to-string@5.2.6(preact@10.19.2):
     resolution: {integrity: sha512-JyhErpYOvBV1hEPwIxc/fHWXPfnEGdRKxc8gFdAZ7XV4tlzyzG847XAyEZqoDnynP88akM4eaHcSOzNcLWFguw==}
     peerDependencies:
@@ -9722,6 +9731,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+    dev: false
 
   /read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
