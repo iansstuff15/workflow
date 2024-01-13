@@ -1,3 +1,4 @@
+import { API_CREATE_EMPLOYEE } from '@/lib/config/constants/routes/routes'
 import { UNDEFINED_ERROR } from '@/lib/config/error/auth'
 import { onSubmitParams } from '@/lib/data/interface/form/formfield/formfield.interface'
 import { stepFunctionProps } from '@/lib/data/interface/stepper/stepper'
@@ -21,7 +22,10 @@ export const onSubmit: ({
       data: { ...values, created: now },
     },
   })
-
+  fetch(API_CREATE_EMPLOYEE, {
+    method: 'POST',
+    body: JSON.stringify({ id: data.user?.id, ...values }),
+  })
   if (data) {
     return 'success'
   } else {

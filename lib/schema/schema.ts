@@ -13,7 +13,6 @@ import {
   json,
 } from 'drizzle-orm/pg-core'
 import { relations, sql } from 'drizzle-orm'
-import { selectProps } from '../data/interface/select/select.interface'
 
 const timestampConfig: PgTimestampConfig = {
   withTimezone: true,
@@ -181,3 +180,19 @@ export const timeLogs = pgTable('time_logs', {
   location: text('location').notNull(),
   dateTime: timestamp('date_time', timestampConfig).default(sql`now()`),
 })
+
+export const EmployeeRelation = relations(employee, ({ many, one }) => ({
+  timeLogs: many(timeLogs),
+  leaveRequest: many(LeaveRequest),
+  undertimeRequest: many(undertimeRequest),
+  scheduleAdjustmentRequest: many(scheduleAdjustmentRequest),
+  officialBusinessRequest: many(officialBusinessRequest),
+  certificateOfAttendanceRequest: many(certificateOfAttendanceRequest),
+  incidentReports: many(incidentReports),
+  assetAllocation: many(assetAllocation),
+  payroll: many(payroll),
+  supervisor: one(employee, {
+    fields: [employee.id],
+    references: [employee.id],
+  }),
+}))
