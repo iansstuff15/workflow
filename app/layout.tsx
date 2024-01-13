@@ -8,7 +8,6 @@ import CoreProvider from '@/lib/utilities/providers/core.provider'
 import { SupabaseProvider } from '@/lib/utilities/providers/backend/supabase'
 import AppHeader from '@/lib/components/header/header.component'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { migrateDB } from '@/lib/migration/migration'
 
 export const metadata: Metadata = appMetadata
 
@@ -17,7 +16,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  migrateDB()
   return (
     <html lang='en'>
       <body>
