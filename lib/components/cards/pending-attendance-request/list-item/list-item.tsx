@@ -1,7 +1,7 @@
 import { Card } from '@/lib/components/ui/card'
 import { attendanceInsighProps } from '@/lib/data/interface/attendance-insight/attendance-insight.interface'
 
-const ListItem = ({ label, count }: attendanceInsighProps) => {
+const ListItem = ({ label, value: count }: attendanceInsighProps) => {
   return (
     <Card>
       <div className='grid grid-cols-2 py-2 px-3'>

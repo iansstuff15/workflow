@@ -4,24 +4,12 @@ import { formParams } from '@/lib/data/interface/form/form.interface'
 import { MoveRight } from 'lucide-react'
 import TimePickerPopOver from '@/lib/components/timepicker/timepicker.popover'
 import AppSelect from '@/lib/components/select/select.components'
+import RequestFormHeader from './request-form-header.component'
 
 const CertificateOfAttendanceAddRequestForm = ({ controller }: formParams) => {
   return (
     <>
-      <div className='grid grid-cols-2 mt-3'>
-        <div>
-          <h5 className='font-medium'>From</h5>
-          <p>Powell, Diriangen Lempira</p>
-          <p className='text-sm'>Software Engineer</p>
-          <p className='text-xs'>Software Delivery</p>
-        </div>
-        <div className='text-end'>
-          <h5 className='font-medium'>To be reviewed by</h5>
-          <p>Delacruz, Juan</p>
-          <p className='text-sm'>Manager</p>
-          <p className='text-xs'>Human Resource</p>
-        </div>
-      </div>
+      <RequestFormHeader />
       <hr />
       <div className='grid grid-cols-11 gap-2'>
         <TimePickerPopOver controller={controller} label='Current Start' />

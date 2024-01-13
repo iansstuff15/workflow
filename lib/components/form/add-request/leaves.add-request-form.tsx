@@ -6,24 +6,12 @@ import { formFieldParams } from '@/lib/data/interface/form/formfield/formfield.i
 import AppTextAreaFormField from '../formfield/textArea.components'
 import { formParams } from '@/lib/data/interface/form/form.interface'
 import CheckboxFormField from '../checkbox/checkbox-form.component'
+import RequestFormHeader from './request-form-header.component'
 
 const LeavesAddRequestForm = ({ controller }: formParams) => {
   return (
     <>
-      <div className='grid grid-cols-2 mt-3'>
-        <div>
-          <h5 className='font-medium'>From</h5>
-          <p>Powell, Diriangen Lempira</p>
-          <p className='text-sm'>Software Engineer</p>
-          <p className='text-xs'>Software Delivery</p>
-        </div>
-        <div className='text-end'>
-          <h5 className='font-medium'>To be reviewed by</h5>
-          <p>Delacruz, Juan</p>
-          <p className='text-sm'>Manager</p>
-          <p className='text-xs'>Human Resource</p>
-        </div>
-      </div>
+      <RequestFormHeader />
       <hr />
       <AppSelect
         items={['Maternity', 'Paternity', 'Sick', 'Vacation']}

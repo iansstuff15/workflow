@@ -16,10 +16,10 @@ const AttendanceCreditsCard = () => {
       </CardHeader>
       <CardContent className='row-span-4 overflow-scroll '>
         <div className='space-y-2 '>
-          <ListItem label='Overtime' count={0} />
-          <ListItem label='Undertime' count={0} />
-          <ListItem label='Official Business' count={0} />
-          <ListItem label='Late' count={0} />
+          <ListItem label='Overtime' value={0} />
+          <ListItem label='Undertime' value={0} />
+          <ListItem label='Official Business' value={0} />
+          <ListItem label='Late' value={0} />
         </div>
       </CardContent>
     </Card>

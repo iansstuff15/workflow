@@ -1,4 +1,4 @@
 export interface attendanceInsighProps {
-  label: string;
-  count: number;
+  label: string
+  value: number | string
 }
