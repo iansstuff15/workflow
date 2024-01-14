@@ -4,22 +4,28 @@ import {
   API_UPDATE_EMPLOYEE,
   API_DELETE_EMPLOYEE,
 } from '@/lib/config/constants/routes/routes'
+import { supabase } from '../utilities/providers/backend/supabase'
+import {
+  ListenQueryParam,
+  ListenQueryWithEqualFilterParam,
+} from '../components/query/query.type'
+import { showError } from '../config/message/message.config'
 
-interface serviceReturnInterface {
+interface ServiceReturnInterface {
   method: string
   route: string
   body?: object
   response?: object
 }
-interface serviceProps {
+interface ServiceProps {
   route: string
 }
-export const AppService = ({ route }: serviceProps) => {
+export const AppService = ({ route }: ServiceProps) => {
   let method: string = ''
   let body: object = {}
   let response: object = {}
 
-  let result: serviceReturnInterface = {
+  let result: ServiceReturnInterface = {
     method: '',
     route: '',
     body: {},
@@ -42,4 +48,77 @@ export const AppService = ({ route }: serviceProps) => {
   result.response = response
 
   return result
+}
+export const ListenToData = async ({
+  setData,
+  setPayload,
+  database,
+  range,
+}: ListenQueryParam) => {
+  let { data, error } = await supabase
+    .from(database)
+    .select('*')
+    .range(range.start, range.limit)
+  if (data) {
+    setData(data)
+    supabase
+      .channel('custom-all-channel')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: database },
+        async payload => {
+          setPayload(payload)
+          let { data, error } = await supabase
+            .from(database)
+            .select('*')
+            .range(range.start, range.limit)
+          if (data) {
+            setData(data)
+          } else {
+            showError({ message: `${error?.message.toString}` })
+          }
+        },
+      )
+      .subscribe()
+  } else {
+    showError({ message: `${error?.message.toString}` })
+  }
+}
+export const ListenToDataWithEqualFilter = async ({
+  setData,
+  setPayload,
+  database,
+  range,
+  filter,
+}: ListenQueryWithEqualFilterParam) => {
+  let { data, error } = await supabase
+    .from(database)
+    .select('*')
+    .range(range.start, range.limit)
+    .eq(filter.column, filter.value)
+  if (data) {
+    setData(data)
+    supabase
+      .channel('custom-all-channel')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: database },
+        async payload => {
+          console.log('Change received!', payload)
+          setPayload(payload)
+          let { data, error } = await supabase
+            .from(database)
+            .select('*')
+            .range(range.start, range.limit)
+          if (data) {
+            setData(data)
+          } else {
+            showError({ message: `${error?.message.toString}` })
+          }
+        },
+      )
+      .subscribe()
+  } else {
+    showError({ message: `${error?.message.toString}` })
+  }
 }

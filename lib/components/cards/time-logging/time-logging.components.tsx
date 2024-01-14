@@ -12,8 +12,35 @@ import { timeLoggingProps } from '@/lib/data/interface/time-logging/time-logging
 import { ArrowLeftFromLine, ArrowRightFromLine } from 'lucide-react'
 import AppDialog from '@/lib/utilities/providers/overlays/dialog/dialog'
 import TimeLogForm from '@/lib/components/form/time-log/time-log.form'
+import { useEffect, useState } from 'react'
+import { ListenToDataWithEqualFilter } from '@/lib/interactors/app.service'
+import { RealtimePostgresChangesPayload } from '@supabase/supabase-js'
+import { useSupabase } from '@/lib/utilities/providers/backend/supabase'
 
 const TimeLoggingCard = ({ block }: timeLoggingProps) => {
+  const [data, setData] = useState<any>()
+  const supabase = useSupabase()
+  const userID = supabase.userID
+  const [payload, setPayload] = useState<
+    RealtimePostgresChangesPayload<{
+      [key: string]: any
+    }>
+  >()
+  useEffect(() => {
+    ListenToDataWithEqualFilter({
+      setData: setData,
+      setPayload: setPayload,
+      database: 'time_logs',
+      range: {
+        start: 0,
+        limit: 30,
+      },
+      filter: {
+        column: 'employee',
+        value: userID ?? 'a',
+      },
+    })
+  }, [userID])
   return (
     <Card
       className={`w-full h-96 sm:h-[${
@@ -30,17 +57,9 @@ const TimeLoggingCard = ({ block }: timeLoggingProps) => {
         <h1 className='text-xs font-bold mt-2'>Log history</h1>
         <div className='h-full space-y-3 overflow-scroll '>
           <div className='space-y-2 '>
-            <LogItem />
-            <LogItem />
-            <LogItem />
-            <LogItem />
-            <LogItem />
-            <LogItem />
-            <LogItem />
-            <LogItem />
-            <LogItem />
-            <LogItem />
-            <LogItem />
+            {data?.map((data: any, index: number) => {
+              return <LogItem key={index} />
+            }) ?? 'No data'}
           </div>
         </div>
       </CardContent>
