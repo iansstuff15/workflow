@@ -12,9 +12,9 @@ const LogItem = ({ time, date, type, location }: timeLogProps) => {
         </div>
         <div className='justify-self-end text-end'>
           <Badge>
-            <h3 className='text-xs'>{type}</h3>
-            <h3 className='text-slate-500 text-xs'>{location}</h3>
+            <h3 className='text-xs'>{type.replace('_', ' ')}</h3>
           </Badge>
+          <h3 className='text-slate-500 text-xs'>{location}</h3>
         </div>
       </div>
     </Card>

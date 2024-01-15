@@ -1,7 +1,7 @@
 export type TimeLogResponse = {
   id: string
   employee: string
-  logType: string
+  log_type: string
   location: string
   date_time: string
 }

@@ -4,7 +4,7 @@ dayjs.extend(relativeTime)
 export const dateTemplate: string = 'dddd, MMM DD, YYYY'
 export const timeTemplate: string = 'hh:MM:ss a'
 export const formatDate = (date: string): string => {
-  return dayjs(date).format()
+  return dayjs(date).format(dateTemplate)
 }
 
 export const formatTime = (time: string): string => {

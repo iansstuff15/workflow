@@ -10,7 +10,8 @@ import { ListenToDataWithEqualFilter } from '@/lib/interactors/app.service'
 import { RealtimePostgresChangesPayload } from '@supabase/supabase-js'
 import { useSupabase } from '@/lib/utilities/providers/backend/supabase'
 import { TimeLogResponse } from '@/lib/data/response/time-log/time-log.response'
-import { formatTime } from '@/lib/utilities/dayjs+'
+import { formatDate, formatTime } from '@/lib/utilities/dayjs+'
+import { Skeleton } from '@/lib/components/ui/skeleton'
 
 const TimeLoggingCard = ({ block }: timeLoggingProps) => {
   const [data, setData] = useState<any>()
@@ -48,17 +49,37 @@ const TimeLoggingCard = ({ block }: timeLoggingProps) => {
         <h1 className='text-xs font-bold mt-2'>Log history</h1>
         <div className='h-full space-y-3 overflow-scroll '>
           <div className='space-y-2 '>
-            {data?.map((data: TimeLogResponse, index: number) => {
-              return (
-                <LogItem
-                  key={index}
-                  date={formatTime(data.date_time)}
-                  time={formatTime(data.date_time)}
-                  location={data.location}
-                  type={data.logType}
-                />
-              )
-            }) ?? 'No data found, start logging!'}
+            {data ? (
+              <>
+                {data.length == 0 ? (
+                  <div className='flex flex-col items-center justify-center'>
+                    <p className='text-sm text-slate-400'>
+                      No data found, start logging!
+                    </p>
+                  </div>
+                ) : (
+                  data?.map((data: TimeLogResponse, index: number) => {
+                    return (
+                      <LogItem
+                        key={index}
+                        date={formatDate(data.date_time)}
+                        time={formatTime(data.date_time)}
+                        location={data.location}
+                        type={data.log_type}
+                      />
+                    )
+                  })
+                )}
+              </>
+            ) : (
+              <>
+                <Skeleton className={'w-full h-20'} />
+                <Skeleton className={'w-full h-20'} />
+                <Skeleton className={'w-full h-20'} />
+                <Skeleton className={'w-full h-20'} />
+                <Skeleton className={'w-full h-20'} />
+              </>
+            )}
           </div>
         </div>
       </CardBody>
