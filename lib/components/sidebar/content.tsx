@@ -43,7 +43,7 @@ const SideBarContent = () => {
   const supabase = useSupabase()
   const userInfo = supabase.userInfo
   return (
-    <div className='my-3 space-y-4  overflow-y-scroll w-full sm:w-48'>
+    <div className='my-3 space-y-4 h-screen overflow-y-scroll w-full sm:w-48'>
       <div className='grid grid-cols-2'>
         <Image src={appIcon} width={50} height={50} alt='app icon' />
 
@@ -121,11 +121,6 @@ const SideBarContent = () => {
         icon={<GaugeCircle size={18} />}
       />
       <h2>Admin</h2>
-      <SideBarItem
-        to={ADMIN_DASHBOARD}
-        label='Dashboard'
-        icon={<LayoutDashboard size={18} />}
-      />
       <SideBarItem to={EMPLOYEE} label='Employees' icon={<Users size={18} />} />
       <SideBarItem
         to={CAMPAIGN}

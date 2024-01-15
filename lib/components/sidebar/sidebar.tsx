@@ -9,7 +9,11 @@ import AppDrawer from '@/lib/utilities/providers/overlays/drawer/drawer.overlay'
 const SideBar = () => {
   const isDesktop = useMediaQuery('(min-width: 768px)')
   if (isDesktop) {
-    return <SideBarContent />
+    return (
+      <div className={'overflow-scroll h-[95vh]'}>
+        <SideBarContent />
+      </div>
+    )
   } else {
     return (
       <div className='sticky top-0  w-full z-10 '>

@@ -1,12 +1,5 @@
 'use client'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/lib/components/ui/card'
+import { Card, CardBody, CardFooter } from '@nextui-org/card'
 import ListItem from './list-item/list-item.attendance-insights'
 import { useSupabase } from '@/lib/utilities/providers/backend/supabase'
 
@@ -14,12 +7,12 @@ const AttendanceInsightsCard = () => {
   const supabase = useSupabase()
   const userInfo = supabase.userInfo
   return (
-    <Card className='w-full h-full grid grid-rows-6 gap-1'>
-      <CardHeader className='row-span-2'>
-        <CardTitle>Attendance Insights</CardTitle>
-        <CardDescription>From Date to Date</CardDescription>
-      </CardHeader>
-      <CardContent className='row-span-4 overflow-scroll '>
+    <Card className='w-full  h-96 grid grid-rows-6 gap-1 px-4 py-8'>
+      <div className='row-span-1'>
+        <h1 className='text-2xl font-bold'>Attendance Insights</h1>
+        <h2 className='text-sm text-slate-400'>From Date to Date</h2>
+      </div>
+      <CardBody className='row-span-4 overflow-scroll '>
         <div className='space-y-2 '>
           <ListItem
             label='Sick Leave Regular'
@@ -38,7 +31,7 @@ const AttendanceInsightsCard = () => {
             value={`${userInfo?.maternal_leave}`}
           />
         </div>
-      </CardContent>
+      </CardBody>
     </Card>
   )
 }

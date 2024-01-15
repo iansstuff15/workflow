@@ -37,15 +37,13 @@ const TimeLoggingCard = ({ block }: timeLoggingProps) => {
     })
   }, [userID])
   return (
-    <Card
-      className={`w-full h-96 sm:h-[${
-        block ? '100%' : '384px'
-      }]  grid grid-rows-6 gap-3`}
-    >
-      <CardHeader className='row-span-1'>
-        <h1 className='text-md'>Time Logs</h1>
-        <h2 className='text-xs'>Todo: Current time / Location</h2>
-      </CardHeader>
+    <Card className={`w-full h-96 py-8 px-4`}>
+      <div className='row-span-1'>
+        <h1 className='text-2xl font-bold'>Time Logs</h1>
+        <h2 className='text-sm text-slate-400'>
+          Todo: Current time / Location
+        </h2>
+      </div>
       <CardBody className='space-y-3 row-span-3'>
         <h1 className='text-xs font-bold mt-2'>Log history</h1>
         <div className='h-full space-y-3 overflow-scroll '>

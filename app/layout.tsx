@@ -25,7 +25,9 @@ export default function RootLayout({
             <CoreProvider>
               <AuthProvider>
                 <AppHeader />
-                <div>{children}</div>
+                <div className={'dark:bg-neutral-900 dark:text-white'}>
+                  {children}
+                </div>
               </AuthProvider>
             </CoreProvider>
           </SupabaseProvider>
