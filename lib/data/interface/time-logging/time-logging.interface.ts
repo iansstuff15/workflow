@@ -1,4 +1,4 @@
-export interface timeLoggingProps {
+export type timeLoggingProps = {
   block?: boolean
 }
 export type timeLogProps = {
@@ -6,4 +6,7 @@ export type timeLogProps = {
   date: string
   location: string
   type: string
+}
+export type timeLoggingFormProps = {
+  now: Date
 }

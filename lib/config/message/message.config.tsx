@@ -1,4 +1,8 @@
-import { MessageProps } from '@/lib/data/types/message/message.type'
+'use client'
+import {
+  MessageProps,
+  PromiseMessageProps,
+} from '@/lib/data/types/message/message.type'
 import { toast } from 'sonner'
 
 const position = 'top-center'
@@ -17,19 +21,26 @@ export const showError = ({ message }: MessageProps) => {
 export const showSuccess = ({ message }: MessageProps) => {
   toast.success('Success!', {
     position: position,
-
     description: message,
   })
 }
 export const showWarning = ({ message }: MessageProps) => {
   toast.warning('Warning.', {
     position: position,
-
     description: message,
   })
 }
 export const showLoading = () => {
   toast.loading('Hold on, please wait...', {
+    position: position,
+  })
+}
+
+export const showPromise = ({ promise }: PromiseMessageProps) => {
+  toast.promise(promise, {
+    loading: 'Loading please wait...',
+    success: 'Success',
+    error: error => <p>{`Error: ${error}`}</p>,
     position: position,
   })
 }

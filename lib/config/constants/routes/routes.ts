@@ -40,3 +40,6 @@ export const API_READ_ALL_EMPLOYEE = API_EMPLOYEE_BASE + '/read-all'
 //dummt-data
 export const API_CREATE_DUMMY_EMPLOYEE =
   '/api' + AUTH_BASE + '/user/create-dummy-user'
+
+export const API_USER_BASE = API_BASE + '/user'
+export const API_CREATE_TIME_LOG: string = API_USER_BASE + '/time-log/create'

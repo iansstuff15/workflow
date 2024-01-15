@@ -15,6 +15,7 @@ export async function POST(
 ) {
   try {
     const cookieStore = cookies()
+
     const { receipient } = await request.json()
     const email = faker.internet.email().toLowerCase()
     const password = faker.internet.password()

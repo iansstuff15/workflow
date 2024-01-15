@@ -9,7 +9,7 @@ import {
   ListenQueryParam,
   ListenQueryWithEqualFilterParam,
 } from '../components/query/query.type'
-import { showError } from '../config/message/message.config'
+import { showError, showPromise } from '../config/message/message.config'
 
 interface ServiceReturnInterface {
   method: string
@@ -18,23 +18,35 @@ interface ServiceReturnInterface {
   response?: object
 }
 interface ServiceProps {
-  database: string
   method?: string
   data: object
+  route: string
 }
-export const AppFetch = ({ method, data, database }: ServiceProps) => {}
+export const AppFetch = ({ method, data, route }: ServiceProps) => {
+  console.log(data)
+  console.log(route)
+
+  showPromise({
+    promise: fetch(route, {
+      method: method,
+      body: JSON.stringify({ data: data }),
+    }),
+  })
+}
 export const ListenToData = async ({
   setData,
   setPayload,
   database,
   range,
   isAscending = false,
+  orderBy,
 }: ListenQueryParam) => {
   let { data, error } = await supabase
     .from(database)
     .select('*')
     .range(range.start, range.limit)
-    .order('id', { ascending: isAscending })
+
+    .order(orderBy ? orderBy : 'id', { ascending: isAscending })
   if (data) {
     setData(data)
     supabase
@@ -48,7 +60,7 @@ export const ListenToData = async ({
             .from(database)
             .select('*')
             .range(range.start, range.limit)
-            .order('id', { ascending: isAscending })
+            .order(orderBy ? orderBy : 'id', { ascending: isAscending })
           if (data) {
             setData(data)
           } else {
@@ -68,13 +80,14 @@ export const ListenToDataWithEqualFilter = async ({
   range,
   filter,
   isAscending = false,
+  orderBy,
 }: ListenQueryWithEqualFilterParam) => {
   let { data, error } = await supabase
     .from(database)
     .select('*')
     .range(range.start, range.limit)
     .eq(filter.column, filter.value)
-    .order('id', { ascending: isAscending })
+    .order(orderBy ? orderBy : 'id', { ascending: isAscending })
   if (data) {
     setData(data)
     supabase
@@ -89,7 +102,7 @@ export const ListenToDataWithEqualFilter = async ({
             .from(database)
             .select('*')
             .range(range.start, range.limit)
-            .order('id', { ascending: isAscending })
+            .order(orderBy ? orderBy : 'id', { ascending: isAscending })
           if (data) {
             setData(data)
           } else {

@@ -12,7 +12,6 @@ const Dashboard = () => {
     <div className={'space-y-6'}>
       <div className=' lg:flex grid gap-6 px-5'>
         <TimeLoggingCard block={true} />
-        <AttendanceCreditsCard />
         <AttendanceInsightsCard />
       </div>
       <div className=' lg:flex grid gap-6 px-5'>

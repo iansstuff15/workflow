@@ -12,6 +12,7 @@ export type ListenQueryParam = {
     >
   >
   database: string
+  orderBy?: string
   range: {
     start: number
     limit: number

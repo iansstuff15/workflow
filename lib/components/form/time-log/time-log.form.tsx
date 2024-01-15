@@ -1,7 +1,7 @@
 import { Card, CardContent } from '@/lib/components/ui/card'
 import dayjs from 'dayjs'
-const TimeLogForm = () => {
-  const now = new Date()
+import { timeLoggingFormProps } from '@/lib/data/interface/time-logging/time-logging.interface'
+const TimeLogForm = ({ now }: timeLoggingFormProps) => {
   return (
     <div>
       <div className='space-y-3'>
