@@ -54,7 +54,13 @@ const AppDialog = ({
           {children}
           {isOKAction ? (
             <DialogFooter>
-              <AppButton onClick={isOKAction} label={isOKLabel} />
+              <AppButton
+                onClick={() => {
+                  isOKAction()
+                  setOpen(false)
+                }}
+                label={isOKLabel}
+              />
               <DialogClose asChild>
                 <AppButton label={'Cancel'} variant={'secondary'} />
               </DialogClose>
