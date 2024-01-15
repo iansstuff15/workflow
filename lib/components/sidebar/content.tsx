@@ -43,7 +43,7 @@ const SideBarContent = () => {
   const supabase = useSupabase()
   const userInfo = supabase.userInfo
   return (
-    <div className='my-3 space-y-4 h-screen overflow-y-scroll w-full sm:w-48'>
+    <div className=' space-y-4 overflow-hidden w-full sm:w-48'>
       <div className='grid grid-cols-2'>
         <Image src={appIcon} width={50} height={50} alt='app icon' />
 
@@ -127,21 +127,11 @@ const SideBarContent = () => {
         label='Inventory'
         icon={<PackageOpen size={18} />}
       />
-      <SideBarItem
-        to={ORGANIZATION}
-        label='Organization'
-        icon={<Building2 size={18} />}
-      />
+
       <SideBarItem
         to={CAMPAIGN}
         label='Campaign'
         icon={<Megaphone size={18} />}
-      />
-      <h1>Developer</h1>
-      <SideBarItem
-        to={CAMPAIGN}
-        label='Seed'
-        icon={<DatabaseZap size={18} />}
       />
     </div>
   )
