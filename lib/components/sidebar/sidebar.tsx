@@ -10,9 +10,7 @@ const SideBar = () => {
   const isDesktop = useMediaQuery('(min-width: 768px)')
   if (isDesktop) {
     return (
-      <div className={'overflow-scroll h-[95vh]'}>
         <SideBarContent />
-      </div>
     )
   } else {
     return (
