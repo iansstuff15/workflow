@@ -46,7 +46,7 @@ const HeaderDrawer = () => {
             </label>
           </Link>
           <div className=' block md:hidden py-2 space-y-2'>
-            <div className='bg-white/70  backdrop-blur-lg grid space-y-2'>
+            <div className='  backdrop-blur-lg grid space-y-2'>
               <AppButton
                 label='Login'
                 block

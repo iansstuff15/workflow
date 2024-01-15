@@ -17,6 +17,12 @@ import {
 } from '@/lib/components/ui/hover-card'
 import AppButton from '@/lib/components/button/appButtons'
 import { data } from '../../../lib/components/tracker/dummy-tracker'
+import {
+  formatDate,
+  formatTime,
+  transformToRelativeDate,
+} from '@/lib/utilities/dayjs+'
+import { ListenToData } from '@/lib/interactors/app.service'
 dayjs.extend(relativeTime)
 const Page = () => {
   const [pagenateValue, setPagenateValue] = useState(49)
@@ -26,31 +32,14 @@ const Page = () => {
       [key: string]: any
     }>
   >()
-  const getData = async () => {
-    let { data, error } = await supabase
-      .from('employee')
-      .select('*')
-      .range(0, pagenateValue)
-    setData(data)
-    supabase
-      .channel('custom-all-channel')
-      .on(
-        'postgres_changes',
-        { event: '*', schema: 'public', table: 'employee' },
-        async payload => {
-          console.log('Change received!', payload)
-          setPayload(payload)
-          let { data, error } = await supabase
-            .from('employee')
-            .select('*')
-            .range(0, pagenateValue)
-          setData(data)
-        },
-      )
-      .subscribe()
-  }
+
   useEffect(() => {
-    getData()
+    ListenToData({
+      database: 'employee',
+      setData: setData,
+      setPayload: setPayload,
+      range: { start: 0, limit: 49 },
+    })
   }, [])
   return (
     <div className='mx-4 '>
@@ -91,9 +80,12 @@ const Page = () => {
                         {data.last_name}, {data.first_name}
                       </h1>
                       <div className='grid grid-cols-2'>
-                        <h2>created: {dayjs(data.created_at).fromNow()}</h2>
                         <h2>
-                          last updated: {dayjs(data.updated_at).fromNow()}
+                          created: {transformToRelativeDate(data.created_at)}
+                        </h2>
+                        <h2>
+                          last updated:{' '}
+                          {transformToRelativeDate(data.updated_at)}
                         </h2>
                       </div>
                       <div className='grid grid-cols-2'>
@@ -160,24 +152,24 @@ const Page = () => {
               </TableCell>
               <TableCell>
                 <h4 className='font-bold text-xs text-neutral-700 w-48'>
-                  {dayjs(data.created_at).format('dddd, MMM DD, YYYY')}
+                  {formatDate(data.created_at)}
                 </h4>
                 <h5 className='text-xs text-neutral-600'>
-                  {dayjs(data.created_at).format('hh:MM:ss a')}
+                  {formatTime(data.created_at)}
                 </h5>
                 <h6 className='text-xs text-neutral-400'>
-                  {dayjs(data.created_at).fromNow()}
+                  {transformToRelativeDate(data.created_at)}
                 </h6>
               </TableCell>
               <TableCell>
                 <h4 className='font-bold text-xs text-neutral-700 w-48'>
-                  {dayjs(data.updated_at).format('dddd, MMM DD, YYYY')}
+                  {formatDate(data.updated_at)}
                 </h4>
                 <h5 className='text-xs text-neutral-600'>
-                  {dayjs(data.updated_at).format('hh:MM:ss a')}
+                  {formatTime(data.updated_at)}
                 </h5>
                 <h6 className='text-xs text-neutral-400'>
-                  {dayjs(data.updated_at).fromNow()}
+                  {transformToRelativeDate(data.updated_at)}
                 </h6>
               </TableCell>
             </TableRow>

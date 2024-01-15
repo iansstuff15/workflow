@@ -1,12 +1,5 @@
 import AppButton from '@/lib/components/button/appButtons'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-  CardFooter,
-} from '@/lib/components/ui/card'
+import { Card, CardBody, CardHeader, CardFooter } from '@nextui-org/card'
 import LogItem from './log-item/log-item.time-logs'
 import { timeLoggingProps } from '@/lib/data/interface/time-logging/time-logging.interface'
 import { ArrowLeftFromLine, ArrowRightFromLine } from 'lucide-react'
@@ -16,6 +9,8 @@ import { useEffect, useState } from 'react'
 import { ListenToDataWithEqualFilter } from '@/lib/interactors/app.service'
 import { RealtimePostgresChangesPayload } from '@supabase/supabase-js'
 import { useSupabase } from '@/lib/utilities/providers/backend/supabase'
+import { TimeLogResponse } from '@/lib/data/response/time-log/time-log.response'
+import { formatTime } from '@/lib/utilities/dayjs+'
 
 const TimeLoggingCard = ({ block }: timeLoggingProps) => {
   const [data, setData] = useState<any>()
@@ -48,21 +43,27 @@ const TimeLoggingCard = ({ block }: timeLoggingProps) => {
       }]  grid grid-rows-6 gap-3`}
     >
       <CardHeader className='row-span-1'>
-        <CardTitle className='text-md'>Time Logs</CardTitle>
-        <CardDescription className='text-xs'>
-          Todo: Current time / Location
-        </CardDescription>
+        <h1 className='text-md'>Time Logs</h1>
+        <h2 className='text-xs'>Todo: Current time / Location</h2>
       </CardHeader>
-      <CardContent className='space-y-3 row-span-3'>
+      <CardBody className='space-y-3 row-span-3'>
         <h1 className='text-xs font-bold mt-2'>Log history</h1>
         <div className='h-full space-y-3 overflow-scroll '>
           <div className='space-y-2 '>
-            {data?.map((data: any, index: number) => {
-              return <LogItem key={index} />
-            }) ?? 'No data'}
+            {data?.map((data: TimeLogResponse, index: number) => {
+              return (
+                <LogItem
+                  key={index}
+                  date={formatTime(data.date_time)}
+                  time={formatTime(data.date_time)}
+                  location={data.location}
+                  type={data.logType}
+                />
+              )
+            }) ?? 'No data found, start logging!'}
           </div>
         </div>
-      </CardContent>
+      </CardBody>
       <CardFooter className='row-span-2 '>
         <div className='grid grid-rows-2 w-full gap-2  mt-4'>
           <AppDialog

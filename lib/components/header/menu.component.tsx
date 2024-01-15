@@ -30,7 +30,7 @@ export function MenuHeader() {
     <NavigationMenu>
       <NavigationMenuList className='flex justify-items-center'>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className={'text-black'}>
+          <NavigationMenuTrigger className={'text-black dark:text-white'}>
             The Project
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -38,7 +38,7 @@ export function MenuHeader() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className={'text-black'}>
+          <NavigationMenuTrigger className={'text-black dark:text-white'}>
             About Me
           </NavigationMenuTrigger>
           <NavigationMenuContent>

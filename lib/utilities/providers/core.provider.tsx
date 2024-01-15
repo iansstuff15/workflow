@@ -14,6 +14,8 @@ import { Toaster } from '@/lib/components/ui/sonner'
 import { showError } from '@/lib/config/message/message.config'
 import { checkIfEnvirontmentVariablesAreSet } from '../check-env'
 import { migrateDB } from '@/lib/migration/migration'
+import { ThemeProvider as NextThemeProvider } from 'next-themes'
+import { type ThemeProviderProps } from 'next-themes/dist/types'
 
 const CoreProvider = ({ children }: WrapperProps) => {
   const path = usePathname()
@@ -27,8 +29,12 @@ const CoreProvider = ({ children }: WrapperProps) => {
   gsap.registerPlugin(ScrollTrigger)
   return (
     <SessionContextProvider supabaseClient={supabaseClient}>
-      <Toaster />
-      <NextUIProvider>{children}</NextUIProvider>
+      <Toaster richColors={true} />
+      <NextUIProvider>
+        <NextThemeProvider attribute='class' enableSystem>
+          {children}
+        </NextThemeProvider>
+      </NextUIProvider>
     </SessionContextProvider>
   )
 }

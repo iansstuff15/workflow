@@ -1,7 +1,7 @@
 'use client'
 import AppButton from '@/lib/components/button/appButtons'
 import { timeline } from '@/lib/components/sections/landing/animation'
-import { Card, CardContent } from '@/lib/components/ui/card'
+import { Card, CardContent } from '../../ui/card'
 import { platformCardProps } from '@/lib/data/interface/platform/platform.interface'
 import { useEffect, useRef } from 'react'
 

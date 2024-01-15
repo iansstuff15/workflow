@@ -18,47 +18,23 @@ interface ServiceReturnInterface {
   response?: object
 }
 interface ServiceProps {
-  route: string
+  database: string
+  method?: string
+  data: object
 }
-export const AppService = ({ route }: ServiceProps) => {
-  let method: string = ''
-  let body: object = {}
-  let response: object = {}
-
-  let result: ServiceReturnInterface = {
-    method: '',
-    route: '',
-    body: {},
-    response: {},
-  }
-  switch (route) {
-    case API_READ_ALL_EMPLOYEE:
-      method = 'GET'
-      break
-    case API_CREATE_EMPLOYEE:
-    case API_UPDATE_EMPLOYEE:
-    case API_DELETE_EMPLOYEE:
-      method = 'POST'
-      break
-  }
-
-  result.method = method
-  result.route = route
-  result.body = body
-  result.response = response
-
-  return result
-}
+export const AppFetch = ({ method, data, database }: ServiceProps) => {}
 export const ListenToData = async ({
   setData,
   setPayload,
   database,
   range,
+  isAscending = false,
 }: ListenQueryParam) => {
   let { data, error } = await supabase
     .from(database)
     .select('*')
     .range(range.start, range.limit)
+    .order('id', { ascending: isAscending })
   if (data) {
     setData(data)
     supabase
@@ -72,6 +48,7 @@ export const ListenToData = async ({
             .from(database)
             .select('*')
             .range(range.start, range.limit)
+            .order('id', { ascending: isAscending })
           if (data) {
             setData(data)
           } else {
@@ -90,12 +67,14 @@ export const ListenToDataWithEqualFilter = async ({
   database,
   range,
   filter,
+  isAscending = false,
 }: ListenQueryWithEqualFilterParam) => {
   let { data, error } = await supabase
     .from(database)
     .select('*')
     .range(range.start, range.limit)
     .eq(filter.column, filter.value)
+    .order('id', { ascending: isAscending })
   if (data) {
     setData(data)
     supabase
@@ -110,6 +89,7 @@ export const ListenToDataWithEqualFilter = async ({
             .from(database)
             .select('*')
             .range(range.start, range.limit)
+            .order('id', { ascending: isAscending })
           if (data) {
             setData(data)
           } else {

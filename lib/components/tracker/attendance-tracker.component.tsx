@@ -1,7 +1,7 @@
 'use client'
 import { Text, Flex, Tracker, Color } from '@tremor/react'
 
-import { Card } from '../ui/card'
+import { Card } from '@nextui-org/card'
 import { Circle } from 'lucide-react'
 import { data } from './dummy-tracker'
 interface Tracker {

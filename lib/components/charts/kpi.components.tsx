@@ -8,7 +8,7 @@ import {
   CalloutProps,
 } from '@tremor/react'
 import { MoveRight, TrendingDown, TrendingUp } from 'lucide-react'
-import { Card } from '../ui/card'
+import { Card } from '@nextui-org/card'
 
 const KPI = () => {
   const categories = [

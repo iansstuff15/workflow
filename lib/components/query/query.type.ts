@@ -16,6 +16,7 @@ export type ListenQueryParam = {
     start: number
     limit: number
   }
+  isAscending?: boolean
 }
 
 export type ListenQueryWithEqualFilterParam = ListenQueryParam & {

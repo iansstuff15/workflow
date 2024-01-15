@@ -5,7 +5,7 @@ import KPI from '@/lib/components/charts/kpi.components'
 
 import AppTable from '@/lib/components/table/table'
 import AttendanceTracker from '@/lib/components/tracker/attendance-tracker.component'
-import { Card, CardContent, CardFooter } from '@/lib/components/ui/card'
+import { Card, CardBody, CardFooter } from '@nextui-org/card'
 
 import { Text, Flex, Callout, ProgressBar, Title } from '@tremor/react'
 import { Download, MoveRight } from 'lucide-react'
@@ -24,7 +24,7 @@ const Performance = () => {
       </div>
 
       <Card className='py-4 px-1'>
-        <CardContent>
+        <CardBody>
           <Text>Overall Performance Rating</Text>
           <Flex
             justifyContent='start'
@@ -53,7 +53,7 @@ const Performance = () => {
             enim nostrud elit est enim culpa velit. Lorem cupidatat tempor ad
             cupidatat occaecat aliqua cillum consequat voluptate mollit.
           </Callout>
-        </CardContent>
+        </CardBody>
         <CardFooter>
           <AppButton label='Download Performance Report' icon={<Download />} />
         </CardFooter>

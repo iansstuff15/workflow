@@ -30,7 +30,7 @@ const TableToolBar = ({
   const path = usePathname()
   const [mode, setMode] = useState<'view' | 'add' | 'edit' | 'delete'>('add')
   return (
-    <div className='px-4 py-2 xl:grid grid-cols-10 gap-2 space-y-2 sticky top-0  z-0 bg-white/70  backdrop-blur-lg'>
+    <div className='px-4 py-2 xl:grid grid-cols-10 gap-2 space-y-2 sticky top-0  z-0   backdrop-blur-lg'>
       <Input placeholder='Search' className='col-span-6' />
       <div className='sm:col-end-13 sm:flex grid grid-cols-2 gap-2 place-content-center'>
         <Select

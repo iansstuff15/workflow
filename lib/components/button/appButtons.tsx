@@ -15,7 +15,7 @@ const AppButton = ({
 }: buttonProps) => {
   return (
     <Button
-      className={`${block ? 'w-full' : null}`}
+      className={`${block ? 'w-full' : null}  dark:border-none`}
       variant={variant}
       onClick={onClick}
       ref={ref?.current}

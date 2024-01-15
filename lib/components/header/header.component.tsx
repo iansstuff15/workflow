@@ -17,7 +17,7 @@ const AppHeader = () => {
   return (
     <>
       {path.includes('/app') || path.includes('/admin') ? null : (
-        <div className='flex py-3 px-2 md:px-14 sticky top-0  z-10 bg-white/70  backdrop-blur-lg'>
+        <div className='flex py-3 px-2 md:px-14 sticky top-0  z-10   backdrop-blur-lg'>
           <div className='flex gap-2 items-center flex-1'>
             <HeaderDrawer />
             <Link href={'/'} className='flex gap-2 items-center'>
@@ -36,7 +36,7 @@ const AppHeader = () => {
                 variant={'ghost'}
                 label='Contact me'
                 block
-                className='text-white  mix-blend-difference'
+                className='text-white mix-blend-difference'
               />
             </ContactMeDialog>
             <RequestDemoDialog>

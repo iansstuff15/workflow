@@ -44,7 +44,7 @@ export const AccountNewDummy = ({
         <Head />
         <Preview>{previewText}</Preview>
         <Tailwind>
-          <Body className='bg-white my-auto mx-auto font-sans'>
+          <Body className=' my-auto mx-auto font-sans'>
             <Container>
               <Container className='border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] w-[465px] '>
                 <Section className='p-4 rounded-md border border-solid border-[#eaeaea] pb-6'>

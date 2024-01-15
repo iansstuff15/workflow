@@ -66,6 +66,7 @@ const FormBase = ({
               block
               disabled={!controller.formState.isValid || loading}
               loading={loading}
+              className={'bg-primary w-full'}
             />
           ) : null}
         </div>

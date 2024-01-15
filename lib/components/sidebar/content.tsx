@@ -1,11 +1,5 @@
 'use client'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-} from '@/lib/components/ui/card'
+import { Card, CardContent, CardFooter, CardHeader } from '.././ui/card'
 import SideBarItem from './sidebar-item/sidebar-item.component'
 import {
   Bell,
@@ -49,35 +43,33 @@ const SideBarContent = () => {
   const supabase = useSupabase()
   const userInfo = supabase.userInfo
   return (
-    <div className='my-3 space-y-2 sm:rounded-r-xl overflow-y-scroll w-48'>
+    <div className='my-3 space-y-4  overflow-y-scroll w-full sm:w-48'>
       <div className='grid grid-cols-2'>
         <Image src={appIcon} width={50} height={50} alt='app icon' />
 
-        <div className='place-self-end cursor-pointer hover:bg-slate-100 p-1 rounded-full'>
-          <AppDrawer
-            trigger={
-              <AppButton
-                icon={
-                  <Badge
-                    content={5}
-                    color='primary'
-                    className='p-1 text-xs '
-                    placement='top-right'
-                  >
-                    <Bell size={32} />
-                  </Badge>
-                }
-                variant={'ghost'}
-              />
-            }
-            title='Notifications'
-          >
-            <h1>Notifications</h1>
-          </AppDrawer>
-        </div>
+        <AppDrawer
+          trigger={
+            <AppButton
+              icon={
+                <Badge
+                  content={5}
+                  color='primary'
+                  className='p-1 text-xs '
+                  placement='top-right'
+                >
+                  <Bell size={22} />
+                </Badge>
+              }
+              variant={'ghost'}
+            />
+          }
+          title='Notifications'
+        >
+          <h1>Notifications</h1>
+        </AppDrawer>
       </div>
       <Card>
-        <CardHeader>
+        <CardContent className={'space-y-4 py-4'}>
           {userInfo != undefined ? (
             <Avatar>
               <AvatarImage
@@ -104,7 +96,7 @@ const SideBarContent = () => {
           ) : (
             <Skeleton className='h-4 w-full' />
           )}
-        </CardHeader>
+        </CardContent>
         <CardFooter className='grid grid-cols-5'>
           <UserIcon size={18} />
           <Cog size={18} />
@@ -113,64 +105,49 @@ const SideBarContent = () => {
           <LogOut size={18} />
         </CardFooter>
       </Card>
-      <Card className='w-full border-none shadow-none p-0 m-0'>
-        <CardHeader className='p-0'>
-          <CardDescription>Main Menu</CardDescription>
-          <SideBarItem
-            to={DASHBOARD}
-            label='Dashboard'
-            icon={<LayoutDashboard size={18} />}
-          />
-          <SideBarItem
-            to={REQUEST}
-            label='Request'
-            icon={<Folder size={18} />}
-          />
-          <SideBarItem
-            to={PAYROLL}
-            label='Payroll'
-            icon={<Receipt size={18} />}
-          />
-          <SideBarItem to={ASSETS} label='Assets' icon={<Box size={18} />} />
-          <SideBarItem
-            to={PERFORMANCE}
-            label='Performance'
-            icon={<GaugeCircle size={18} />}
-          />
-          <CardDescription>Admin</CardDescription>
-          <SideBarItem
-            to={ADMIN_DASHBOARD}
-            label='Dashboard'
-            icon={<LayoutDashboard size={18} />}
-          />
-          <SideBarItem
-            to={EMPLOYEE}
-            label='Employees'
-            icon={<Users size={18} />}
-          />
-          <SideBarItem
-            to={CAMPAIGN}
-            label='Inventory'
-            icon={<PackageOpen size={18} />}
-          />
-          <SideBarItem
-            to={ORGANIZATION}
-            label='Organization'
-            icon={<Building2 size={18} />}
-          />
-          <SideBarItem
-            to={CAMPAIGN}
-            label='Campaign'
-            icon={<Megaphone size={18} />}
-          />
-          <CardDescription>Developer</CardDescription>
-          <SideBarItem
-            to={CAMPAIGN}
-            label='Seed'
-            icon={<DatabaseZap size={18} />}
-          />
-        </CardHeader>
-      </Card>
+
+      <h2>Main Menu</h2>
+      <SideBarItem
+        to={DASHBOARD}
+        label='Dashboard'
+        icon={<LayoutDashboard size={18} />}
+      />
+      <SideBarItem to={REQUEST} label='Request' icon={<Folder size={18} />} />
+      <SideBarItem to={PAYROLL} label='Payroll' icon={<Receipt size={18} />} />
+      <SideBarItem to={ASSETS} label='Assets' icon={<Box size={18} />} />
+      <SideBarItem
+        to={PERFORMANCE}
+        label='Performance'
+        icon={<GaugeCircle size={18} />}
+      />
+      <h2>Admin</h2>
+      <SideBarItem
+        to={ADMIN_DASHBOARD}
+        label='Dashboard'
+        icon={<LayoutDashboard size={18} />}
+      />
+      <SideBarItem to={EMPLOYEE} label='Employees' icon={<Users size={18} />} />
+      <SideBarItem
+        to={CAMPAIGN}
+        label='Inventory'
+        icon={<PackageOpen size={18} />}
+      />
+      <SideBarItem
+        to={ORGANIZATION}
+        label='Organization'
+        icon={<Building2 size={18} />}
+      />
+      <SideBarItem
+        to={CAMPAIGN}
+        label='Campaign'
+        icon={<Megaphone size={18} />}
+      />
+      <h1>Developer</h1>
+      <SideBarItem
+        to={CAMPAIGN}
+        label='Seed'
+        icon={<DatabaseZap size={18} />}
+      />
     </div>
   )
 }
