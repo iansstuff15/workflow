@@ -70,7 +70,7 @@ const SideBarContent = () => {
       </div>
       <Card>
         <CardContent className={'space-y-4 py-4'}>
-          {userInfo != undefined ? (
+          {userInfo?.first_name ? (
             <Avatar>
               <AvatarImage
                 src={`${process.env.NEXT_PUBLIC_GENERATE_AVATAR}${userInfo.first_name} ${userInfo.last_name}`}
@@ -85,13 +85,13 @@ const SideBarContent = () => {
             <Skeleton className='h-12 w-12 rounded-full' />
           )}
 
-          {userInfo != undefined ? (
+          {userInfo?.first_name ? (
             <h3 className='text-sm'>{`${userInfo.last_name}, ${userInfo.first_name}`}</h3>
           ) : (
             <Skeleton className='h-4 w-full' />
           )}
 
-          {userInfo != undefined ? (
+          {userInfo?.position ? (
             <h6 className='text-xs text-slate-500'>{`${userInfo.position}`}</h6>
           ) : (
             <Skeleton className='h-4 w-full' />

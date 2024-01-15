@@ -16,7 +16,7 @@ const SideBar = () => {
     )
   } else {
     return (
-      <div className='sticky top-0  w-full z-10 '>
+      <div className='sticky top-0  w-full z-10 sm:hidden'>
         <AppDrawer position={'left'} trigger={<AppButton icon={<Menu />} />}>
           <SideBarContent />
         </AppDrawer>
