@@ -2,7 +2,7 @@ import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 dayjs.extend(relativeTime)
 export const dateTemplate: string = 'dddd, MMM DD, YYYY'
-export const timeTemplate: string = 'hh:MM:ss a'
+export const timeTemplate: string = 'hh:mm:ss a'
 export const formatDate = (date: string): string => {
   return dayjs(date).format(dateTemplate)
 }
