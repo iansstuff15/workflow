@@ -30,7 +30,7 @@ export const employee = pgTable('employee', {
   ...baseColumns,
   firstName: text('first_name').notNull(),
   lastName: text('last_name').notNull(),
-  email: text('email').notNull(),
+  email: text('email').notNull().unique(),
   phone: text('phone').notNull(),
   company: text('company').default('workflow'),
   position: text('position').notNull(),

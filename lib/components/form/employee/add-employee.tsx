@@ -18,7 +18,7 @@ const EmployeeForm = ({ mode, data, selectedKeys }: showFormProps) => {
       submitRoute={API_CREATE_EMPLOYEE}
       successMessage='Successfully added employee'
       showCancel={true}
-      data={[form.getValues()]}
+      data={{ data: form.getValues() }}
     >
       {mode == 'add' ? (
         <Alert>
@@ -129,7 +129,7 @@ const EmployeeForm = ({ mode, data, selectedKeys }: showFormProps) => {
               controller={form.control}
               label='Sick Leaves'
               placeholder='johndoe@gmail.com'
-              name='sick_leave_credit'
+              name='sick_leave_credits'
               defaultValue={'15'}
               type='number'
             />
@@ -137,7 +137,7 @@ const EmployeeForm = ({ mode, data, selectedKeys }: showFormProps) => {
               controller={form.control}
               label='Vacation Leaves'
               placeholder='johndoe@gmail.com'
-              name='vacation_leave_credit'
+              name='vacation_leave_credits'
               defaultValue={'15'}
               type='number'
             />

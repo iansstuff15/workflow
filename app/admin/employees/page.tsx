@@ -130,8 +130,8 @@ const Page = () => {
                 </Snippet>
               </TableCell>
               <TableCell>{data.position}</TableCell>
-              <TableCell>{data.sick_leave_credit}</TableCell>
-              <TableCell>{data.vacation_leave_credit}</TableCell>
+              <TableCell>{data.sick_leave_credits}</TableCell>
+              <TableCell>{data.vacation_leave_credits}</TableCell>
               <TableCell>
                 <Chip
                   color={data.maternal_leave ? 'success' : 'danger'}

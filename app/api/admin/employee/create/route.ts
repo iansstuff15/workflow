@@ -19,6 +19,16 @@ export async function POST(
     const { error } = await supabase.from('employee').insert(data)
 
     if (error) {
+      if (
+        error.message.includes('duplicate key value violates unique constraint')
+      ) {
+        return NextResponse.json(
+          {
+            message: 'Employee email already exists',
+          },
+          { status: 400 },
+        )
+      }
       return NextResponse.json(
         {
           message: error?.message ?? UNDEFINED_ERROR,
@@ -27,7 +37,7 @@ export async function POST(
       )
     } else {
       return NextResponse.json({
-        message: 'good',
+        message: `Successfully added employee`,
       })
     }
   } catch (error) {
