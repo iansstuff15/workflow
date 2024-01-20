@@ -39,8 +39,19 @@ export const showLoading = () => {
 export const showPromise = ({ promise }: PromiseMessageProps) => {
   toast.promise(promise, {
     loading: 'Loading please wait...',
-    success: (res: any) => {
-      return <p>{`${res.message}`}</p>
+    success: async (res: any) => {
+      console.log('res dialog')
+      console.log(res)
+
+      const text = await res.text()
+
+      return (
+        <p>{`${text
+          .split(':')[1]
+          .replace('}', '')
+          .replace('"', '')
+          .replace('"', '')}`}</p>
+      )
     },
     error: error => <p>{`Error: ${error.message}`}</p>,
     position: position,

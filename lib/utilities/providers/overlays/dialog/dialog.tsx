@@ -88,7 +88,10 @@ const AppDialog = ({
           {isOKAction ? (
             <DrawerFooter>
               <AppButton
-                onClick={isOKAction}
+                onClick={() => {
+                  isOKAction()
+                  setOpen(false)
+                }}
                 label={isOKLabel}
                 variant={buttonVariant}
               />

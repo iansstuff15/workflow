@@ -99,14 +99,16 @@ const TimeLoggingCard = ({ block }: timeLoggingProps) => {
               appFetch({
                 route: API_CREATE_TIME_LOG,
                 method: 'POST',
-                data: [
-                  {
-                    employee: userID,
-                    log_type: 'time_in',
-                    location: 'via web portal',
-                    date_time: now,
-                  },
-                ],
+                data: {
+                  data: [
+                    {
+                      employee: userID,
+                      log_type: 'time_in',
+                      location: 'via web portal',
+                      date_time: now,
+                    },
+                  ],
+                },
               })
             }}
             title='Are you sure you want to time in?'
@@ -127,14 +129,16 @@ const TimeLoggingCard = ({ block }: timeLoggingProps) => {
               appFetch({
                 route: API_CREATE_TIME_LOG,
                 method: 'POST',
-                data: [
-                  {
-                    employee: userID,
-                    log_type: 'time_out',
-                    location: 'via web portal',
-                    date_time: now,
-                  },
-                ],
+                data: {
+                  data: [
+                    {
+                      employee: userID,
+                      log_type: 'time_out',
+                      location: 'via web portal',
+                      date_time: now,
+                    },
+                  ],
+                },
               })
             }}
             title='Are you sure you want to time out?'

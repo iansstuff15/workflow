@@ -24,7 +24,7 @@ export async function POST(request: TimeLogRequest, response: GenericResponse) {
       )
     } else {
       return NextResponse.json({
-        message: 'good',
+        message: `Successfully, added time log. for ${new Date(data[0].date_time).toLocaleDateString()} `,
       })
     }
   } catch (error) {
