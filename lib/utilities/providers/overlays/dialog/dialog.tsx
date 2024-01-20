@@ -34,6 +34,7 @@ const AppDialog = ({
   title,
   padding,
   trigger,
+  buttonVariant,
 }: OverlayProps) => {
   const [open, setOpen] = useState(false)
   const isDesktop = useMediaQuery('(min-width: 768px)')
@@ -60,6 +61,7 @@ const AppDialog = ({
                   setOpen(false)
                 }}
                 label={isOKLabel}
+                variant={buttonVariant}
               />
               <DialogClose asChild>
                 <AppButton label={'Cancel'} variant={'secondary'} />
@@ -85,7 +87,11 @@ const AppDialog = ({
           {children}
           {isOKAction ? (
             <DrawerFooter>
-              <AppButton onClick={isOKAction} label={isOKLabel} />
+              <AppButton
+                onClick={isOKAction}
+                label={isOKLabel}
+                variant={buttonVariant}
+              />
               <DrawerClose asChild>
                 <AppButton label={'Cancel'} variant={'secondary'} />
               </DrawerClose>
