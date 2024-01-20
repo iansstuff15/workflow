@@ -1,8 +1,16 @@
 import { Dispatch, ReactNode, SetStateAction } from 'react'
-import { ButtonProps, buttonVariants } from '@/lib/components/ui/button'
+
 export type OverlayProps = {
   children?: ReactNode
-  buttonVariant?: buttonVariants
+  buttonVariant?:
+    | 'link'
+    | 'default'
+    | 'destructive'
+    | 'outline'
+    | 'secondary'
+    | 'ghost'
+    | null
+    | undefined
   isOKAction?: VoidFunction
   isOKLabel?: string
   title?: string
