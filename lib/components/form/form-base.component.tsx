@@ -5,6 +5,7 @@ import AppButton from '../button/appButtons'
 import { useRouter } from 'next/navigation'
 import { DialogTrigger } from '../ui/dialog'
 import { showError, showSuccess } from '@/lib/config/message/message.config'
+import { appFetch } from '@/lib/interactors/app.service'
 
 const FormBase = ({
   children,
@@ -26,21 +27,20 @@ const FormBase = ({
         onSubmit={async (event: FormEvent) => {
           event.preventDefault()
           setLoading(true)
+          console.log('======formbase======')
           const response = await fetch(submitRoute, {
             method: 'POST',
             body: JSON.stringify(data),
           })
           const json = response.json()
           json.then((value: GenericResponse) => {
-            if (value.message == 'good') {
+            if (value.message.toLowerCase().includes('success')) {
               if (redirectRoute) {
                 router.push(redirectRoute)
               }
-              if (successMessage) {
-                showSuccess({
-                  message: successMessage,
-                })
-              }
+              showSuccess({
+                message: value.message,
+              })
               setLoading(false)
             } else {
               showError({
