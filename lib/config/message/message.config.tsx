@@ -39,8 +39,10 @@ export const showLoading = () => {
 export const showPromise = ({ promise }: PromiseMessageProps) => {
   toast.promise(promise, {
     loading: 'Loading please wait...',
-    success: 'Success',
-    error: error => <p>{`Error: ${error}`}</p>,
+    success: (res: any) => {
+      return <p>{`${res.message}`}</p>
+    },
+    error: error => <p>{`Error: ${error.message}`}</p>,
     position: position,
   })
 }

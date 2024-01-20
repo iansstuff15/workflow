@@ -14,8 +14,7 @@ error, if any. */
   const cookieStore = cookies()
   const supabase = createRouteHandlerClient({ cookies: () => cookieStore })
   const { data, error } = await supabase.auth.getUser()
-  console.log('=======middleware=======')
-  console.log(data.user)
+
   if (data.user == null && request.nextUrl.pathname.includes(NO_AUTH_LOGIN)) {
   } else if (data.user == null) {
     return NextResponse.redirect(new URL(NO_AUTH_LOGIN, request.url))

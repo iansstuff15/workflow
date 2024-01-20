@@ -25,7 +25,7 @@ const Layout = ({ children }: WrapperProps) => {
   return (
     <div>
       <div className='sm:flex h-screen'>
-        <div className='sm:border-r-2 p-4 '>
+        <div className=' p-4 '>
           <SideBar />
         </div>
         <div className='overflow-scroll   space-y-3 pb-4'>

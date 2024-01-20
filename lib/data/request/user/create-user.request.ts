@@ -1,4 +1,6 @@
-export interface CreateUserRequest extends Request {
+import { NextRequest } from 'next/server'
+
+export type CreateUserRequest = NextRequest & {
   data: [
     {
       email: string
@@ -6,6 +8,10 @@ export interface CreateUserRequest extends Request {
       lastName: string
       phone: string
       position: string
+      sick_leave?: string
+      vacation_leave?: string
+      maternal_leave?: boolean
+      paternal_leave?: boolean
     },
   ]
 }

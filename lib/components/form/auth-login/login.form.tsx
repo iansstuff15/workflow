@@ -26,23 +26,8 @@ const AuthLoginForm = () => {
     }
   }, [userInfo])
   return (
-    <FormBase
-      submitRoute={API_AUTH_LOGIN}
-      redirectRoute={DASHBOARD}
-      controller={form}
-      successMessage={'Login Successful! Welcome back'}
-      data={form.getValues()}
-      submitLabel='Sign in'
-    >
-      <AppFormField
-        controller={form.control}
-        label='Password'
-        labelIcon={<KeyRound size={14} />}
-        placeholder='Johndoe@123'
-        name='password'
-        type='password'
-      />
-      <p className={'text-xs'}>
+    <>
+      <p className={'text-xs text-center'}>
         Forgot Password?
         <AppButton
           variant={'link'}
@@ -52,8 +37,16 @@ const AuthLoginForm = () => {
           }}
           label='Reset Password'
         />
+        <AppButton
+          type='button'
+          onClick={() => {
+            router.push(DASHBOARD)
+          }}
+          block={true}
+          label='Continue to Dashboard'
+        />
       </p>
-    </FormBase>
+    </>
   )
 }
 

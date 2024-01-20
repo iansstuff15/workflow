@@ -15,7 +15,7 @@ export async function POST(request: LoginRequest, response: GenericResponse) {
     })
     if (data.user) {
       return NextResponse.json({
-        message: 'good',
+        message: `Success, Welcome ${data.user.email}!`,
       })
     } else {
       return NextResponse.json(

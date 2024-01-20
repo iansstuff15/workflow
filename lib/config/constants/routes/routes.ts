@@ -15,6 +15,8 @@ export const ADMIN_DASHBOARD = APP_ADMIN_BASE + '/dashboard'
 export const CAMPAIGN = APP_ADMIN_BASE + '/campaign'
 export const ORGANIZATION = APP_ADMIN_BASE + '/organization'
 export const EMPLOYEE = APP_ADMIN_BASE + '/employees'
+
+export const INVENTORY = APP_ADMIN_BASE + '/inventory'
 //api
 const API_BASE = '/api'
 export const API_AUTH_BASE = API_BASE + '/auth'

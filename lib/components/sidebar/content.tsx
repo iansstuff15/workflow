@@ -28,6 +28,7 @@ import {
   CAMPAIGN,
   DASHBOARD,
   EMPLOYEE,
+  INVENTORY,
   ORGANIZATION,
   PAYROLL,
   PERFORMANCE,
@@ -123,7 +124,7 @@ const SideBarContent = () => {
       <h2>Admin</h2>
       <SideBarItem to={EMPLOYEE} label='Employees' icon={<Users size={18} />} />
       <SideBarItem
-        to={CAMPAIGN}
+        to={INVENTORY}
         label='Inventory'
         icon={<PackageOpen size={18} />}
       />

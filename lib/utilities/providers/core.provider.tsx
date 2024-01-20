@@ -29,7 +29,7 @@ const CoreProvider = ({ children }: WrapperProps) => {
   gsap.registerPlugin(ScrollTrigger)
   return (
     <SessionContextProvider supabaseClient={supabaseClient}>
-      <Toaster richColors={true} />
+      <Toaster />
       <NextUIProvider>
         <NextThemeProvider attribute='class' enableSystem>
           {children}

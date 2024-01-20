@@ -18,7 +18,7 @@ const EmployeeForm = ({ mode, data, selectedKeys }: showFormProps) => {
       submitRoute={API_CREATE_EMPLOYEE}
       successMessage='Successfully added employee'
       showCancel={true}
-      data={{ data: [form.getValues()] }}
+      data={[form.getValues()]}
     >
       {mode == 'add' ? (
         <Alert>

@@ -12,6 +12,7 @@ import {
   createClient,
 } from '@supabase/supabase-js'
 import { createContext, useContext, useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 const supabaseUrl: string = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseAnonKey: string = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 
@@ -43,6 +44,7 @@ export const SupabaseProvider = ({ children }: WrapperProps) => {
   const [session, setSession] = useState<Session | null>()
   const [loading, setLoading] = useState(true)
   const [userID, setUserID] = useState<string | null>()
+  const router = useRouter()
   useEffect(() => {
     const setData = async () => {
       const {
@@ -85,7 +87,10 @@ export const SupabaseProvider = ({ children }: WrapperProps) => {
     loading,
     userInfo,
     userID,
-    signOut: () => supabase.auth.signOut(),
+    signOut: async () => {
+      await supabase.auth.signOut()
+      router.refresh()
+    },
   }
 
   return (

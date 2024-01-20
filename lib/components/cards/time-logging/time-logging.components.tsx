@@ -8,7 +8,7 @@ import AppDialog from '@/lib/utilities/providers/overlays/dialog/dialog'
 import TimeLogForm from '@/lib/components/form/time-log/time-log.form'
 import { useEffect, useState } from 'react'
 import {
-  AppFetch,
+  appFetch,
   ListenToDataWithEqualFilter,
 } from '@/lib/interactors/app.service'
 import { RealtimePostgresChangesPayload } from '@supabase/supabase-js'
@@ -23,7 +23,7 @@ const TimeLoggingCard = ({ block }: timeLoggingProps) => {
   const [data, setData] = useState<any>()
   const supabase = useSupabase()
   const userID = supabase.userID
-  const now = new Date()
+  const [now, setNow] = useState<Date>(new Date())
   const [payload, setPayload] = useState<
     RealtimePostgresChangesPayload<{
       [key: string]: any
@@ -96,7 +96,7 @@ const TimeLoggingCard = ({ block }: timeLoggingProps) => {
             isOKLabel='Time in'
             isOKAction={() => {
               console.log(now)
-              AppFetch({
+              appFetch({
                 route: API_CREATE_TIME_LOG,
                 method: 'POST',
                 data: [
@@ -111,7 +111,12 @@ const TimeLoggingCard = ({ block }: timeLoggingProps) => {
             }}
             title='Are you sure you want to time in?'
             trigger={
-              <AppButton label='Time in' block icon={<ArrowRightFromLine />} />
+              <AppButton
+                label='Time in'
+                block
+                icon={<ArrowRightFromLine />}
+                onClick={() => setNow(new Date())}
+              />
             }
           >
             <TimeLogForm now={now} />
@@ -119,7 +124,7 @@ const TimeLoggingCard = ({ block }: timeLoggingProps) => {
           <AppDialog
             isOKLabel='Time out'
             isOKAction={() => {
-              AppFetch({
+              appFetch({
                 route: API_CREATE_TIME_LOG,
                 method: 'POST',
                 data: [
@@ -138,6 +143,7 @@ const TimeLoggingCard = ({ block }: timeLoggingProps) => {
                 icon={<ArrowLeftFromLine />}
                 label='Time out'
                 variant={'destructive'}
+                onClick={() => setNow(new Date())}
                 block
               />
             }
