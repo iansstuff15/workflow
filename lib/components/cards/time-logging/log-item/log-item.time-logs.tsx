@@ -1,6 +1,7 @@
 import { Badge } from '@/lib/components/ui/badge'
 import { Card, CardContent } from '@/lib/components/ui/card'
 import { timeLogProps } from '@/lib/data/interface/time-logging/time-logging.interface'
+import { LogIn, LogOut } from 'lucide-react'
 
 const LogItem = ({ time, date, type, location }: timeLogProps) => {
   return (
@@ -11,8 +12,16 @@ const LogItem = ({ time, date, type, location }: timeLogProps) => {
           <h1 className='text-slate-500 text-xs'>{date}</h1>
         </div>
         <div className='justify-self-end text-end'>
-          <Badge>
-            <h3 className='text-xs'>{type.replace('_', ' ')}</h3>
+          <Badge className={`${type == 'time_out' ? 'bg-destructive ' : ''}`}>
+            <h3 className='text-xs flex'>
+              {type == 'time_in' ? (
+                <LogIn size={15} className={'mr-2'} />
+              ) : (
+                <LogOut size={15} className={'mr-2'} />
+              )}
+
+              {type.replace('_', ' ')}
+            </h3>
           </Badge>
           <h3 className='text-slate-500 text-xs'>{location}</h3>
         </div>
