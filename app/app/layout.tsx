@@ -18,6 +18,7 @@ import { usePathname } from 'next/navigation'
 import { DASHBOARD } from '@/lib/config/constants/routes/routes'
 import AppDialog from '@/lib/utilities/providers/overlays/dialog/dialog'
 import AppButton from '@/lib/components/button/appButtons'
+import READMEViewer from '@/lib/utilities/read-me-reader'
 const Layout = ({ children }: WrapperProps) => {
   const [showNotification, setShowNotification] = useState(false)
   const path = usePathname()

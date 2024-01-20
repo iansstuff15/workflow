@@ -16,7 +16,7 @@ import { checkIfEnvirontmentVariablesAreSet } from '../check-env'
 import { migrateDB } from '@/lib/migration/migration'
 import { ThemeProvider as NextThemeProvider } from 'next-themes'
 import { type ThemeProviderProps } from 'next-themes/dist/types'
-
+import { AppProgressBar as ProgressBar } from 'next-nprogress-bar'
 const CoreProvider = ({ children }: WrapperProps) => {
   const path = usePathname()
   const [supabaseClient] = useState(() => createPagesBrowserClient())
@@ -33,6 +33,12 @@ const CoreProvider = ({ children }: WrapperProps) => {
       <NextUIProvider>
         <NextThemeProvider attribute='class' enableSystem>
           {children}
+          <ProgressBar
+            height='1px'
+            color='rgb(29 78 216)'
+            options={{ showSpinner: false }}
+            shallowRouting
+          />
         </NextThemeProvider>
       </NextUIProvider>
     </SessionContextProvider>
