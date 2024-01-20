@@ -28,26 +28,23 @@ const AuthLoginCard = ({ children }: loginProps) => {
   return (
     <Card className={'w-10/12 mx-auto my-auto'}>
       <CardHeader>
-        <CardTitle>
+        <CardTitle className={'text-center'}>
           <Image
             src={AppIconWithText}
             width={240}
             height={240}
-            alt='workflow-logo'
+            alt='workflow-logo mx-auto'
           />
           <br />
-          Login
+          Welcome back
         </CardTitle>
-        <h1 className={'flex'}>
-          Welcome back,{' '}
+        <CardDescription className={' text-center'}>
           {userInfo ? (
             `${userInfo.first_name}`
           ) : (
-            <Skeleton className={'w-40 rounded-2xl h-8'} />
+            <Skeleton className={'w-40 rounded-2xl h-8 mx-auto'} />
           )}
-        </h1>
-
-        <CardDescription>Enter password to continue</CardDescription>
+        </CardDescription>
       </CardHeader>
       <CardContent className='grid gap-4'>
         {userInfo?.first_name ? (
