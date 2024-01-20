@@ -16,11 +16,15 @@ import Image from 'next/image'
 import { Avatar, AvatarImage, AvatarFallback } from '@radix-ui/react-avatar'
 import { useRouter } from 'next/navigation'
 import { NO_AUTH_LOGIN, SIGNUP } from '@/lib/config/constants/routes/routes'
-import { client } from '@/lib/utilities/providers/backend/supabase'
+import { client, useSupabase } from '@/lib/utilities/providers/backend/supabase'
 import { useUser } from '@supabase/auth-helpers-react'
+import { Skeleton } from '@/lib/components/ui/skeleton'
+import AppDialog from '@/lib/utilities/providers/overlays/dialog/dialog'
 const AuthLoginCard = ({ children }: loginProps) => {
   const router = useRouter()
   const user = useUser()
+  const supabase = useSupabase()
+  const userInfo = supabase.userInfo
   return (
     <Card className={'w-10/12 mx-auto my-auto'}>
       <CardHeader>
@@ -34,26 +38,45 @@ const AuthLoginCard = ({ children }: loginProps) => {
           <br />
           Login
         </CardTitle>
+        <h1 className={'flex'}>
+          Welcome back,{' '}
+          {userInfo ? (
+            `${userInfo.first_name}`
+          ) : (
+            <Skeleton className={'w-40 rounded-2xl h-8'} />
+          )}
+        </h1>
+
         <CardDescription>Enter password to continue</CardDescription>
       </CardHeader>
       <CardContent className='grid gap-4'>
-        <Avatar>
-          <AvatarImage
-            className='rounded-full w-32 h-32 m-auto'
-            src='https://github.com/shadcn.png'
-            alt='@shadcn'
-          />
-          <AvatarFallback>User</AvatarFallback>
-        </Avatar>
-        <h1>{}</h1>
+        {userInfo?.first_name ? (
+          <Avatar>
+            <AvatarImage
+              src={`${process.env.NEXT_PUBLIC_GENERATE_AVATAR}${userInfo.first_name} ${userInfo.last_name}`}
+              className={'rounded-full w-32 h-32 m-auto'}
+            />
+            <AvatarFallback>{`${
+              userInfo != undefined ? userInfo.first_name : 'U'
+            } ${
+              userInfo != undefined ? userInfo.last_name : 'U'
+            }`}</AvatarFallback>
+          </Avatar>
+        ) : (
+          <Skeleton className='rounded-full w-32 h-32 m-auto' />
+        )}
+
         {children}
-        <AppButton
-          variant={'secondary'}
-          label='Switch Account'
-          onClick={() => {
-            router.push(NO_AUTH_LOGIN)
+        <AppDialog
+          trigger={<AppButton variant={'secondary'} label='Sign out' />}
+          buttonVariant={'destructive'}
+          isOKLabel={'Sign out'}
+          isOKAction={() => {
+            supabase.signOut()
           }}
-        />
+        >
+          <h1>Are you sure you wanna sign out?</h1>
+        </AppDialog>
       </CardContent>
     </Card>
   )

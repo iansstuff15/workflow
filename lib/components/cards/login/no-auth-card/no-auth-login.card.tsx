@@ -15,8 +15,11 @@ import { loginProps } from '@/lib/data/interface/card/login'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { SIGNUP } from '@/lib/config/constants/routes/routes'
+import { useSupabase } from '@/lib/utilities/providers/backend/supabase'
 
 const NoAuthLoginCard = ({ children }: loginProps) => {
+  const supabase = useSupabase()
+  const userInfo = supabase.userInfo
   const router = useRouter()
   return (
     <Card className={'w-10/12 mx-auto my-auto'}>
