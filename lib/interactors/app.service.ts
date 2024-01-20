@@ -22,14 +22,11 @@ interface ServiceProps {
   data: object
   route: string
 }
-export const AppFetch = ({ method, data, route }: ServiceProps) => {
-  console.log(data)
-  console.log(route)
-
+export const appFetch = ({ method, data, route }: ServiceProps) => {
   showPromise({
     promise: fetch(route, {
       method: method,
-      body: JSON.stringify({ data: data }),
+      body: JSON.stringify(data),
     }),
   })
 }
