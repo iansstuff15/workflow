@@ -1,5 +1,4 @@
 import { UNDEFINED_ERROR, UNEXPECTED_ERROR } from '@/lib/config/error/auth'
-import { CreateUserRequest } from '@/lib/data/request/user/create-user.request'
 import { EmployeeMutation } from '@/lib/mutations/supabase.mutation'
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
