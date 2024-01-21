@@ -64,7 +64,11 @@ const AppDialog = ({
                 variant={buttonVariant}
               />
               <DialogClose asChild>
-                <AppButton label={'Cancel'} variant={'secondary'} />
+                <AppButton
+                  label={'Cancel'}
+                  variant={'secondary'}
+                  type={'button'}
+                />
               </DialogClose>
             </DialogFooter>
           ) : null}
@@ -96,7 +100,11 @@ const AppDialog = ({
                 variant={buttonVariant}
               />
               <DrawerClose asChild>
-                <AppButton label={'Cancel'} variant={'secondary'} />
+                <AppButton
+                  label={'Cancel'}
+                  variant={'secondary'}
+                  type={'button'}
+                />
               </DrawerClose>
             </DrawerFooter>
           ) : null}

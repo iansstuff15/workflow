@@ -46,13 +46,26 @@ const InventoryForm = () => {
         type='text'
         variant='bordered'
       />
-      <AppFormField
-        controller={form.control}
-        label='Type'
-        name='type'
-        placeholder='Eu minim nulla culpa dolor.Ut quis ipsum non ex ea enim tempor qui labore eiusmod ex irure voluptate tempor.'
-        type='text'
-        variant='bordered'
+      <AppSelect
+        items={[
+          'Laptop',
+          'Phone',
+          'Tablet',
+          'Desktop',
+          'Monitor',
+          'Keyboard',
+          'Mouse',
+          'Headset',
+          'Speaker',
+          'Printer',
+          'Scanner',
+          'Projector',
+          'Camera',
+          'Others',
+        ]}
+        defaultValue={'Laptop'}
+        name={'type'}
+        controller={form}
       />
       {form.watch('current_status') === 'In Use' ? (
         <>

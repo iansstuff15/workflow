@@ -56,7 +56,12 @@ const FormBase = ({
         <div className={showCancel ? 'grid grid-cols-2 gap-2' : ''}>
           {showCancel ? (
             <DialogTrigger>
-              <AppButton label='Cancel' variant={'ghost'} block />
+              <AppButton
+                label='Cancel'
+                variant={'ghost'}
+                block
+                type={'button'}
+              />
             </DialogTrigger>
           ) : null}
           {showOkButton ? (
