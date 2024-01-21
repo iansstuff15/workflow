@@ -4,15 +4,17 @@ import { MenuHeader } from './menu.component'
 import Logo from '@/assets/icon.svg'
 import AppButton from '../button/appButtons'
 import Image from 'next/image'
-import { NO_AUTH_LOGIN } from '@/lib/config/constants/routes/routes'
+import { DASHBOARD, NO_AUTH_LOGIN } from '@/lib/config/constants/routes/routes'
 import { Menu } from 'lucide-react'
 import HeaderDrawer from './drawer.header'
 import Link from 'next/link'
 import RequestDemoDialog from '@/lib/utilities/providers/overlays/dialog/request-demo/request-demo'
 import { gsap } from 'gsap'
 import ContactMeDialog from '@/lib/utilities/providers/overlays/dialog/contact-me/contact-me.dialog'
+import { useSupabase } from '@/lib/utilities/providers/backend/supabase'
 const AppHeader = () => {
   const path = usePathname()
+  const supabase = useSupabase()
   const router = useRouter()
   return (
     <>
@@ -49,10 +51,15 @@ const AppHeader = () => {
             </RequestDemoDialog>
 
             <AppButton
-              label='Login'
+              label={supabase.userID ? 'Continue to dashboard' : 'Login'}
               block
               onClick={() => {
-                router.push(NO_AUTH_LOGIN)
+                if (supabase.userID) {
+                  router.push(DASHBOARD)
+                  return
+                } else {
+                  router.push(NO_AUTH_LOGIN)
+                }
               }}
             />
           </div>
