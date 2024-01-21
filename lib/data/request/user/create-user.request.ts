@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server'
 
-export type InventoryRequest = NextRequest & {
+export type CreateUserRequest = NextRequest & {
   data: [
     {
       serial_number: string
