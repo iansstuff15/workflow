@@ -1,5 +1,6 @@
-import { ButtonProps, buttonVariants } from '@/lib/components/ui/button'
 import { FormEvent, MutableRefObject, ReactNode } from 'react'
+// @ts-ignore
+import { ButtonProps } from '../../../components/ui/button'
 
 export interface buttonProps extends ButtonProps {
   label?: string

@@ -26,6 +26,12 @@ import { ListenToData } from '@/lib/interactors/app.service'
 dayjs.extend(relativeTime)
 const Page = () => {
   const [pagenateValue, setPagenateValue] = useState(49)
+  const statusColors = {
+    Available: 'success',
+    'In Use': 'primary',
+    'For Repair': 'warning',
+    'For Disposal': 'danger',
+  }
   const [data, setData] = useState<any>()
   const [payload, setPayload] = useState<
     RealtimePostgresChangesPayload<{
@@ -51,11 +57,13 @@ const Page = () => {
           { name: 'Brand', className: 'w-16' },
           { name: 'Model', className: 'w-16' },
           { name: 'Type', className: 'w-16' },
+          { name: 'Current Status', className: 'w-16' },
           { name: 'Created Date', className: 'w-16' },
           { name: 'Last Updated', className: 'w-16' },
         ]}
         data={data}
         rows={data?.map((data: any, index: number) => {
+          // @ts-ignore
           return (
             <TableRow key={data.id}>
               <TableCell>
@@ -83,66 +91,30 @@ const Page = () => {
                           {transformToRelativeDate(data.updated_at)}
                         </h2>
                       </div>
-                      <div className='grid grid-cols-2'>
-                        <h2>phone: {data.phone}</h2>
-                        <h2>email: {data.email}</h2>
-                      </div>
-                      <div className='grid grid-cols-2'>
-                        <h2>sick leaves: {data.sick_leave_credit}</h2>
-                        <h2>vacation leaves: {data.vacation_leave_credit}</h2>
-                      </div>
-                      <div className='grid grid-cols-2'>
-                        <h2>
-                          is maternal leave eligible: {data.maternal_leave}
-                        </h2>
-                        <h2>
-                          is paternal leave eligible: {data.paternal_leave}
-                        </h2>
-                      </div>
                     </div>
                     <AppButton label='View all related information' block />
                   </HoverCardContent>
                 </HoverCard>
               </TableCell>
               <TableCell>
-                <h5 className='w-40'>{data.first_name}</h5>
+                <h5 className='w-40'>{data.serial_number}</h5>
               </TableCell>
               <TableCell>
-                <h5 className='w-40'>{data.last_name}</h5>
+                <h5 className='w-40'>{data.type}</h5>
               </TableCell>
-              <TableCell>
-                <Snippet
-                  size='sm'
-                  symbol=''
-                  className='w-full text-xs bg-transparent'
-                >
-                  {data.phone}
-                </Snippet>
-              </TableCell>
-              <TableCell>
-                <Snippet size='sm' symbol='' className='w-full bg-transparent'>
-                  {data.email}
-                </Snippet>
-              </TableCell>
-              <TableCell>{data.position}</TableCell>
-              <TableCell>{data.sick_leave_credit}</TableCell>
-              <TableCell>{data.vacation_leave_credit}</TableCell>
+              <TableCell>{data.model}</TableCell>
+              <TableCell>{data.type}</TableCell>
               <TableCell>
                 <Chip
-                  color={data.maternal_leave ? 'success' : 'danger'}
+                  color={
+                    statusColors[
+                      data.current_status as keyof typeof statusColors
+                    ] as any
+                  }
                   className='font-bold'
                   variant='dot'
                 >
-                  {data.maternal_leave.toString()}
-                </Chip>
-              </TableCell>
-              <TableCell>
-                <Chip
-                  color={data.paternal_leave ? 'success' : 'danger'}
-                  className='font-bold'
-                  variant='dot'
-                >
-                  {data.paternal_leave.toString()}
+                  {data.current_status}
                 </Chip>
               </TableCell>
               <TableCell>
