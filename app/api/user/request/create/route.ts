@@ -12,6 +12,11 @@ export async function POST(request: NextRequest, response: GenericResponse) {
   try {
     const body = await request.json()
     const database = body.requestType + '_request'
+    if (body.type) {
+      body.type = `${body.type.toLowerCase()} ${body.requestType.toLowerCase()}`
+    } else {
+      body.type = `${body.requestType.toLowerCase()}`
+    }
     delete body.requestType
     if (body.start_hours) {
       body.start_time = `${body.start_hours}:${body.start_minutes}`
