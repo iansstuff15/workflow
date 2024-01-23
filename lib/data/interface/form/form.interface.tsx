@@ -13,6 +13,7 @@ export interface formProps extends formParams {
   data: object
   submitLabel?: string
   showOkButton?: boolean
+  disableOKButton?: boolean
 }
 
 export interface showFormProps {

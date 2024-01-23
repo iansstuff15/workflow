@@ -14,11 +14,9 @@ const OfficialBusinessAddRequestForm = ({ controller }: formParams) => {
     <>
       <RequestFormHeader />
       <hr />
-      <div className='grid grid-cols-11 gap-2'>
-        <AppDatePicker controller={controller} className='col-span-5' />
-        <MoveRight className='col-span-1' />
-        <AppDatePicker controller={controller} className='col-span-5 ' />
-      </div>
+
+      <AppDatePicker controller={controller} className='col-span-5' />
+
       <div className='grid grid-cols-11 gap-2'>
         <TimePickerPopOver controller={controller} label='Start' />
         <MoveRight className='col-span-1' />

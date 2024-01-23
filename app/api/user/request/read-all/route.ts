@@ -3,28 +3,20 @@ import { EmployeeMutation } from '@/lib/mutations/supabase.mutation'
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
-import { TimeLogRequest } from '@/lib/data/request/time-log/time_log.request'
-import { Request } from '@/lib/data/request/leaves/request'
 
-export async function POST(request: Request, response: GenericResponse) {
+export async function GET(request: NextRequest, response: GenericResponse) {
   const cookieStore = cookies()
-
+  const database = request.nextUrl.pathname
+    .replace('/api/admin/', '')
+    .split('/')[0]
   const supabase = createRouteHandlerClient({ cookies: () => cookieStore })
   try {
-    const body = await request.json()
-    const { error } = await supabase.from('leave_request').insert(body)
+    const { data, error } = await supabase
+      .from(database)
+      .select('*')
+      .range(0, 2)
 
     if (error) {
-      if (
-        error.message.includes('duplicate key value violates unique constraint')
-      ) {
-        return NextResponse.json(
-          {
-            message: 'Serial number already exists',
-          },
-          { status: 400 },
-        )
-      }
       return NextResponse.json(
         {
           message: error?.message ?? UNDEFINED_ERROR,
@@ -32,9 +24,13 @@ export async function POST(request: Request, response: GenericResponse) {
         { status: 400 },
       )
     } else {
-      return NextResponse.json({
-        message: `Successfully added employee`,
-      })
+      return NextResponse.json(
+        {
+          data: data,
+          message: 'good',
+        },
+        { status: 200 },
+      )
     }
   } catch (error) {
     console.log(error)

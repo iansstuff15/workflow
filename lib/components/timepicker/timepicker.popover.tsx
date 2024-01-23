@@ -39,7 +39,7 @@ const TimePickerPopOver = ({ label, controller }: timepickerProps) => {
               date={hour}
               setDate={value => {
                 controller.setValue(
-                  `${label.toLowerCase()}-hours`,
+                  `${label.replace(' ', '_').toLowerCase()}_hours`,
                   value?.getHours(),
                 )
                 setHour(value)
@@ -57,7 +57,7 @@ const TimePickerPopOver = ({ label, controller }: timepickerProps) => {
               date={minute}
               setDate={value => {
                 controller.setValue(
-                  `${label.toLowerCase()}-minutes`,
+                  `${label.replace(' ', '_').toLowerCase()}_minutes`,
                   value?.getMinutes(),
                 )
                 setMinute(value)

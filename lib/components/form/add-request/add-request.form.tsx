@@ -13,15 +13,59 @@ import OfficialBusinessAddRequestForm from './business.add-request-form'
 import ScheduleAdjustmentAddRequestForm from './schedule.add-request'
 import CertificateOfAttendanceAddRequestForm from './attendance.add-request'
 import FormBase from '../form-base.component'
+import { useSupabase } from '@/lib/utilities/providers/backend/supabase'
+import { API_CREATE_REQUEST } from '@/lib/config/constants/routes/routes'
 
 const RequestForm = () => {
+  type requestType =
+    | 'Leave'
+    | 'Undertime'
+    | 'Official Business'
+    | 'Schedule Adjustment'
+    | 'Certificate of Attendance'
+  const [requestType, setRequestType] = useState<requestType>()
   const form = useForm()
-  const [submitRoute, setSumbitRoute] = useState('/')
+  const forms = {
+    Leave: <LeavesAddRequestForm controller={form} />,
+    Undertime: <UndertimeAddRequestForm controller={form} />,
+    'Official Business': <OfficialBusinessAddRequestForm controller={form} />,
+    'Schedule Adjustment': (
+      <ScheduleAdjustmentAddRequestForm controller={form} />
+    ),
+    'Certificate of Attendance': (
+      <CertificateOfAttendanceAddRequestForm controller={form} />
+    ),
+  }
+  const supabase = useSupabase()
+  const userInfo = supabase.userInfo
+  const userID = supabase.userID
+  const disableSubmit = () => {
+    if (form.watch('requestType') == 'Leave') {
+      if (form.watch('leaveType') == 'Vacation') {
+        if (userInfo) {
+          return userInfo.vacation_leave_credits <= 0
+        }
+      } else if (form.watch('leaveType') == 'Sick') {
+        if (userInfo) {
+          return userInfo.sick_leave_credits <= 0
+        }
+      }
+      return false
+    }
+    return false
+  }
   return (
     <FormBase
       controller={form}
-      submitRoute={submitRoute}
-      data={form.getValues()}
+      submitRoute={API_CREATE_REQUEST}
+      data={{
+        ...form.getValues(),
+        applied_by: userID,
+        reviewed_by: '6c318999-a29a-4dc1-a6ff-2494ace5fc6c',
+      }}
+      showOkButton={form.watch('requestType') != null}
+      disableOKButton={disableSubmit()}
+      showCancel={form.watch('requestType') != null}
     >
       <AppSelect
         items={[
@@ -35,17 +79,7 @@ const RequestForm = () => {
         placeholder='Choose request type'
         controller={form}
       />
-      {form.watch().requestType == 'Leave' ? (
-        <LeavesAddRequestForm controller={form} />
-      ) : form.watch().requestType == 'Undertime' ? (
-        <UndertimeAddRequestForm controller={form} />
-      ) : form.watch().requestType == 'Official Business' ? (
-        <OfficialBusinessAddRequestForm controller={form} />
-      ) : form.watch().requestType == 'Schedule Adjustment' ? (
-        <ScheduleAdjustmentAddRequestForm controller={form} />
-      ) : form.watch().requestType == 'Certificate of Attendance' ? (
-        <CertificateOfAttendanceAddRequestForm controller={form} />
-      ) : null}
+      {forms[form.watch('requestType') as requestType]}
     </FormBase>
   )
 }

@@ -3,9 +3,11 @@ import { FormEvent, useState } from 'react'
 import { Form } from '../ui/form'
 import AppButton from '../button/appButtons'
 import { useRouter } from 'next/navigation'
-import { DialogTrigger } from '../ui/dialog'
+import { DialogClose, DialogTrigger } from '../ui/dialog'
 import { showError, showSuccess } from '@/lib/config/message/message.config'
 import { appFetch } from '@/lib/interactors/app.service'
+import { useMediaQuery } from '@react-hook/media-query'
+import { DrawerClose } from '@/lib/components/ui/drawer'
 
 const FormBase = ({
   children,
@@ -17,9 +19,10 @@ const FormBase = ({
   data,
   showOkButton = true,
   submitLabel,
+  disableOKButton = false,
 }: formProps) => {
   const [loading, setLoading] = useState(false)
-
+  const isDesktop = useMediaQuery('(min-width: 768px)')
   const router = useRouter()
   return (
     <Form {...controller}>
@@ -65,14 +68,33 @@ const FormBase = ({
             </DialogTrigger>
           ) : null}
           {showOkButton ? (
-            <AppButton
-              type='submit'
-              label={submitLabel ?? 'Submit'}
-              block
-              disabled={!controller.formState.isValid || loading}
-              loading={loading}
-              className={'bg-primary w-full'}
-            />
+            isDesktop ? (
+              <DialogClose asChild>
+                <AppButton
+                  type='submit'
+                  label={submitLabel ?? 'Submit'}
+                  block
+                  disabled={
+                    !controller.formState.isValid || loading || disableOKButton
+                  }
+                  loading={loading}
+                  className={'bg-primary w-full'}
+                />
+              </DialogClose>
+            ) : (
+              <DrawerClose asChild>
+                <AppButton
+                  type='submit'
+                  label={submitLabel ?? 'Submit'}
+                  block
+                  disabled={
+                    !controller.formState.isValid || loading || disableOKButton
+                  }
+                  loading={loading}
+                  className={'bg-primary w-full'}
+                />
+              </DrawerClose>
+            )
           ) : null}
         </div>
       </form>

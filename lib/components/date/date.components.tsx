@@ -34,8 +34,8 @@ const AppDatePicker = ({ controller, className }: datePickerProps) => {
             onSelect={value => {
               const from = value?.from
               const to = value?.to
-              controller.setValue('startDate', value?.from)
-              controller.setValue('endDate', value?.to)
+              controller.setValue('start_date', value?.from)
+              controller.setValue('end_date', value?.to)
               setRange(value!)
               setButtonLabel(
                 `From ${from?.toLocaleString('default', {

@@ -29,6 +29,9 @@ export const API_PERFORMANCE_BASE = API_BASE + '/performance'
 export const API_REQUEST_BASE = API_BASE + '/request'
 export const API_PAYROLL_BASE = API_BASE + '/payroll'
 export const API_INVENTORY_BASE = API_ADMIN_BASE + '/inventory'
+export const API_USER_REQUEST = API_BASE + '/user/request'
+export const API_CREATE_REQUEST = API_USER_REQUEST + '/create'
+
 export const API_CREATE_INVENTORY = API_INVENTORY_BASE + '/create'
 //auth
 export const API_AUTH_LOGIN = API_AUTH_BASE + '/login'
