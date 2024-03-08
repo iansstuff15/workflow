@@ -17,6 +17,10 @@ import {
 } from '@/lib/utilities/dayjs+'
 import AppButton from '@/lib/components/button/appButtons'
 import { Chip } from '@nextui-org/chip'
+import {
+  RequestStatusColors,
+  RequestStatusType,
+} from '@/lib/data/types/request/request.types'
 
 const Request = () => {
   const [pagenateValue, setPagenateValue] = useState(49)
@@ -134,14 +138,18 @@ const Request = () => {
                 </HoverCard>
               </TableCell>
               <TableCell>
-                <h4 className='font-bold text-xs text-neutral-700 w-48'>
-                  {data.type}
-                </h4>
+                <h4 className='text-xs w-48'>{data.type}</h4>
               </TableCell>
               <TableCell>
-                <h4 className='font-bold text-xs text-neutral-700 w-48'>
+                <Chip
+                  color={
+                    RequestStatusColors[data.status as RequestStatusType] as any
+                  }
+                  className='font-bold'
+                  variant='dot'
+                >
                   {data.status}
-                </h4>
+                </Chip>
               </TableCell>
               <TableCell>
                 <h4 className='font-bold text-xs text-neutral-700 w-48'>

@@ -1,13 +1,13 @@
 import { formProps } from '@/lib/data/interface/form/form.interface'
+
 import { FormEvent, useState } from 'react'
 import { Form } from '../ui/form'
 import AppButton from '../button/appButtons'
 import { useRouter } from 'next/navigation'
-import { DialogClose, DialogTrigger } from '../ui/dialog'
+import { DialogTrigger } from '../ui/dialog'
 import { showError, showSuccess } from '@/lib/config/message/message.config'
 import { appFetch } from '@/lib/interactors/app.service'
 import { useMediaQuery } from '@react-hook/media-query'
-import { DrawerClose } from '@/lib/components/ui/drawer'
 
 const FormBase = ({
   children,
@@ -27,14 +27,11 @@ const FormBase = ({
   return (
     <Form {...controller}>
       <form
-        onSubmit={async (event: FormEvent) => {
-          event.preventDefault()
-          setLoading(true)
-          console.log('======formbase======')
-          const response = await fetch(submitRoute, {
-            method: 'POST',
-            body: JSON.stringify(data),
-          })
+        onSubmit={async (event: FormEvent) => controller.handleSubmit(async (data) => {
+            event.preventDefault()
+            setLoading(true)
+         console.log()
+        })
           const json = response.json()
           json.then((value: GenericResponse) => {
             if (value.message.toLowerCase().includes('success')) {
@@ -69,31 +66,27 @@ const FormBase = ({
           ) : null}
           {showOkButton ? (
             isDesktop ? (
-              <DialogClose asChild>
-                <AppButton
-                  type='submit'
-                  label={submitLabel ?? 'Submit'}
-                  block
-                  disabled={
-                    !controller.formState.isValid || loading || disableOKButton
-                  }
-                  loading={loading}
-                  className={'bg-primary w-full'}
-                />
-              </DialogClose>
+              <AppButton
+                type='submit'
+                label={submitLabel ?? 'Submit'}
+                block
+                disabled={
+                  !controller.formState.isValid || loading || disableOKButton
+                }
+                loading={loading}
+                className={'bg-primary w-full'}
+              />
             ) : (
-              <DrawerClose asChild>
-                <AppButton
-                  type='submit'
-                  label={submitLabel ?? 'Submit'}
-                  block
-                  disabled={
-                    !controller.formState.isValid || loading || disableOKButton
-                  }
-                  loading={loading}
-                  className={'bg-primary w-full'}
-                />
-              </DrawerClose>
+              <AppButton
+                type='submit'
+                label={submitLabel ?? 'Submit'}
+                block
+                disabled={
+                  !controller.formState.isValid || loading || disableOKButton
+                }
+                loading={loading}
+                className={'bg-primary w-full'}
+              />
             )
           ) : null}
         </div>
